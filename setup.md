@@ -62,12 +62,13 @@ Repositories (**repos** for short) are essentially project folders where you int
 We will now start the setup of your individual student **GitHub repositories**. Each student should click on this link https://edu.cs.illinois.edu/create-gh-repo/sp23_stat528 in order to create your student repo. Your personal repo is where you will keep your assignment files. The idea is that:  
 - you will work on your assignments from your repo, updating it often to ensure you're working on the correct file(s)  
 - you will obtain course resources, including homework assignments, from my **stat528sp24** course repo.  
+
 We will cover GitHub in much more detail throughout this course.
 
 
 ## Computer organization
 
-For this class to run smoothly I ask that you create a directory (folder) named **STAT528** somewhere on your computer. I recommend creating this directory on your Desktop or in your root directory. My lectures will repeatedly reference your **STAT528** directory and I will speak of it as if it is on your Desktop. This directory, and knowledge of its path, will be essential for your sanity in this class.
+For this class to run smoothly I ask that you create a directory (folder) named **stat528** somewhere on your computer. I recommend creating this directory on your Desktop or in your root directory. My lectures will repeatedly reference your **stat528** directory and I will speak of it as if it is on your Desktop. This directory, and knowledge of its path, will be essential for your sanity in this class.
 
 
 ### Git and GitHub Tasks to Do
@@ -82,15 +83,15 @@ For this class to run smoothly I ask that you create a directory (folder) named 
 The md stands for Markdown, not the R Markdown that we will use later. This file that you've created is a Markdown file, and GitHub does some interesting rendering of this plain-text file. 
 
 
-Your repo has a very special address which you need to **clone** onto your local computer. Cloning the repo connects your GitHub repo to your local computer as a directory (with the same name as the repo). After we access Git via a terminal or shell, we will clone our repos. Make sure that you know which directory that you clone your repo in! I recommend creating a **STAT528** directory on your Desktop and then cloning your repo in this directory.
+Your repo has a very special address which you need to **clone** onto your local computer. Cloning the repo connects your GitHub repo to your local computer as a directory (with the same name as the repo). After we access Git via a terminal or shell, we will clone our repos. Make sure that you know which directory that you clone your repo in! I recommend creating a **stat528** directory on your Desktop and then cloning your repo in this directory.
 
 3. Open your computer's terminal or use RStudio to open the Terminal. To do the later, click "Tools", then "Terminal", then "New Terminal." This Terminal is a shell that allows us to access Git via the command-line. 
 
 4. Go to my  **stat528sp24** repo in GitHub (on your browser) and clone my repo by clicking the "Clone or Download" button.
 
-5. Open your terminal (shell) and navigate your terminal to your **STAT528** course directory using **cd**. 
+5. Open your terminal (shell) and navigate your terminal to your **stat528** course directory using **cd**. 
 
-6. When your terminal's working directory is **STAT528** then you are ready to clone my repo. First clone my repo by pasting the contents that were copied from clicking the "Clone or Download" button to a terminal command starting with:
+6. When your terminal's working directory is **stat528** then you are ready to clone my repo. First clone my repo by pasting the contents that were copied from clicking the "Clone or Download" button to a terminal command starting with:
 
 ```
 git clone
@@ -124,13 +125,13 @@ If you do get this error message, go to [this link](https://docs.github.com/arti
 
 
 
-Now clone your personal repo into your **STAT528**  directory by following the same steps that cloned my repo into this directory. You can do this by first changing *YourNetID.git* to your actual netid .git in the following and then coping the command into the terminal.
+Now clone your personal repo into your **stat528**  directory by following the same steps that cloned my repo into this directory. You can do this by first changing *YourNetID.git* to your actual netid .git in the following and then coping the command into the terminal.
 
 ```
 git clone git@github.com:illinois-stat528/sp23_stat528_YourNetID.git
 ```
 
-These commands establish the connection between GitHub (remote) and your computer (local). **You only need to clone your repos once, make sure that your repos are inside your STAT528 directory and are not nested within one another.** You can always delete either of these repos and reclone if you need to.
+These commands establish the connection between GitHub (remote) and your computer (local). **You only need to clone your repos once, make sure that your repos are inside your stat528 directory and are not nested within one another.** You can always delete either of these repos and reclone if you need to.
 
 
 7. (Optional) Using the terminal or the shell,  
