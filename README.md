@@ -6,9 +6,7 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
- - The final is posted and it is due on May 11th at 11:59 PM.
- - Multivariate regression notes posted.
- - Homework 7 is posted and it is due on May 3rd at 11:59 PM.
+ - Welcome to STAT 528
 
 
 ## Good Habits
@@ -229,74 +227,76 @@ A list of the designated University employees who, as counselors, confidential a
 ### Schedule (subject to change)
 
 * Week 1 [01/16, 01/18]
-  + First day of class on 01/16. We will discuss the course overview, syllabus, and Git/GitHub
-  + Exponential family theory
-  + **Reading**: course notes
+  + First day of class on 01/16. 
+  + Syllabus, course overview 
+  + Git/GitHub, R Markdown, statistical programming, and visualization
+  + **Reading**: TBD
 
 * Week 2 [01/23, 01/25]
-  + Exponential family theory
-  + **Reading**: course notes
+  + Git/GitHub, R Markdown, statistical programming, and visualization
+  + **Reading**: TBD 
   + Homework 1 due on Friday, 01/26 at 11:59 PM
 
 * Week 3 [01/30, 02/01] 
   + Exponential family theory
   + **Reading**: course notes  
-  + Homework 2 due on Friday, 02/02 at 11:59 PM
 
 * Week 4 [02/06, 02/08]
-  + Statistical programming and visualization
-  + **Reading**: TBD
+  + Exponential family theory
+  + **Reading**: course notes
+  + Homework 2 due on Friday, 02/09 at 11:59 PM
 
 * Week 5 [02/13, 02/15]
-  + Logistic regression and probit regression
+  + Binary regression, data analysis
   + **Reading**: course notes, chapters 5-6, 7.1 of Agresti
-  + Homework 3 due on Friday, 02/16 at 11:59 PM 
 
 * Week 6 [02/20, 02/22]
-  + Count Regression
+  + Count regression, data analysis
   + **Reading**: course notes, chapter 5 of Faraway
+  + Homework 3 due on Friday, 02/23 at 11:59 PM 
   
 * Week 7 [02/27, 02/29]
-  + Multinomial regression and ordinal regression
-  + **Reading**: course notes, chapter 8 of Agresti, [the VGAM Package for Categorical Data Analysis](https://www.jstatsoft.org/article/view/v032i10)
-  + Homework 4 due on Friday, 03/01 at 11:59 PM  
+  + GLM diagnostics
+  + **Reading**: course notes
 
 * Week 8 [03/05, 03/07]
-  + GLM Diagnostics (Tuesday)
-  + open discussion and exam questions (Thursday)
-  + **Reading**: course notes
+ (Tuesday)
+  + No class!
   + Take home midterm exam due on Friday, 03/08 at 11:59 PM
 
 * Week 9    
   + Spring Break
   
 * Week 10 [03/19, 03/21]
-  + Data Separation 
-  + **Reading**: course notes, sections 6.5, 7.2 of Agresti
+  + Categorical data analysis
+  + **Reading**: course notes, chapter 8 of Agresti, [the VGAM Package for Categorical Data Analysis](https://www.jstatsoft.org/article/view/v032i10)
 
 * Week 11 [03/26, 03/28]
-  + LMM
-  + **Reading**: course notes, chapters 10-11 of Faraway
+  + Data separation 
+  + **Reading**: course notes, sections 6.5, 7.2 of Agresti
+  + Homework 4 due on Friday, 03/29 at 11:59 PM  
 
 * Week 12 [04/02, 04/04]
   + LMM
   + **Reading**: course notes, chapters 10-11 of Faraway
-  + Homework 5 due on Friday, 04/05 at 11:59 PM
 
 * Week 13 [04/09, 04/11]
-  + GLMM/GEE
-  + **Reading**: course notes, chapter 13 of Faraway
+  + LMM
+  + **Reading**: course notes, chapters 10-11 of Faraway
+  + Homework 5 due on Friday, 04/12 at 11:59 PM
   
 * Week 14 [04/16, 04/18]
-  + aster models 
-  + **Reading**: course notes, materials cited in aster notes
-  + Homework 6 due on Friday, 04/19 at 11:59 PM
+  + GLMM/GEE
+  + **Reading**: course notes, chapter 13 of Faraway
 
 * Week 15 [04/23, 04/25]
-  + multivariate regression and envelope basics
-  + **Reading**: course notes
+  + Aster models 
+  + **Reading**: course notes, materials cited in aster notes
+  + Homework 6 due on Friday, 04/26 at 11:59 PM
 
 * Week 16 [04/30]
+  + Multivariate regression and envelope basics
+  + **Reading**: course notes
   + Last day of instruction on 05/01
   + Final take-home exam assigned
   + Homework 7 due on Wednesday, 05/01 at 11:59 PM
