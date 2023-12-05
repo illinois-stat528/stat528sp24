@@ -7,7 +7,11 @@ See the Syllabus for more details. See the notes directory for course notes.
 # News
 
  - Welcome to STAT 528!
- - Week 1 reading materials are posted
+ - Week 1 reading materials are posted:
+  + **Reading**: Nelder (1986) and Nelder (1999)
+  + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
+  + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
+  + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
 
 
 ## Good Habits
@@ -230,11 +234,17 @@ A list of the designated University employees who, as counselors, confidential a
   + Syllabus, course overview 
   + Git/GitHub, R Markdown, statistical programming, and visualization
   + **Reading**: Nelder (1986) and Nelder (1999)
+  + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
+  + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
+  + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
 
 * Week 2 [01/23, 01/25]
   + Git/GitHub, R Markdown, statistical programming, and visualization
-  + **Reading**: TBD 
+  + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
+  + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
+  + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
   + Homework 1 due on Friday, 01/26 at 11:59 PM
+
 
 * Week 3 [01/30, 02/01] 
   + Exponential family theory
