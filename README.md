@@ -1,6 +1,6 @@
 # Course Resources
 
-The **stat528resources** directory contains all information about our STAT 528 course.
+The **stat528sp24** directory contains all information about our STAT 528 course.
 
 See the Syllabus for more details. See the notes directory for course notes.
 
@@ -11,7 +11,7 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 ## Good Habits
 
- - pull my **stat528resources** repo before class starts
+ - pull my **stat528sp24** repo before class starts
  - load in datasets and run the code in the notes before class starts
  - make sure that the notes compile 
  - use your computer's terminal, it is less user-friendly but it is MUCH faster
@@ -59,7 +59,9 @@ See the Syllabus for more details. See the notes directory for course notes.
 **Course website**: 
 
 
-My course website is a GitHub repository. You can click  [here](https://github.com/illinois-stat528/stat528resources) to access this website. Note that this Syllabus is a Markdown document. Open the .md file to view the basic Markdown syntax used to build your Syllabus.
+My course website is a GitHub repository. You can click  [here](https://github.com/illinois-stat528/stat528sp24) to access this website. Note that this Syllabus is a Markdown document. Open the .md file to view the basic Markdown syntax used to build your Syllabus.
+
+**Create your own repository within my course organization**: https://edu.cs.illinois.edu/create-gh-repo/sp24_stat528
 
 
 ***
@@ -95,7 +97,7 @@ The instructor notes will be posted and updated on GitHub. These notes will refe
 ### Course Information
 
 
-This is an advanced introduction to generalized linear models and categorical data analysis with a focus on analyzing data from disciplines such as biostatistics, education, evolutionary biology, and medicine. In this course you will learn how to conduct scientifically relevant data analyses using methodologically rigorous statistical techniques. For example, we have just experienced nearly three semesters of online learning due to COVID-19. Have you wondered about the impact of online learning? In this class we will explore and estimate the causal effects of online learning using causal effect estimators. In addition we are living in a region where soybean is a major crop. As such we will estimate significant gene markers that improve the photosynthetic process in soybeans using mixed-effects models. These analyses will develop your critical thinking skills as a statistician. We will also place a strong emphasis on statistical properties of presented methods. Furthermore, practical advantages, limitations, and comparisons of methods will be discussed. 
+This is an advanced introduction to generalized linear models and categorical data analysis with a focus on analyzing data from disciplines such as biostatistics, education, evolutionary biology, medicine, and sports. In this course you will learn how to conduct scientifically relevant data analyses using methodologically rigorous statistical techniques. For example, we have just experienced nearly three semesters of online learning due to COVID-19. Have you wondered about the impact of online learning? In this class we will explore and estimate the causal effects of online learning using causal effect estimators. In addition we are living in a region where soybean is a major crop. As such we will estimate significant gene markers that improve the photosynthetic process in soybeans using mixed-effects models. These analyses will develop your critical thinking skills as a statistician. We will also place a strong emphasis on statistical properties of presented methods. Furthermore, practical advantages, limitations, and comparisons of methods will be discussed. 
 
 **Prerequisites**: [STAT 510](https://courses.illinois.edu/schedule/2021/fall/STAT/510) or [STAT 527](https://courses.illinois.edu/schedule/2021/fall/STAT/527). Familiarity with R, Git, and GitHub is helpful, but not required.
 
@@ -103,18 +105,14 @@ This is an advanced introduction to generalized linear models and categorical da
 ### Student Learning Outcomes
 
 Upon successful completion of this course students will be able to conduct methodologically strong data analyses that can answer questions of scientific interest, specifically the students will: 
+
+  - Analyze data
+
+  - Develop critical thinking about the analysis of data and estimation procedures
  
   - Analyze and investigate fundamentals of exponential family theory
   
-  - Analyze data sets with categorical data 
-  
-  - Develop a solid theoretical and practical understanding of generalized linear models and linear mixed models
-  
-  - Develop a solid theoretical and practical understanding of generalized linear mixed models, generalized estimation equations, repeated measures designs, and aster models 
-
-  - Develop a working understanding of the envelope model variance reduction technique
-  
-  - Critique estimation procedures and modeling development strategies
+  - Develop a solid theoretical and practical understanding of generalized linear models and linear mixed models, generalized linear mixed models, generalized estimation equations, repeated measures designs, and aster models 
   
   - Apply version control software and develop reproducible technical reports
 

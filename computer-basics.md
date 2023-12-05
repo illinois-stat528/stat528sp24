@@ -15,13 +15,13 @@ This document is meant to supplement the materials covered in week 1. It will al
 
 To access lab assignments you will:  
 
-1. Pull changes from the remote **stat528resources** repo.
+1. Pull changes from the remote **stat528sp24** repo.
 
 2. Create a lab directory within your local GitHub repo.
 
 3. Create a lab# subdirectory (# corresponds to the assignment number) within the lab directory that you created in the previous step.
 
-4. Copy your lab assignment from the **stat528resources** repo to the lab# directory that you created in the previous step.
+4. Copy your lab assignment from the **stat528sp24** repo to the lab# directory that you created in the previous step.
 
 5. Rename your lab, work on it, etc.
 
@@ -121,7 +121,7 @@ Type
 git branch
 ```
 
-to view which branch the GitHub pointer is currently at. You have just gone back in time by accessing previous commits in your GitHub repo or my **stat528resources** GitHub repo. 
+to view which branch the GitHub pointer is currently at. You have just gone back in time by accessing previous commits in your GitHub repo or my **stat528sp24** GitHub repo. 
 
 
 

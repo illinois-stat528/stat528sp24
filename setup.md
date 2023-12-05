@@ -59,7 +59,7 @@ RStudio is an interface for R that is relatively user-friendly, visually suffici
 
 Repositories (**repos** for short) are essentially project folders where you intend to store a set of files in the same location, much like a folder. These repositories are constantly being updated and are in need of version of control. This is where GitHub and other Git platforms come in. GitHub allows you to make your edits to a project locally and save them remotely while keeping all previous versions to your project intact. You do not need to constantly change file names to indicate new versions, just push your edits to GitHub. GitHub will store the previous versions and a detailed record of the changes made. GitHub and other version control platforms are fundamentally important for collaboration in the current age.
 
-We will now start the setup of your individual student **GitHub repositories**. Each student should click on this link https://edu.cs.illinois.edu/create-gh-repo/sp23_stat528 in order to create your student repo. Your personal repo is where you will keep your assignment files. The idea is that:  
+We will now start the setup of your individual student **GitHub repositories**. Each student should click on this link https://edu.cs.illinois.edu/create-gh-repo/sp24_stat528 in order to create your student repo. Your personal repo is where you will keep your assignment files. The idea is that:  
 - you will work on your assignments from your repo, updating it often to ensure you're working on the correct file(s)  
 - you will obtain course resources, including homework assignments, from my **stat528sp24** course repo.  
 
@@ -128,7 +128,7 @@ If you do get this error message, go to [this link](https://docs.github.com/arti
 Now clone your personal repo into your **stat528**  directory by following the same steps that cloned my repo into this directory. You can do this by first changing *YourNetID.git* to your actual netid .git in the following and then coping the command into the terminal.
 
 ```
-git clone git@github.com:illinois-stat528/sp23_stat528_YourNetID.git
+git clone git@github.com:illinois-stat528/sp24_stat528_YourNetID.git
 ```
 
 These commands establish the connection between GitHub (remote) and your computer (local). **You only need to clone your repos once, make sure that your repos are inside your stat528 directory and are not nested within one another.** You can always delete either of these repos and reclone if you need to.
