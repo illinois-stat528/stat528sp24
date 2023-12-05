@@ -258,8 +258,8 @@ A list of the designated University employees who, as counselors, confidential a
   + **Reading**: course notes
 
 * Week 8 [03/05, 03/07]
- (Tuesday)
   + No class!
+  + Office hours during class time
   + Take home midterm exam due on Friday, 03/08 at 11:59 PM
 
 * Week 9    
