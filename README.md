@@ -6,8 +6,8 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
- - Welcome to STAT 528!
- - Week 1 reading materials are posted:
+* Welcome to STAT 528!
+* Week 1 reading materials are posted:
   + **Reading**: Nelder (1986) and Nelder (1999)
   + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
   + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
@@ -16,20 +16,21 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 ## Good Habits
 
- - pull my **stat528sp24** repo before class starts
- - load in datasets and run the code in the notes before class starts
- - make sure that the notes compile 
- - use your computer's terminal, it is less user-friendly but it is MUCH faster
- - Stay centered and remember Hofstadter's Law, which describes the widely experienced difficulty of accurately estimating the time it will take to complete tasks of substantial complexity. **Hofstadter's Law**: It always takes longer than you expect, even when you take into account Hofstadter's Law.
+* attend class and bring a computer
+* obtain up-to-date materials from my **stat528sp24** repository before class starts
+* load in datasets and run the code in the notes before class starts
+* make sure that the notes compile 
+* use your computer's terminal, it is less user-friendly but it is MUCH faster
+* Stay centered and remember Hofstadter's Law, which describes the widely experienced difficulty of accurately estimating the time it will take to complete tasks of substantial complexity. **Hofstadter's Law**: It always takes longer than you expect, even when you take into account Hofstadter's Law.
  
 
 ## Homework Hints
 
- - get a jump start on the homework, do not wait until the last minute
- - use caching when appropriate
- - make sure that your assignment compiles when you complete a problem or stop working for the day
- - push often
- - do not jeopardize the entire assignment over one problem
+* get a jump start on the homework, do not wait until the last minute
+* use caching when appropriate
+* make sure that your assignment compiles when you complete a problem or stop working for the day
+* push often
+* do not jeopardize the entire assignment over one problem
 
 
 # Course Syllabus
