@@ -6,7 +6,8 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
- - Welcome to STAT 528
+ - Welcome to STAT 528!
+ - Week 1 reading materials are posted
 
 
 ## Good Habits
@@ -228,7 +229,7 @@ A list of the designated University employees who, as counselors, confidential a
   + First day of class on 01/16. 
   + Syllabus, course overview 
   + Git/GitHub, R Markdown, statistical programming, and visualization
-  + **Reading**: TBD
+  + **Reading**: Nelder (1986) and Nelder (1999)
 
 * Week 2 [01/23, 01/25]
   + Git/GitHub, R Markdown, statistical programming, and visualization
