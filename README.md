@@ -73,11 +73,11 @@ My course website is a GitHub repository. You can click  [here](https://github.c
 ***
 
 
-### Course Materials
+## Course Materials
 
 The course materials will consist of instructor notes and software. 
 
-#### Instructor Notes
+### Instructor Notes
 
 The instructor notes will be posted and updated on GitHub. These notes will reference the following textbooks:  
 
@@ -93,7 +93,7 @@ Additional resources that you may find useful:
 
 
 
-#### Software Used in the Course (all free)
+### Software Used in the Course (all free)
 
 - **R** https://cran.r-project.org/
 
@@ -160,7 +160,7 @@ Office hours will be a rather informal meeting. As such, if the instructor and a
 If you would like to schedule a private meeting outside of regular office hours, please send an email suggesting two possible times, on two different days.^[A total of four suggested times.] We have a preference for time-slots directly adjacent to current office hours. *Please also indicate a brief agenda for the meeting.* Requests to schedule a meeting at a time less than 24 hours in the future are unlikely to be granted.
 
 
-### Discussion Forum
+#### Discussion Forum
 
 This course will use [**Ed**](https://edstem.org/) as our discussion forum. Here is the link to join: https://edstem.org/us/join/2XDtGp
 
@@ -176,7 +176,8 @@ The course staff would strongly prefer the use of Ed to GroupMe or similar servi
 
 Private posts have been disabled. Any private matters should be discussed over email where your identity is known and private. Some anonymous posting is disabled. You may post anonymously to your classmates, but not the course staff.
 
-### Code Discussion
+
+#### Code Discussion
 
 If your question is technical in nature, there are several steps you can take to insure a speedy response. 
 
@@ -195,6 +196,10 @@ Do not only use screenshots of code and error messages to communicate about them
 **In this course, for everything expect exams, we greatly prefer over-sharing to under-sharing code. We would rather everyone learn from others' "mistakes" than have everyone experience the same issues over and over again.** 
 
 
+### Attendance Policy
+
+Attendance is mandatory in STAT 528. Each student will sign their name and netid on a sign-in sheet provided by the course instruction to verify their attendance. This sign-in sheet must be signed within 15 minutes of class starting. Students who are late by more than 15 minutes will be considered absent. Students are allowed two free absences with no point deductions. Each absence after two will be penalized 20 points (2% of final grade).
+
  
 ***
 
@@ -202,9 +207,10 @@ Do not only use screenshots of code and error messages to communicate about them
 
 | category | notes | points |
 | :------- | :---- | :----- |
-| Homework | highest 6 of 7 counted each at 100 points | 600 points |
+| Homework     | highest 6 of 7 counted each at 100 points | 600 points |
 | Midterm Exam | | 150 points |
-| Final Exam | | 250 points |
+| Final Exam   | | 250 points |
+| Absence      | 2 free absences; additional absences will be penalized | -20 points | 
 | total | | 1000 points |
 
 
