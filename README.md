@@ -198,7 +198,7 @@ Do not only use screenshots of code and error messages to communicate about them
 
 ### Attendance Policy
 
-Attendance is mandatory in STAT 528. Each student will sign their name and netid on a sign-in sheet provided by the course instruction to verify their attendance. This sign-in sheet must be signed within 15 minutes of class starting. Students who are late by more than 15 minutes will be considered absent. Students are allowed two free absences with no point deductions. Each absence after two will be penalized 20 points (2% of final grade).
+Attendance is mandatory in STAT 528. Each student will sign their name and netid on a sign-in sheet provided by the course instruction to verify their attendance. This sign-in sheet must be signed within 15 minutes of class starting. Students who are late by more than 15 minutes will be considered absent. Students are allowed two free absences with no point deductions. Each absence after two will be penalized 20 points (2% of final grade). Additional absences can be granted provided the course instructor approves them. Requests for additional absences must be made at least 48 hours before the absence date. 
 
  
 ***
