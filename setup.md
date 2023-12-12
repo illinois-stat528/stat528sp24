@@ -26,7 +26,7 @@ In this course, we will use Git and GitHub Enterprise. GitHub Enterprise is a Gi
 
 ### Work Flow
 
-You will use Markdown and GitHub to submit labs, homeworks, projects, etc. You will obtain your homework assignment from my GitHub course page (my **stat528sp24** repository) and will submit them to your individual GitHub repository. Eventually this will all make sense and you will be comfortable with it!
+You will use Markdown and GitHub to submit labs, homework assignments, projects, etc. You will obtain your homework assignment from my GitHub course page (my **stat528sp24** repository) and will submit them to your individual GitHub repository. Eventually this will all make sense and you will be comfortable with it!
 
 
 ## Software needed for this class
@@ -38,22 +38,7 @@ R is a statistical programming language. It is free and open-source and is being
 RStudio is an interface for R that is relatively user-friendly, visually sufficient, and well-organized for content management. In RStudio, we will do almost everything we need for this course - write R Markdown files (.Rmd), knit the .Rmd to .html, and repeatedly interact with GitHub repositories.
 
 
-### R and RStudio Tasks To Do
-
-1. Install and update R to the latest version.
-
-2. Install and update RStudio to the latest version.
-
-3. Create a new R Markdown file using the Wizard in RStudio.
-
-4. Create a pdf or html file by knitting the R Markdown file.
-
-5. Locate the file in our directory.
-
-6. Open a pdf or html file.
-
-
-## Create your individual GitHub repositories
+### Create your individual GitHub repositories
 
 Repositories (**repos** for short) are essentially project folders where you intend to store a set of files in the same location, much like a folder. These repositories are constantly being updated and are in need of version of control. This is where GitHub and other Git platforms come in. GitHub allows you to make your edits to a project locally and save them remotely while keeping all previous versions to your project intact. You do not need to constantly change file names to indicate new versions, just push your edits to GitHub. GitHub will store the previous versions and a detailed record of the changes made. GitHub and other version control platforms are fundamentally important for collaboration.
 
@@ -61,26 +46,43 @@ We will now start the setup of your individual student **GitHub repositories**. 
 - you will work on your assignments from your repo, updating it often to ensure you're working on the correct file(s)  
 - you will obtain course resources, including homework assignments, from my **stat528sp24** course repo.  
 
-GitHub will be a reocurring topic throughout this course.
+GitHub will be a reoccurring topic throughout this course.
 
 
-### Git and GitHub Tasks to Do
+### Git and GitHub setup
 
-1. Setup your individual repos if you have not yet done so. 
+1. **Setup your individual repo and join my illinois-stat528 GitHub organization.**
 
-Your repo has a very special address which you need to **clone** onto your local computer. Cloning the repo connects your GitHub repo to your local computer as a directory (with the same name as the repo). After we access Git via a terminal or shell, we will clone our repos. Make sure that you know which directory that you clone your repo in! I recommend creating a **stat528** directory on your Desktop and then cloning your repo in this directory.
+2. **Clone your personal course repo onto your computer.** Your personal repo will be created automatically by the CS repo creator tool affiliated with my course's Illinois-stat528 GitHub organization. Cloning the repo connects your GitHub repo to your local computer as a directory (with the same name as the repo). Make sure that you know which directory that you clone your repo in! I highly recommend creating a **stat528** directory on your Desktop and then cloning your repo in this directory. 
 
-3. Open your computer's terminal or use RStudio to open the Terminal. To do the later, click "Tools", then "Terminal", then "New Terminal." This Terminal is a shell that allows us to access Git via the command-line. 
-
-4. Go to my  **stat528sp24** repo in GitHub (on your browser) and clone my repo by clicking the "Clone or Download" button.
-
-5. Open your terminal (shell) and navigate your terminal to your **stat528** course directory using **cd**. 
-
-6. When your terminal's working directory is **stat528** then you are ready to clone my repo. First clone my repo by pasting the contents that were copied from clicking the "Clone or Download" button to a terminal command starting with:
+You can clone your repo this by first changing *YourNetID.git* to your actual netid .git in the following and then coping the command into the terminal/shell (make sure the working directory is in the place you desire)
 
 ```
-git clone
+git clone git@github.com:illinois-stat528/sp24_stat528_YourNetID.git
 ```
+
+When you type the above you may get the following error message:
+
+```
+ERROR: The `illinois-stat528' organization has enabled or enforced SAML SSO. To access
+this repository, you must use the HTTPS remote with a personal access token
+or SSH with an SSH key and passphrase
+that has been authorized for this organization. Visit
+https://docs.github.com/articles/authenticating-to-a-github-organization-with-saml-single-sign-on/ for more information.
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+If you do get this error message, you may need to generate an [SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), [add your SSH key to your GitHub account](https://docs.github.com/en/enterprise-server@3.0/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account), and then [configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) for this course's GitHub organization (it may say Configure SSO instead of Enable SSO in your SSH and GPG keys GitHub page).
+
+See Chapter 11 in [Happy Git and GitHub for the useR](https://happygitwithr.com/push-pull-github) for more details. Chapter 11 references to Appendix A for shell commands that may help you in your quest to clone my  **stat528sp24** repo in the desired place.
+
+
+
+3. **Clone the **stat528sp24** repo onto your computer.** Cloning the repo connects my GitHub repo to your local computer as a directory (with the same name as the repo). Make sure that you know which directory that you clone your repo in! I highly recommend creating a **stat528** directory on your Desktop and then cloning your repo in this directory. 
 
 You can also clone my repo by directly typing the following into your terminal:
 
@@ -103,54 +105,32 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 
-If you do get this error message, go to [this link](https://docs.github.com/articles/authenticating-to-a-github-organization-with-saml-single-sign-on/) and learn about SAML SSO. You may need to generate an [SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), [add your SSH key to your GitHub account](https://docs.github.com/en/enterprise-server@3.0/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account), and then [configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) for this course's GitHub organization (it may say Configure SSO instead of Enable SSO in your SSH and GPG keys GitHub page).
+If you do get this error message, you may need to generate an [SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), [add your SSH key to your GitHub account](https://docs.github.com/en/enterprise-server@3.0/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account), and then [configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) for this course's GitHub organization (it may say Configure SSO instead of Enable SSO in your SSH and GPG keys GitHub page).
 
 
 **Do not edit any files in your local versions of my stat528sp24 repo**. The **stat528sp24** repo is an internal repo that you can only pull materials from, you do not have writing permissions in this repo. Editing files in the **stat528sp24** repo  will create a [conflict](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-merge-conflicts). You should copy files from my **stat528sp24** repo to your desired destination.
 
 
 
-Now clone your personal repo into your **stat528**  directory by following the same steps that cloned my repo into this directory. You can do this by first changing *YourNetID.git* to your actual netid .git in the following and then coping the command into the terminal.
+### R and RStudio tasks to do
 
-```
-git clone git@github.com:illinois-stat528/sp24_stat528_YourNetID.git
-```
+If you completed the above tasks and followed my recommendation of cloning your repos within a **stat528** directory that is on your Desktop, then proceed with the following R and RStudio tasks:
 
-These commands establish the connection between GitHub (remote) and your computer (local). **You only need to clone your repos once, make sure that your repos are inside your stat528 directory and are not nested within one another.** You can always delete either of these repos and reclone if you need to.
+1. Install and update R to the latest version.
+
+2. Install and update RStudio to the latest version.
+
+3. Open R Studio and create a new R Project to be stored in the directory that contains both of your repos (**stat528** directory on your desktop).
 
 
-7. (Optional) Using the terminal or the shell,  
 
-- Make your repo your current working directory using **cd**
 
-- List its files  
-```
-ls
-```
 
-- Display the README
 
-```
-head README.md
-```
+### Upload your homework to GitHub
 
-- Get some information on its connection to GitHub
-```
-git remote show origin
-```
 
-These are simple commands that we use to work in Git. If done correctly, the message that appears below the `git remote show origin` tells us that the connection to GitHub was successful.
-
-**Cloning your repo should happen only once per computer** (but we will repeat this in RStudio later). Meaning we should never have to re-establish the connection to GitHub. 
-
-8. Using the shell, edit the README.md file and verify Git status.  
-
-```
-echo "The second thing I've written but now in Git from the command-line" >> README.md
-git status
-```
-
-9. Using the shell: stage the change, commit it with a message, and push to your GitHub repo. Notice that you must describe the update that you are making. This action is called a **commit.** The commit is the message that you are leaving yourself to note what/why/how this file has been changed. Commits can be short (Git prefers this), but could be long. As you make future changes to this file or other files, you're going to want to commit for every change (or at least the noticeable changes). The following three lines stages, commits, and pushes content from your local computer to your remote repository:
+4. Using the shell: stage the change, commit it with a message, and push to your GitHub repo. Notice that you must describe the update that you are making. This action is called a **commit.** The commit is the message that you are leaving yourself to note what/why/how this file has been changed. Commits can be short (Git prefers this), but could be long. As you make future changes to this file or other files, you're going to want to commit for every change (or at least the noticeable changes). The following three lines stages, commits, and pushes content from your local computer to your remote repository:
 ```
 git add -A
 git commit -m "Added new sentence from local computer"
@@ -165,6 +145,6 @@ git push
 Go online to view your changes.
 
 
-10. Using GitHub, verify the new change by refreshing the GitHub repo page.
+5. Using GitHub, verify the new change by refreshing the GitHub repo page.
 
 **Important:** These tasks are needed in order to complete the first lab assignment.
