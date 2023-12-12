@@ -5,23 +5,23 @@
 
 Welcome to STAT 528, let's have a productive semester!
 
-This document will go through GitHub, computational resources, software, and overall course organization. This will be a valuable resource for you as you become familiar with this course's GitHub based organization in which every student will submit lab reports and final project materials by pushing to an individual GitHub repository that lives within my course's GitHub organization.
+This document will go through GitHub, computational resources, software, and overall course organization. This will be a valuable resource for you as you become familiar with this course's GitHub based organization in which every student will submit assignments by pushing to an individual GitHub repository that resides within my course's GitHub organization.
 
-You should have downloaded this document from the course website https://github.com/illinois-stat528/stat528sp24, from Compass, or some other source. 
+You should have downloaded this document from the course website https://github.com/illinois-stat528/stat528sp24 or some other source. 
 
 
 ### Reproducible Documentation
 
-Here I mean that we will use good principles and software (R and RStudio) that allow anyone on the planet earth (with similar programming acumen and software) to be able to look at our input (.Rmd) and the code therein and re-create the same output (.html or .pdf) and come to the same conclusion that we did. To do this, we need to keep good notes in our code documents and version control can aid us.  We will need to set R's random seed for every simulation, so that the results are reproducible.
+Here I mean that we will use good principles and software (R and RStudio) that allow anyone (with similar software) to be able to look at our input (.Rmd) and the code therein and re-create the same output (.html or .pdf) and come to the same conclusion that we did. To do this, we need to keep good notes in our code documents and version control can aid us.  We will need to set R's random seed for every document that uses random number generation, so that the results are reproducible.
 
-Creating reproducible experiments is necessary for all scientific progress. Results that cannot be verified by a third-party should be viewed with skepticism. Data analyses and simulations are no exception.
+Creating reproducible experiments is necessary for all scientific progress. Results that cannot be verified by a third-party should be viewed with skepticism. Data analyses and numerical simulations are no exception.
 
-Computer based assignments will be written in R Markdown. Learn it on your own. In case you were wondering this is an R Markdown document. Hyperlinks like the one in this sentence can be [embedded in the text](http://rmarkdown.rstudio.com) using Markdown. Read the corresponding .Rmd file to see how this is done. [This reference contains a lot of useful information on Markdown syntax that will help you in this class](https://www.markdownguide.org/basic-syntax/).
+Computer based assignments will be written in R Markdown. In case you were wondering, this is an R Markdown document. Hyperlinks like the one in this sentence can be [embedded in the text](http://rmarkdown.rstudio.com) using Markdown. Read the corresponding .Rmd file to see how this is done. [This reference contains a lot of useful information on Markdown syntax that will help you in this class](https://www.markdownguide.org/basic-syntax/).
 
 
 ### Version Control 
 
-In this course, we will use Git and GitHub Enterprise thanks to our good friends in the Computer Science Department. Git is one of several version control software. It allows users to save a document with time stamps and comments on what was changed in that document systematically. We will discuss much more about this later in this document.
+In this course, we will use Git and GitHub Enterprise. GitHub Enterprise is a Github service that we have thanks to our good friends in the Computer Science Department. Git is one of several version control software. It allows users to save a document with time stamps and comments on what was changed in that document systematically. We will discuss much more about this later in this document.
 
 
 ### Work Flow
@@ -46,42 +46,27 @@ RStudio is an interface for R that is relatively user-friendly, visually suffici
 
 3. Create a new R Markdown file using the Wizard in RStudio.
 
-4. Create the html file by knitting the R Markdown file.
+4. Create a pdf or html file by knitting the R Markdown file.
 
 5. Locate the file in our directory.
 
-6. Open the html file in a browser.
-
-7. Check that the R Markdown file is saved and is our most recent version in our directory.
+6. Open a pdf or html file.
 
 
 ## Create your individual GitHub repositories
 
-Repositories (**repos** for short) are essentially project folders where you intend to store a set of files in the same location, much like a folder. These repositories are constantly being updated and are in need of version of control. This is where GitHub and other Git platforms come in. GitHub allows you to make your edits to a project locally and save them remotely while keeping all previous versions to your project intact. You do not need to constantly change file names to indicate new versions, just push your edits to GitHub. GitHub will store the previous versions and a detailed record of the changes made. GitHub and other version control platforms are fundamentally important for collaboration in the current age.
+Repositories (**repos** for short) are essentially project folders where you intend to store a set of files in the same location, much like a folder. These repositories are constantly being updated and are in need of version of control. This is where GitHub and other Git platforms come in. GitHub allows you to make your edits to a project locally and save them remotely while keeping all previous versions to your project intact. You do not need to constantly change file names to indicate new versions, just push your edits to GitHub. GitHub will store the previous versions and a detailed record of the changes made. GitHub and other version control platforms are fundamentally important for collaboration.
 
 We will now start the setup of your individual student **GitHub repositories**. Each student should click on this link https://edu.cs.illinois.edu/create-gh-repo/sp24_stat528 in order to create your student repo. Your personal repo is where you will keep your assignment files. The idea is that:  
 - you will work on your assignments from your repo, updating it often to ensure you're working on the correct file(s)  
 - you will obtain course resources, including homework assignments, from my **stat528sp24** course repo.  
 
-We will cover GitHub in much more detail throughout this course.
-
-
-## Computer organization
-
-For this class to run smoothly I ask that you create a directory (folder) named **stat528** somewhere on your computer. I recommend creating this directory on your Desktop or in your root directory. My lectures will repeatedly reference your **stat528** directory and I will speak of it as if it is on your Desktop. This directory, and knowledge of its path, will be essential for your sanity in this class.
+GitHub will be a reocurring topic throughout this course.
 
 
 ### Git and GitHub Tasks to Do
 
 1. Setup your individual repos if you have not yet done so. 
-
-2. Now that we have our personal repos, create a simple file called README.md that contains 1 line with:
-- your name
-- the course name
-- the following sentence: "This is probably the first file I have ever created in CS GitHub Enterprise." 
-
-The md stands for Markdown, not the R Markdown that we will use later. This file that you've created is a Markdown file, and GitHub does some interesting rendering of this plain-text file. 
-
 
 Your repo has a very special address which you need to **clone** onto your local computer. Cloning the repo connects your GitHub repo to your local computer as a directory (with the same name as the repo). After we access Git via a terminal or shell, we will clone our repos. Make sure that you know which directory that you clone your repo in! I recommend creating a **stat528** directory on your Desktop and then cloning your repo in this directory.
 
