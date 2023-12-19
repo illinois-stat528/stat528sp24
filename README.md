@@ -56,7 +56,7 @@ See the Syllabus for more details. See the notes directory for course notes.
 	
 **Course location:** 166 Bevier Hall
 
-**Office hours**: 12pm - 1pm on Fridays (Zoom link: TBD)
+**Office hours**: 12pm - 1pm on Fridays (Zoom link: https://illinois.zoom.us/j/82179712807?pwd=L05jUTJSYmVKOWRLY3o2bXFMYnBldz09)
 
 **TA**: Diptarka Saha (saha12@illinois.edu)
 
