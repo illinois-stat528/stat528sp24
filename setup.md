@@ -21,7 +21,7 @@ Computer based assignments will be written in R Markdown. In case you were wonde
 
 ### Version Control 
 
-In this course, we will use Git and GitHub Enterprise. GitHub Enterprise is a Github service that we have thanks to our good friends in the Computer Science Department. Git is one of several version control software. It allows users to save a document with time stamps and comments on what was changed in that document systematically. We will discuss much more about this later in this document.
+In this course, we will use Git and GitHub Enterprise. Git is one of several version control softwares. It allows users to save a document with time stamps and comments on what was changed in that document systematically. GitHub is a a cloud-based service that implements a Git repository hosting system. GitHub Enterprise is a Github service that we have thanks to our good friends in the Computer Science Department. We will discuss these topics in much detail throughout this document.
 
 
 ### Work Flow
@@ -143,6 +143,8 @@ Here are the steps of the workflow that we will use to obtain and submit homewor
 ~/Desktop/stat528/stat528sp24
 ```
 
+The ~/ is a placeholder for /Users/danieleck/ on my machine. On my machine the root directory is danieleck and Desktop is in my root directory.
+
 Once your terminal or shell is in the **stat528sp24** repository, then make a pull from GitHub by typing:
 
 ```
@@ -152,25 +154,31 @@ git pull
 This will download all files that are currently in my remote **stat528sp24** GitHub repository to your computer.
 
 
-2. **copy files from stat528sp24 to another place**. If you edit files in **stat528sp2** then you may create a [merge conflict](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts) in the future which will prevent you from obtaining course resources. It is therefore much better to copy files from **stat528sp24** to another place on your computer. I recommend copying course materials to either your repo or your **stat528** directory. You can copy by point-and-drag or by using terminal commands. Terminal commands are recommended.  
+2. **copy files from stat528sp24 to another place**. If you edit files in **stat528sp2** then you may create a [merge conflict](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts) in the future which will prevent you from obtaining course resources. It is therefore much better to copy files from **stat528sp24** to another place on your computer. I recommend copying course materials to either your repo or your **stat528** directory. You can copy by point-and-drag or by using terminal commands. [Terminal commands are recommended](https://trstringer.com/using-the-terminal/).  
+
+3. **push files to your virtual repos**. We will now discuss what to do when you have edited a file on your computer and are ready to upload (push) it to Github. First, you will need to get your terminal or shell in the local directory containing your personal repository. If you followed my recommendations then this directory has the following path on a Mac:
+
+```
+~/Desktop/stat528/sp24_stat528_YourNetID
+```
+
+The ~/ is a placeholder for /Users/danieleck/ on my machine. On my machine the root directory is danieleck and Desktop is in my root directory.
+
+Once your terminal or shell is in the directory containing your local repository, then you can upload (push) files to Github by typing the following three GitHub commands as follows:
 
 
-
-4. Using the shell: stage the change, commit it with a message, and push to your GitHub repo. Notice that you must describe the update that you are making. This action is called a **commit.** The commit is the message that you are leaving yourself to note what/why/how this file has been changed. Commits can be short (Git prefers this), but could be long. As you make future changes to this file or other files, you're going to want to commit for every change (or at least the noticeable changes). The following three lines stages, commits, and pushes content from your local computer to your remote repository:
 ```
 git add -A
-git commit -m "Added new sentence from local computer"
+git commit -m "Added new sentence from local computer; this sentence should describe what was changed in words you understand"
 git push 
 ```
-The -A flag in the first line of the above code adds all changed values to your commit. You can add individual files if you choose to do so. The latter method can be preferable in many cases. In this example, the latter method is achieved by typing:
+The -A flag in the first line of the above code adds all changed values to your commit. You can add individual files if you choose to do so. The latter method can be preferable in many cases. For example, you can just push changes to a README.md file by typing
+
 ```
 git add README.md
 git commit -m "Added new sentence from local computer"
 git push 
 ```
-Go online to view your changes.
 
+Go online to view your changes once your push appears to go through.
 
-5. Using GitHub, verify the new change by refreshing the GitHub repo page.
-
-**Important:** These tasks are needed in order to complete the first lab assignment.
