@@ -29,6 +29,10 @@ In this course, we will use Git and GitHub Enterprise. GitHub Enterprise is a Gi
 You will use Markdown and GitHub to submit labs, homework assignments, projects, etc. You will obtain your homework assignment from my GitHub course page (my **stat528sp24** repository) and will submit them to your individual GitHub repository. Eventually this will all make sense and you will be comfortable with it!
 
 
+![](https://miro.medium.com/v2/resize:fit:600/0*VcMPr1unIjAIHw2j.jpg)
+
+
+
 ## Software needed for this class
 
 We will be working with [R](https://cran.r-project.org) and [RStudio](https://rstudio.com). 
@@ -51,6 +55,8 @@ GitHub will be a reoccurring topic throughout this course.
 
 ### Git and GitHub setup
 
+See [Chapter 11](https://happygitwithr.com/push-pull-github) in Happy Git and GitHub for the useR for  details on the push-pull GitHub workflow that we will use to distribute resources in this class. Chapter 11 references to Appendix A for shell commands that may help you in your quest to clone my  **stat528sp24** repo in the desired place. 
+
 1. **Setup your individual repo and join my illinois-stat528 GitHub organization.**
 
 2. **Clone your personal course repo onto your computer.** Your personal repo will be created automatically by the CS repo creator tool affiliated with my course's Illinois-stat528 GitHub organization. Cloning the repo connects your GitHub repo to your local computer as a directory (with the same name as the repo). Make sure that you know which directory that you clone your repo in! I highly recommend creating a **stat528** directory on your Desktop and then cloning your repo in this directory. 
@@ -61,7 +67,7 @@ You can clone your repo this by first changing *YourNetID.git* to your actual ne
 git clone git@github.com:illinois-stat528/sp24_stat528_YourNetID.git
 ```
 
-When you type the above you may get the following error message:
+When you type the above you may get something like the following error message:
 
 ```
 ERROR: The `illinois-stat528' organization has enabled or enforced SAML SSO. To access
@@ -78,7 +84,6 @@ and the repository exists.
 
 If you do get this error message, you may need to generate an [SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), [add your SSH key to your GitHub account](https://docs.github.com/en/enterprise-server@3.0/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account), and then [configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) for this course's GitHub organization (it may say Configure SSO instead of Enable SSO in your SSH and GPG keys GitHub page).
 
-See Chapter 11 in [Happy Git and GitHub for the useR](https://happygitwithr.com/push-pull-github) for more details. Chapter 11 references to Appendix A for shell commands that may help you in your quest to clone my  **stat528sp24** repo in the desired place.
 
 
 
@@ -90,7 +95,7 @@ You can also clone my repo by directly typing the following into your terminal:
 git clone git@github.com:illinois-stat528/stat528sp24.git
 ```
 
-When you type the above you may get the following error message:
+When you type the above you may get something like the following error message:
 
 ```
 ERROR: The `illinois-stat528' organization has enabled or enforced SAML SSO. To access
@@ -120,14 +125,35 @@ If you completed the above tasks and followed my recommendation of cloning your 
 
 2. Install and update RStudio to the latest version.
 
-3. Open R Studio and create a new R Project to be stored in the directory that contains both of your repos (**stat528** directory on your desktop).
+3. Open R Studio and create a new R Project to be stored in the directory that contains both of your repos (*possibly your *stat528** directory on your desktop).
 
 
 
+### Download (pull) and upload (push) your homework to GitHub
+
+See [Chapter 11](https://happygitwithr.com/push-pull-github) in Happy Git and GitHub for the useR for  details on the push-pull GitHub workflow that we will use to distribute resources in this class. Chapter 11 references to Appendix A for shell commands that may help you in your quest to obtain and submit your homework assignments. 
+
+Before we begin, a warning: **Do not edit the files in your local version of my stat528sp24 repository.**
+
+Here are the steps of the workflow that we will use to obtain and submit homework assignments:
+
+1. **pull from my **stat528sp24 repository**. To do this you will first open a terminal or shell and navigate to the local version of my **stat528sp24** repository that exists on your computer. If you followed my recommendations then this directory has the following path on a Mac:
+
+```
+~/Desktop/stat528/stat528sp24
+```
+
+Once your terminal or shell is in the **stat528sp24** repository, then make a pull from GitHub by typing:
+
+```
+git pull
+```
+
+This will download all files that are currently in my remote **stat528sp24** GitHub repository to your computer.
 
 
+2. **copy files from stat528sp24 to another place**. If you edit files in **stat528sp2** then you may create a [merge conflict](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts) in the future which will prevent you from obtaining course resources. It is therefore much better to copy files from **stat528sp24** to another place on your computer. I recommend copying course materials to either your repo or your **stat528** directory. You can copy by point-and-drag or by using terminal commands. Terminal commands are recommended.  
 
-### Upload your homework to GitHub
 
 
 4. Using the shell: stage the change, commit it with a message, and push to your GitHub repo. Notice that you must describe the update that you are making. This action is called a **commit.** The commit is the message that you are leaving yourself to note what/why/how this file has been changed. Commits can be short (Git prefers this), but could be long. As you make future changes to this file or other files, you're going to want to commit for every change (or at least the noticeable changes). The following three lines stages, commits, and pushes content from your local computer to your remote repository:
