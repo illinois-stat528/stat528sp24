@@ -1,5 +1,5 @@
 
-# Introduction to Computational Resources
+# STAT 528 setup and workflow
 
 ## Welcome
 
