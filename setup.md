@@ -10,15 +10,6 @@ This document will go through GitHub, computational resources, software, and ove
 You should have downloaded this document from the course website https://github.com/illinois-stat528/stat528sp24 or some other source. 
 
 
-### Reproducible Documentation
-
-Here I mean that we will use good principles and software (R and RStudio) that allow anyone (with similar software) to be able to look at our input (.Rmd) and the code therein and re-create the same output (.html or .pdf) and come to the same conclusion that we did. To do this, we need to keep good notes in our code documents and version control can aid us.  We will need to set R's random seed for every document that uses random number generation, so that the results are reproducible.
-
-Creating reproducible experiments is necessary for all scientific progress. Results that cannot be verified by a third-party should be viewed with skepticism. Data analyses and numerical simulations are no exception.
-
-Computer based assignments will be written in R Markdown. In case you were wondering, this is an R Markdown document. Hyperlinks like the one in this sentence can be [embedded in the text](http://rmarkdown.rstudio.com) using Markdown. Read the corresponding .Rmd file to see how this is done. [This reference contains a lot of useful information on Markdown syntax that will help you in this class](https://www.markdownguide.org/basic-syntax/).
-
-
 ### Version Control 
 
 In this course, we will use Git and GitHub Enterprise. Git is one of several version control softwares. It allows users to save a document with time stamps and comments on what was changed in that document systematically. GitHub is a a cloud-based service that implements a Git repository hosting system. GitHub Enterprise is a Github service that we have thanks to our good friends in the Computer Science Department. We will discuss these topics in much detail throughout this document.
@@ -154,7 +145,7 @@ git pull
 This will download all files that are currently in my remote **stat528sp24** GitHub repository to your computer.
 
 
-2. **copy files from stat528sp24 to another place**. If you edit files in **stat528sp2** then you may create a [merge conflict](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts) in the future which will prevent you from obtaining course resources. It is therefore much better to copy files from **stat528sp24** to another place on your computer. I recommend copying course materials to either your repo or your **stat528** directory. You can copy by point-and-drag or by using terminal commands. [Terminal commands are recommended](https://trstringer.com/using-the-terminal/).  
+2. **copy files from stat528sp24 to another place**. If you edit files in **stat528sp24** then you may create a [merge conflict](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts) in the future which will prevent you from obtaining course resources. It is therefore much better to copy files from **stat528sp24** to another place on your computer. I recommend copying course materials to either your repo or your **stat528** directory. You can copy by point-and-drag or by using terminal commands. [Terminal commands are recommended](https://trstringer.com/using-the-terminal/).  
 
 3. **push files to your virtual repos**. We will now discuss what to do when you have edited a file on your computer and are ready to upload (push) it to Github. First, you will need to get your terminal or shell in the local directory containing your personal repository. If you followed my recommendations then this directory has the following path on a Mac:
 
@@ -169,9 +160,10 @@ Once your terminal or shell is in the directory containing your local repository
 
 ```
 git add -A
-git commit -m "Added new sentence from local computer; this sentence should describe what was changed in words you understand"
+git commit -m "An understandable message that describes what was changed"
 git push 
 ```
+
 The -A flag in the first line of the above code adds all changed values to your commit. You can add individual files if you choose to do so. The latter method can be preferable in many cases. For example, you can just push changes to a README.md file by typing
 
 ```
@@ -181,4 +173,16 @@ git push
 ```
 
 Go online to view your changes once your push appears to go through.
+
+
+### Reproducible Documentation
+
+The homework assignments that you submit will be, unless otherwise notified, pdf or html files that are outputs from knitting an R Markdown document (.Rmd file extension).
+
+By reproducible documentation, I mean that we will use good principles and software (R and RStudio) that allow anyone (with similar software) to be able to look at our input (.Rmd) and the code therein and re-create the same output (.html or .pdf) and come to the same conclusion that we did. To do this, we need to keep good notes in our code documents and version control can aid us.  We will need to set R's random seed for every document that uses random number generation, so that the results are reproducible.
+
+Creating reproducible experiments is necessary for all scientific progress. Results that cannot be verified by a third-party should be viewed with skepticism. Data analyses and numerical simulations are no exception.
+
+Computer based assignments will be written in R Markdown. In case you were wondering, this is an R Markdown document. Hyperlinks like the one in this sentence can be [embedded in the text](http://rmarkdown.rstudio.com) using Markdown. Read the corresponding .Rmd file to see how this is done. [This reference contains a lot of useful information on Markdown syntax that will help you in this class](https://www.markdownguide.org/basic-syntax/).
+
 
