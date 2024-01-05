@@ -8,7 +8,6 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 * Welcome to STAT 528!
 * Week 1 reading materials are posted:
-  + **Reading**: Nelder (1986) and Nelder (1999)
   + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
   + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
   + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
@@ -304,7 +303,6 @@ A list of the designated University employees who, as counselors, confidential a
   + First day of class on 01/16. 
   + Syllabus, course overview 
   + Git/GitHub, R Markdown, statistical programming, and visualization
-  + **Reading**: Nelder (1986) and Nelder (1999)
   + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
   + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
   + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
