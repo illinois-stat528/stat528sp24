@@ -39,7 +39,7 @@ See the Syllabus for more details. See the notes directory for course notes.
 ### Greetings 
 
 
-<img src="https://stat.illinois.edu/sites/default/files/styles/directory_profile/public/profile-photos/dje13.png.jpg?itok=j2rsX2F_" 
+<img src="https://stat.illinois.edu/sites/default/files/styles/directory_profile/public/profile-photos/dje13.png.jpg?itok=QU1pv9Tt" 
      width="150" 
      height="150"
      hspace="25"
@@ -197,11 +197,7 @@ Do not only use screenshots of code and error messages to communicate about them
 **In this course, for everything expect exams, we greatly prefer over-sharing to under-sharing code. We would rather everyone learn from others' "mistakes" than have everyone experience the same issues over and over again.** 
 
 
-### Attendance Policy
 
-Attendance is mandatory in STAT 528. Each student will sign their name and netid on a sign-in sheet provided by the course instruction to verify their attendance. This sign-in sheet must be signed within 15 minutes of class starting. Students who are late by more than 15 minutes will be considered absent. Students are allowed two free absences with no point deductions. Each absence after two will be penalized 20 points (2% of final grade). Additional absences can be granted provided the course instructor approves them. Requests for additional absences must be made at least 48 hours before the absence date. 
-
- 
 ***
 
 ### Grading Breakdown
@@ -210,8 +206,8 @@ Attendance is mandatory in STAT 528. Each student will sign their name and netid
 | :------- | :---- | :----- |
 | Homework     | highest 6 of 7 counted each at 100 points | 600 points |
 | Midterm Exam | | 150 points |
-| Final Exam   | | 250 points |
-| Absence      | 2 free absences; additional absences will be penalized | -20 points | 
+| Final Exam   | | 200 points |
+| Attendance   | 2 points for attending class | 50 points | 
 | total | | 1000 points |
 
 
@@ -226,12 +222,19 @@ I will be using a +/- grading schema. The grade distributions will be:
 | 833 | 866 | B |
 | 800 | 832 | B-|
 
-and so on 
+and so on. A grade of A+ will be granted to students who earn 980 points.  
+
+
+#### Attendance 
+
+Attendance will be recorded in STAT 528 and your attendance will count towards your final grade. There will be 50 points allocated towards attendance. As currently stated, STAT 528 will meet 27 times. Each class will be worth 2 attendance points. This leaves you with 2 free absences that will not count against you. Additional absences can be granted provided the course instructor approves them. Requests for additional absences must be made at least 48 hours before the absence date. 
+
+Each student will sign their name and netid on a sign-in sheet provided by the course instruction to verify their attendance. This sign-in sheet must be signed within 15 minutes of class starting. Students who are late by more than 15 minutes will be considered absent. Students who leave class early will be counted as absent unless the early absence is excused. An absence may be given to students who do not participate in discussions in a manner deemed satisfactory by your instructor. 
 
 
 #### Homework
 
-There are 7 assignments total and **your lowest assignment score will be dropped**. When completing the assignment, read it carefully, and follow the directions. For each homework assignment, you will submit two files - .Rmd and .html (or .pdf) - saving your files with your name and homework assignment number. **The homework naming convention is netid_HW#**.  For a student with netid *abc123* that is submitting HW4 files, their files would be saved as *abc123_HW4.Rmd* and *abc123_HW4.html* (or *abc123_HW4.pdf*). **Failure to adopt this homework naming convention will result in point deductions and headaches.**  Make sure your homework is neat, readable, and reproducible containing only relevant derivations, code, results, and explanations. You are expected to work on your homework individually since you are graded as an individual. **Questions about the grading should be directed to the TA**. 
+Homework will be worth 100 points unless otherwise noted. There are 7 assignments total and **your lowest assignment score will be dropped**. When completing the assignment, read it carefully, and follow the directions. For each homework assignment, you will submit two files - .Rmd and .html (or .pdf) - saving your files with your name and homework assignment number. **The homework naming convention is netid_HW#**.  For a student with netid *abc123* that is submitting HW4 files, their files would be saved as *abc123_HW4.Rmd* and *abc123_HW4.html* (or *abc123_HW4.pdf*). **Failure to adopt this homework naming convention will result in point deductions and headaches.**  Make sure your homework is neat, readable, and reproducible containing only relevant derivations, code, results, and explanations. You are expected to work on your homework individually since you are graded as an individual. **Questions about the grading should be directed to the TA**. 
 
 Homework should be stored in a HW# directory in your GitHub repo that is a sub directory of a homework directory in your GitHub repo. For example, your fourth homework assignment should be saved in the directory
 
@@ -245,29 +248,13 @@ within your personal GitHub repo.  Failure to do this will result in point deduc
 
 **Students must use GitHub to start, finish, and submit their Homework. More details will be discussed in class.**
 
-Homeworks will be worth 100 points unless otherwise noted.
+You may be asked to present your homework solutions to the class.
 
 
 #### Exams
-There will be two exams in this class. A midterm examination will be due on Friday, March 10th at 11:59 PM. The final examination will occur at the end of the semester, and it will be due on 05/11 at 11:59 PM. The final examination will be cumulative.
 
-<!-- ### Final Grade Percentage & Letter Grade  -->
-<!-- | Lower bound | Upper bound | Letter grade | -->
-<!-- |---|---|---| -->
-<!-- | 933 | 1000 | A | -->
-<!-- | 900 | 932 | A- | -->
-<!-- | 867 | 899 | B+ | -->
-<!-- | 833 | 866 | B | -->
-<!-- | 800 | 832 | B-| -->
-<!-- | 767 | 799 | C+ | -->
-<!-- | 733 | 766 | C | -->
-<!-- | 700 | 732 | C- | -->
-<!-- | 667 | 699 | D+ | -->
-<!-- | 633 | 666 | D | -->
-<!-- | 600 | 632 | D- | -->
-<!-- | 0 | 599 | F | -->
+There will be two exams in this class. A midterm examination will be due on Friday, 03/08 at 11:59 PM. The final examination will occur at the end of the semester, and it will be due on 05/10 at 11:59 PM. The final examination will be cumulative.
 
-<!-- A grade of A+ will be assigned to any student who scores 980 or more points. -->
 
 ***
 
