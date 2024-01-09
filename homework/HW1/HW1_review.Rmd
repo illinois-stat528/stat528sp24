@@ -1,5 +1,5 @@
 ---
-title: "Homework 1: coding basics, review questions, and reading quiz"
+title: "Homework 1: review and coding questions"
 author: "your name"
 date: "Due: 01/26 at 11:59 PM"
 output: pdf_document
@@ -128,8 +128,6 @@ The rows of the tibble should be sorted from highest OPS to lowest OPS. Each row
 Round any rate statistics to three decimals places, as is customary in baseball.
 
 
-# Visualization questions 
-
 \noindent{\bf Problem 4}:  The data we will use to accomplish this task will come from the \texttt{Teams} data frame in Lahman’s Baseball Database. In this problem we will visualize the [Pythagorean Theorem of Baseball](https://www.baseball-reference.com/bullpen/Pythagorean_Theorem_of_Baseball). This "Theorem" states that winning percentage is given by the following nonlinear equation:
 $$
   WP = \frac{R^2}{R^2 + RA^2}
@@ -144,10 +142,7 @@ For this problem, plot the estimated number of wins as predicted by the Pythagor
 $$
   162 * \frac{R^2}{R^2 + RA^2}.
 $$
-Provide a line of best fit. Restrict attention to the 1990 season and beyond. Note that there are two shortened seasons that need to be treated separately from the remaining seasons. These seasons are 1994 and 2020. The 1994 season was cut short because of a labor strike. The 2020 season was cut short due to COVID.
-
-
-## Reading question 
+Provide a line of best fit. Restrict attention to the 1990 season and beyond. Note that there are two shortened seasons that need to be treated separately from the remaining seasons. These seasons are 1994 and 2020. The [1994 season](https://en.wikipedia.org/wiki/1994%E2%80%9395_Major_League_Baseball_strike) was cut short because of a labor strike. The [2020 season](https://en.wikipedia.org/wiki/2020_Major_League_Baseball_season) was cut short due to COVID.
 
 
 

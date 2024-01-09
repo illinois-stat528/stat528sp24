@@ -7,10 +7,12 @@ See the Syllabus for more details. See the notes directory for course notes.
 # News
 
 * Welcome to STAT 528!
-* Week 1 reading materials are posted:
-  + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
-  + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
-  + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
+* Week 1 materials are posted:
+  + **Reading**: setup.md
+  + **Reading/Videos**: [Atomic Vectors](https://deck13.github.io/stat385-fa2023/week-03.html)
+  + **Reading/Videos**: [Generic Vectors](https://deck13.github.io/stat385-fa2023/week-04.html)
+  + **Reading/Videos**: [Logic and Control Flow](https://deck13.github.io/stat385-fa2023/week-05.html)
+  + **Reading/Videos**: [Functions](https://deck13.github.io/stat385-fa2023/week-08.html)
 
 
 ## Good Habits
@@ -302,19 +304,21 @@ A list of the designated University employees who, as counselors, confidential a
 * Week 1 [01/16, 01/18]
   + First day of class on 01/16. 
   + Syllabus, course overview 
-  + Git/GitHub, R Markdown, statistical programming, and visualization
-  + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
-  + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
-  + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
+  + Git/GitHub and R Markdown
+  + **Reading**: setup.md
+  + **Reading/Videos**: [Atomic Vectors](https://deck13.github.io/stat385-fa2023/week-03.html)
+  + **Reading/Videos**: [Generic Vectors](https://deck13.github.io/stat385-fa2023/week-04.html)
+  + **Reading/Videos**: [Logic and Control Flow](https://deck13.github.io/stat385-fa2023/week-05.html)
+  + **Reading/Videos**: [Functions](https://deck13.github.io/stat385-fa2023/week-08.html)
 
 * Week 2 [01/23, 01/25]
-  + Git/GitHub, R Markdown, statistical programming, and visualization
+  + Git/GitHub, R Markdown, data transformation, statistical programming, and visualization
   + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
   + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
   + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
-  + Homework 1 due on Friday, 01/26 at 11:59 PM
-
-
+  + Coding lab on 01/25
+  + Homework 1 due on Friday, 01/26 at 11:59 PM 
+  
 * Week 3 [01/30, 02/01] 
   + Exponential family theory
   + **Reading**: course notes  
