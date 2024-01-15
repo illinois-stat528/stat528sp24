@@ -57,11 +57,11 @@ See the Syllabus for more details. See the notes directory for course notes.
 	
 **Course location:** 166 Bevier Hall
 
-**Office hours**: 12pm - 1pm on Fridays (Zoom link: https://illinois.zoom.us/j/82179712807?pwd=L05jUTJSYmVKOWRLY3o2bXFMYnBldz09)
+**Office hours**: 11am - 12pm Champaign time on Fridays (Zoom link: https://illinois.zoom.us/j/82179712807?pwd=L05jUTJSYmVKOWRLY3o2bXFMYnBldz09)
 
 **TA**: Diptarka Saha (saha12@illinois.edu)
 
-**TA Office hours**: 1pm - 2pm on Fridays (Zoom link: TBD)
+**TA Office hours**: 12pm - 1pm Champaign time on Fridays (Zoom link: https://illinois.zoom.us/j/94102816368?pwd=MTdXejNHeGU2RXVGY3o4TTVUdVVrZz09)
 
 **Course website**: 
 
