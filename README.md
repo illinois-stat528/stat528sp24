@@ -209,7 +209,7 @@ When joining office hours, be prepared to share your screen! Assuming you are ha
 
 Office hours will be a rather informal meeting. As such, if the instructor and a student are engaged in causal conversation not directly related to a pressing matter in STAT 528, like a homework question, please just jump into the conversation and interrupt! If office hours are "busy" the instructor may institute an informal queuing system, but the hope is to keep office hours more relaxed and informal.
 
-If you would like to schedule a private meeting outside of regular office hours, please send an email suggesting two possible times, on two different days.^[A total of four suggested times.] We have a preference for time-slots directly adjacent to current office hours. *Please also indicate a brief agenda for the meeting.* Requests to schedule a meeting at a time less than 24 hours in the future are unlikely to be granted.
+If you would like to schedule a private meeting outside of regular office hours, please send an email suggesting two possible times, on two different days (a total of four suggested times). We have a preference for time-slots directly adjacent to current office hours. *Please also indicate a brief agenda for the meeting.* Requests to schedule a meeting at a time less than 24 hours in the future are unlikely to be granted.
 
 
 #### Discussion Forum
@@ -218,7 +218,7 @@ This course will use [**Ed**](https://edstem.org/) as our discussion forum. Here
 
 Ed access and login information was sent via email.
 
-Please register your account with your University email.^[Accounts registered with an email other than an `@illinois.edu` account will be removed.]
+Please register your account with your University email (accounts registered with an email other than an `@illinois.edu` account will be removed).
 
 I generally check Ed within a day or two after it alerts me that a new topic has been posted. Thus you can often expect a response within three or so business days. If you need a quicker response, you should consider office hours as an alternative.
 
