@@ -127,6 +127,7 @@ The rows of the tibble should be sorted from highest OPS to lowest OPS. Each row
 
 Round any rate statistics to three decimals places, as is customary in baseball.
 
+\vspace*{1cm}
 
 \noindent{\bf Problem 4}:  The data we will use to accomplish this task will come from the \texttt{Teams} data frame in Lahman’s Baseball Database. In this problem we will visualize the [Pythagorean Theorem of Baseball](https://www.baseball-reference.com/bullpen/Pythagorean_Theorem_of_Baseball). This "Theorem" states that winning percentage is given by the following nonlinear equation:
 $$
