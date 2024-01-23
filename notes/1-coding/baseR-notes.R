@@ -206,8 +206,18 @@ while(x <= 10) {
 }
 
 ### ifelse
+x = 6
+if(x > 10) {
+  print("Big")
+}
+if(x > 0) {
+  print("medium")
+}
 
-
+?iris
+iris
+iris$Size = ifelse(iris$Sepal.Width >= 3.2, "Big", "Small")
+iris
 
 ## Basic optimization
 f(6)
@@ -226,7 +236,7 @@ points(iris$Sepal.Length, iris$Petal.Length, col = "red", pch = 19)
 
 plot(iris$Sepal.Length, iris$Petal.Length)
 table(iris$Species)
-iris_setosa = iris[iris$Species == "setosa"]
+iris_setosa = iris[iris$Species == "setosa", ]
 ## ...
 
 iris_species = split(iris, f = as.factor(iris$Species))
