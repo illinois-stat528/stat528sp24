@@ -19,6 +19,8 @@ See the Syllabus for more details. See the notes directory for course notes.
   + [ggplot2](https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf) for visualization 
   + [readr](https://posit.co/wp-content/uploads/2022/10/data-import.pdf) for loading and storing data
   + [tidyr](https://posit.co/wp-content/uploads/2022/10/tidyr.pdf) for data transformation
+  + [forcats](https://posit.co/wp-content/uploads/2022/10/factors-1.pdf) for factors
+  + [lubridate](https://posit.co/wp-content/uploads/2022/10/lubridate-1.pdf) for dates and times
 
 
 ## Good Habits
