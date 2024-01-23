@@ -6,13 +6,19 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Welcome to STAT 528!
-* Week 1 materials are posted:
+* Week 2 materials are posted
+
+* Reading: 
   + **Reading**: setup.md
-  + **Reading/Videos**: [Atomic Vectors](https://deck13.github.io/stat385-fa2023/week-03.html)
-  + **Reading/Videos**: [Generic Vectors](https://deck13.github.io/stat385-fa2023/week-04.html)
-  + **Reading/Videos**: [Logic and Control Flow](https://deck13.github.io/stat385-fa2023/week-05.html)
-  + **Reading/Videos**: [Functions](https://deck13.github.io/stat385-fa2023/week-08.html)
+  + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
+  + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
+  + **Reading/Videos**: [Data Transformation III](https://deck13.github.io/stat385-fa2023/week-11.html): Factors and dates and times in the tidyverse
+
+## Cheatsheats
+  + [dplyr](https://posit.co/wp-content/uploads/2022/10/data-transformation-1.pdf) for data transformation
+  + [ggplot2](https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf) for visualization 
+  + [readr](https://posit.co/wp-content/uploads/2022/10/data-import.pdf) 
+  + [tidyr](https://posit.co/wp-content/uploads/2022/10/tidyr.pdf) for data transformation
 
 
 ## Good Habits
@@ -323,6 +329,7 @@ A list of the designated University employees who, as counselors, confidential a
 * Week 8 [03/05, 03/07]
   + No class!
   + Office hours during class time
+  + Take home midterm exam assigned on Tuesday, 03/05 
   + Take home midterm exam due on Friday, 03/08 at 11:59 PM
 
 * Week 9    
@@ -353,6 +360,7 @@ A list of the designated University employees who, as counselors, confidential a
 * Week 15 [04/23, 04/25]
   + Aster models 
   + **Reading**: course notes, materials cited in aster notes
+  + **Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri).
   + Homework 6 due on Friday, 04/26 at 11:59 PM
 
 * Week 16 [04/30]
