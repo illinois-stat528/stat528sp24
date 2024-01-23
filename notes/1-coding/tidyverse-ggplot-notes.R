@@ -12,12 +12,14 @@ library(Lahman)
 library(lubridate)
 #install.packages("palmerpenguins")
 library(palmerpenguins)
+#install.packages("ggridges") 
+library(ggridges)
 
 ## tibble
 as_tibble(iris)
 as_tibble(penguins)
 as_tibble(Batting)
-
+as_tibble(People)
 
 ## dplyr 
 
@@ -69,6 +71,7 @@ ggplot(penguins) +
 ### career home runs vs era-adjusted home runs by final game
 
 
+### single season HR by position 1982-1993 (minimum 100 AB)
 
 
 
@@ -113,6 +116,21 @@ ggplot(dat) +
   geom_point(col = "black") + 
   geom_smooth()
 
+Fielding_small = Fielding %>% 
+  select(playerID, yearID, POS, InnOuts) %>% 
+  group_by(playerID, yearID) %>% 
+  filter(InnOuts == max(InnOuts)) %>% 
+  filter(POS != "P", !is.na(POS)) %>% 
+  rename("primaryPOS" = POS) %>% 
+  select(playerID, yearID, primaryPOS)
+
+Batting %>% 
+  filter(yearID >= 1982, yearID <= 1993, AB >= 100) %>% 
+  select(playerID, yearID, HR, AB) %>% 
+  left_join(Fielding_small) %>% 
+  ggplot() + 
+  aes(x = HR, y = primaryPOS, fill = primaryPOS) + 
+  geom_density_ridges() 
 
 ## https://daviddalpiaz.org/posts/moneyball-in-r/
 

@@ -8,7 +8,7 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 * Week 2 materials are posted
 
-* Reading: 
+* Week 2 Reading: 
   + **Reading**: setup.md
   + **Reading/Videos**: [Data Transformation I](https://deck13.github.io/stat385-fa2023/week-09.html): Visualization with ggplot2 and transformation with dplyr
   + **Reading/Videos**: [Data Transformation II](https://deck13.github.io/stat385-fa2023/week-10.html): Transform data with tidyr
@@ -17,7 +17,7 @@ See the Syllabus for more details. See the notes directory for course notes.
 ## Cheatsheats
   + [dplyr](https://posit.co/wp-content/uploads/2022/10/data-transformation-1.pdf) for data transformation
   + [ggplot2](https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf) for visualization 
-  + [readr](https://posit.co/wp-content/uploads/2022/10/data-import.pdf) 
+  + [readr](https://posit.co/wp-content/uploads/2022/10/data-import.pdf) for loading and storing data
   + [tidyr](https://posit.co/wp-content/uploads/2022/10/tidyr.pdf) for data transformation
 
 
@@ -25,8 +25,6 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 * attend class and bring a computer
 * obtain up-to-date materials from my **stat528sp24** repository before class starts
-* load in datasets and run the code in the notes before class starts
-* make sure that the notes compile 
 * use your computer's terminal, it is less user-friendly but it is MUCH faster
 * Stay centered and remember Hofstadter's Law, which describes the widely experienced difficulty of accurately estimating the time it will take to complete tasks of substantial complexity. **Hofstadter's Law**: It always takes longer than you expect, even when you take into account Hofstadter's Law.
  
