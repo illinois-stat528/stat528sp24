@@ -153,6 +153,30 @@ f(x = 10)
 ## Logical control flow 
 
 ### if, else
+x = 6
+if(x > 10) {
+  print("Big")
+} else {
+  print("medium")
+}
+
+# notice that the following chain breaks 
+# as soon as the first TRUE is supplied
+x = 6
+if(x >= 12) {
+  print("Very Big")
+} else if(x >= 10){
+  print("Big")
+} else if(x >= 6) {
+  print("medium")
+} else if(x >= 0) {
+  print("small")
+} else if(x >= - 10) {
+  print("very small")
+} else {
+  print("tiny")
+}
+
 
 ### lapply 
 b = 1:10
@@ -206,16 +230,6 @@ while(x <= 10) {
 }
 
 ### ifelse
-x = 6
-if(x > 10) {
-  print("Big")
-}
-if(x > 0) {
-  print("medium")
-}
-
-?iris
-iris
 iris$Size = ifelse(iris$Sepal.Width >= 3.2, "Big", "Small")
 iris
 
@@ -242,5 +256,6 @@ iris_setosa = iris[iris$Species == "setosa", ]
 iris_species = split(iris, f = as.factor(iris$Species))
 points(iris_species[[1]][, c("Sepal.Length", "Petal.Length")], col = "blue", pch = 19)
 points(iris_species[[2]][, c("Sepal.Length", "Petal.Length")], col = "green", pch = 19)
+
 
 
