@@ -84,8 +84,6 @@ After loading the Lahman package, you will have access to several data frames co
 
 You should spend some time exploring these datasets and reading the relevant documentation.
 
-You should spend some time exploring these datasets and reading the relevant documentation.
-
 Create a tibble named \texttt{illini\_mlb\_batters} that contains the following elements, in this order:
 
  - playerID
