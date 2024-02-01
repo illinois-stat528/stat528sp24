@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  30 JAN 2024 07:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  1 FEB 2024 09:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1042,40 +1042,55 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 341.
 
-[3] [4] [5] [6] [7] [8] (./expfamnotes.bbl) [9] (./expfamnotes.aux) ) 
+[3] [4] [5] [6] [7] [8]
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 780.
+
+[9] [10]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+904.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [11] [12] [13] (./expfamnotes.bbl) [14] (./expfamnotes.aux) ) 
 Here is how much of TeX's memory you used:
- 36423 strings out of 478268
- 834460 string characters out of 5846347
- 1245171 words of memory out of 5000000
- 53746 multiletter control sequences out of 15000+600000
- 564276 words of font info for 189 fonts, out of 8000000 for 9000
+ 36581 strings out of 478268
+ 836772 string characters out of 5846347
+ 1246042 words of memory out of 5000000
+ 53818 multiletter control sequences out of 15000+600000
+ 578989 words of font info for 219 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,16n,94p,1008b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/loca
-l/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022
-/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dis
-t/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dv
-ips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-
-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2022/texmf-
-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts
-/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
-lic/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr1
-0.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2022/texmf-dist/fo
-nts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/
-public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/l
-mtk10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtko10.pfb
-></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on expfamnotes.pdf (9 pages, 350259 bytes).
+{/usr/local/texl
+ive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texm
+f-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/e
+nc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/l
+m/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.en
+c}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texliv
+e/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/tex
+mf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2022/texmf-dist/f
+onts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
+/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm
+/lmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/20
+22/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/typ
+e1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm
+/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/loca
+l/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2022/texmf-
+dist/fonts/type1/public/lm/lmtko10.pfb></usr/local/texlive/2022/texmf-dist/font
+s/type1/public/lm/lmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pu
+blic/lm/lmtti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on expfamnotes.pdf (14 pages, 453160 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
- 49245 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 404 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 57485 words of extra memory for PDF output out of 61914 (max. 10000000)
 
