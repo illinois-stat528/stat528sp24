@@ -647,52 +647,52 @@ The observed equals expected property therefore states that
 
 ## Independent and identically distributed data
 
-<!-- Suppose $y_1, \ldots, y_n$ are independent and identically distributed (iid) from some full regular exponential family (unlike our notation in the preceding section, $y_i$ are not components of the canonical statistic vector but rather iid realizations of the canonical statistic vector, so each $y_i$ is a vector). The log likelihood for sample size $n$ is -->
-<!-- \begin{equation} \label{iid} -->
-<!-- 	l_n(\theta) = \sum_{i=1}^n\left[\inner{y_i,\theta} - c(\theta)\right]  -->
-<!-- 	  = \inner{\sum_{i=1}^n y_i, \theta} - n c(\theta), -->
-<!-- \end{equation} -->
-<!-- and we see that the above log likelihood is an exponential family with canonical statistic $\sum_{i=1}^n y_i$, cumulant function $n c(\theta)$, canonical parameter $\theta$, and full canonical parameter space $\Theta$ which is the same as the originally given family from which every observation is a member. Thus iid sampling gives us a new exponential family, but still an exponential family. -->
+Suppose $y_1, \ldots, y_n$ are independent and identically distributed (iid) from some full regular exponential family (unlike our notation in the preceding section, $y_i$ are not components of the canonical statistic vector but rather iid realizations of the canonical statistic vector, so each $y_i$ is a vector). The log likelihood for sample size $n$ is
+\begin{equation} \label{iid}
+	l_n(\theta) = \sum_{i=1}^n\left[\inner{y_i,\theta} - c(\theta)\right]
+	  = \inner{\sum_{i=1}^n y_i, \theta} - n c(\theta),
+\end{equation}
+and we see that the above log likelihood is an exponential family with canonical statistic $\sum_{i=1}^n y_i$, cumulant function $n c(\theta)$, canonical parameter $\theta$, and full canonical parameter space $\Theta$ which is the same as the originally given family from which every observation is a member. Thus iid sampling gives us a new exponential family, but still an exponential family.
 
 
-<!-- ## Asymptotics of maximum likelihood -->
+## Asymptotics of maximum likelihood
 
-<!-- We now discover an asymptotic distribution for the MLE of the canonical parameter vector in a full regular exponential family. Rewrite \eqref{iid} as  -->
-<!-- $$ -->
-<!--   l_n(\theta) = n\left[\inner{\bar y_n, \theta} - c(\theta)\right] -->
-<!-- $$ -->
-<!-- so that -->
-<!-- $$ -->
-<!--   \nabla l_n(\theta) = n\left[\bar y_n - \nabla c(\theta)\right]. -->
-<!-- $$ -->
-<!-- From which we see that for an identifiable full regular exponential family where the MLE must be a point where the first derivative is zero, we can write -->
-<!-- $$ -->
-<!--   	\nabla l_n(\theta) = n\left[\bar y_n - \nabla c(\theta)\right] = 0. -->
-<!-- $$  	 -->
-<!-- From here we see that $\bar y_n = \nabla c(\hat\theta)$. Recall the change-of-parameters mapping $g:\theta \mapsto \mu$ given by \eqref{mvp} in the mean value parameters section. We can write -->
-<!-- \begin{equation} \label{MVPg} -->
-<!--   \hat\theta_n = g^{-1}(\bar y_n).	 -->
-<!-- \end{equation} -->
-<!-- More precisely, \eqref{MVPg} holds when the MLE exists (when the MLE does not exist, $\bar y_n$ is not in the domain of $g^{-1}$, which is in the range of $g$). -->
+We now discover an asymptotic distribution for the MLE of the canonical parameter vector in a full regular exponential family. Rewrite \eqref{iid} as
+$$
+  l_n(\theta) = n\left[\inner{\bar y_n, \theta} - c(\theta)\right]
+$$
+so that
+$$
+  \nabla l_n(\theta) = n\left[\bar y_n - \nabla c(\theta)\right].
+$$
+From which we see that for an identifiable full regular exponential family where the MLE must be a point where the first derivative is zero, we can write
+$$
+  	\nabla l_n(\theta) = n\left[\bar y_n - \nabla c(\theta)\right] = 0.
+$$
+From here we see that $\bar y_n = \nabla c(\hat\theta)$. Recall the change-of-parameters mapping $g:\theta \mapsto \mu$ given by \eqref{mvp} in the mean value parameters section. We can write
+\begin{equation} \label{MVPg}
+  \hat\theta_n = g^{-1}(\bar y_n).
+\end{equation}
+More precisely, \eqref{MVPg} holds when the MLE exists (when the MLE does not exist, $\bar y_n$ is not in the domain of $g^{-1}$, which is in the range of $g$).
 
-<!-- By the multivariate central limit theorem (CLT) -->
-<!-- $$ -->
-<!--   \sqrt{n}\left(\bar y_n - \mu\right) \to N\left(0, I(\theta)\right) -->
-<!-- $$ -->
-<!-- and we know that $g^{-1}$ is differentiable (Theorem~\ref{thm-mvp}) with the derivative given by  -->
-<!-- $$ -->
-<!--   \nabla g^{-1}(\theta) = \left[\nabla g(\theta)\right]^{-1}, \qquad \text{where} \; \mu = g(\theta) \; \text{and} \; \theta = g^{-1}(\mu). -->
-<!-- $$ -->
-<!-- So the usual asymptotics of maximum likelihood -->
-<!-- \begin{equation} \label{asymptoticsMLE} -->
-<!-- 	\sqrt{n}\left(\hat\theta_n - \theta\right) \to N\left(0, I(\theta)^{-1}\right) -->
-<!-- \end{equation} -->
-<!-- is just the multivariate delta method applied to the multivariate CLT. -->
+By the multivariate central limit theorem (CLT)
+$$
+  \sqrt{n}\left(\bar y_n - \mu\right) \to N\left(0, I(\theta)\right)
+$$
+and we know that $g^{-1}$ is differentiable (Theorem~\ref{thm-mvp}) with the derivative given by
+$$
+  \nabla g^{-1}(\theta) = \left[\nabla g(\theta)\right]^{-1}, \qquad \text{where} \; \mu = g(\theta) \; \text{and} \; \theta = g^{-1}(\mu).
+$$
+So the usual asymptotics of maximum likelihood
+\begin{equation} \label{asymptoticsMLE}
+	\sqrt{n}\left(\hat\theta_n - \theta\right) \to N\left(0, I(\theta)^{-1}\right)
+\end{equation}
+is just the multivariate delta method applied to the multivariate CLT.
 
-<!-- In summary, one "regularity condition" for \eqref{asymptoticsMLE} to hold is that we have an identifiable full regular exponential family. Of course, \eqref{asymptoticsMLE} holds for many non-exponential-family models, but the regularity conditions are so complicated that they are often hard to verify. In exponential families the verification is trivial: the usual asymptotics of maximum likelihood always works. -->
+In summary, one "regularity condition" for \eqref{asymptoticsMLE} to hold is that we have an identifiable full regular exponential family. Of course, \eqref{asymptoticsMLE} holds for many non-exponential-family models, but the regularity conditions are so complicated that they are often hard to verify. In exponential families the verification is trivial: the usual asymptotics of maximum likelihood always works.
 
 
-<!-- ## Finite sample concentration of MLE -->
+## Finite sample concentration of MLE
 
 <!-- The previous section is devoted to large sample properties of maximum likelihood estimation within the context of full regular exponential families. These properties are especially relevant for statistical inference. MLEs of parameters in full regular exponential families also possess desirable finite sample properties. We first motivate the concept of sub-Gaussian and sub-exponential random variables which represent classes of desirable tail behavior for statistical models. The following definitions come from \cite{wainwright2019high}: -->
 
