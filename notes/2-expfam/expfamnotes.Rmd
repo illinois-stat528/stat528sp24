@@ -691,6 +691,7 @@ is just the multivariate delta method applied to the multivariate CLT.
 
 In summary, one "regularity condition" for \eqref{asymptoticsMLE} to hold is that we have an identifiable full regular exponential family. Of course, \eqref{asymptoticsMLE} holds for many non-exponential-family models, but the regularity conditions are so complicated that they are often hard to verify. In exponential families the verification is trivial: the usual asymptotics of maximum likelihood always works.
 
+\vspace{0.5cm}\noindent {\bf Example (Bernoulli distribution)}: Done in class
 
 ## Finite sample concentration of MLE
 
