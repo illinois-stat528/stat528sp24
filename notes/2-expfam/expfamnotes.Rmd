@@ -769,7 +769,7 @@ $$
 $$
 We can therefore conclude that the MLE of $\theta$ exhibits sub-exponential concentration following the logic that $(\hat\theta - \theta)$ has the same tail bounds as a sub-exponential random variable. We can use these results to obtain the rate of convergence. Set $t = \sqrt{\log(n)/n}$ and observe that 
 $$
-  \Prob\left( (\hat\theta - \theta) \geq \sqrt{\frac{\log(n)}{n}}\right) 
+  \Prob\left( (\hat\theta - \theta) \geq aI(\theta)\sqrt{\frac{\log(n)}{n}}\right) 
     = O\left(n^{-\frac{a^2I^2(\theta)}{2\lambda}}\right).
 $$
 
