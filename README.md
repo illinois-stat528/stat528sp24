@@ -6,9 +6,9 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Week 3 materials are posted
+* Week 4 materials are posted
 
-* Week 3 Reading: 
+* Week 4 Reading: 
   + **Reading**: course notes on exponential families
 
 ## Cheatsheats
