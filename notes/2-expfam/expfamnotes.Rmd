@@ -762,8 +762,8 @@ $$
   \Prob\left( n^{-1}\sum_{i=1}^n\{y_i - \nabla c(\theta)\} \geq aI(\theta)t\right) 
     \leq 
 \left\{\begin{array}{cl}
-    \exp\left(-\frac{na^2I^2(\theta)t^2}{2\lambda^2}\right), & \text{for} \; 0 \leq t \leq \frac{\lambda^2}{naI(\theta)b}, \\
-    \exp\left(-\frac{naI(\theta)t}{2b}\right), & \text{for} \; t > \frac{\lambda^2}{naI(\theta)b}.
+    \exp\left(-\frac{na^2I^2(\theta)t^2}{2\lambda^2}\right), & \text{for} \; 0 \leq t \leq \frac{\lambda^2}{aI(\theta)b}, \\
+    \exp\left(-\frac{naI(\theta)t}{2b}\right), & \text{for} \; t > \frac{\lambda^2}{aI(\theta)b}.
 \end{array}	
 \right.
 $$
