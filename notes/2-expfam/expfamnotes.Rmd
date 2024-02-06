@@ -979,7 +979,7 @@ $$
 $$
 where $\mathcal{M}$ is the class of models under consideration.
 
-This is a "large sample size" result based on the "usual" asymptotics of Bayesian inference ([the Bernsteinâ€“von Mises theorem](https://en.wikipedia.org/wiki/Bernstein%E2%80%93von_Mises_theorem)), which is not valid for all statistical models. But it is always valid for exponential family models in general and categorical data analysis in particular (when sample size is "large").
+This is a "large sample size" result based on the "usual" asymptotics of Bayesian inference ([the Bernstein-von Mises theorem](https://en.wikipedia.org/wiki/Bernstein%E2%80%93von_Mises_theorem)), which is not valid for all statistical models. But it is always valid for exponential family models in general and categorical data analysis in particular (when sample size is "large").
 
 When we use a flat prior ($g$ is a constant function of $m$), the prior $g$ cancels out of the formula, and we obtain
 $$
