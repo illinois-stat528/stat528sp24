@@ -812,13 +812,13 @@ $$
 Thus a canonical linear submodel gives us a new exponential family, with lower-dimensional canonical parameter and statistic. The submodel exponential family is full if the original exponential family was full. Notice that $\Theta$ and $B$ are defined through the column space of $M$, not the particular model matrix $M$, the particular $\beta$ value does not determine the submodel uniquely.
 
 
-To distinguish between the submodel and the originally given exponential family, we often call the latter the \emph{saturated model}. Now we have four parameters: the saturated model canonical and mean value parameters, respectively, $\theta$ and $\mu$, and the submodel canonical and mean value parameters, respectively, $\beta$ and $\tau$. Relations between these parameterizations are given in Figure \ref{Fig1:parameterizations}.
-
-The observed equals expected property for the submodel is
+To distinguish between the submodel and the originally given exponential family, we often call the latter the \emph{saturated model}. Now we have four parameters: the saturated model canonical and mean value parameters, respectively, $\theta$ and $\mu$, and the submodel canonical and mean value parameters, respectively, $\beta$ and $\tau$. Relations between these parameterizations are given in Figure \ref{Fig1:parameterizations}. The observed equals expected property for the submodel is 
 \begin{equation} \label{submodelmvp}
-	\hat\tau = M^T\hat\mu = M^Ty.
+	\hat\tau = M^T\hat\mu.
 \end{equation}
-We cannot actually solve these equations for $\hat\mu$ because the mapping $\mu \to M^T\mu$ is usually not one-to-one (the $n > p$ case where $M \in \R^{n \times p}$ and is full column rank). Hence we cannot determine $\hat\theta$ and $\hat\beta$ from them either. The only way to determine the MLE is to maximize the log likelihood \eqref{subloglike} for $\beta$ to obtain $\hat\beta$ and then $\hat\theta = M\hat\beta$ and $\hat\mu = \nabla c(\hat\theta)$ and $\hat\tau = M^T\hat\mu$. But the observed equals expected property is nevertheless very important.
+Here, $\hat\mu$ is estimated using the submodel with model matrix $\beta$. 
+
+We cannot actually solve for $\hat\mu$ from $\hat\tau$ because the mapping $\mu \to M^T\mu$ is usually not one-to-one (the $n > p$ case where $M \in \R^{n \times p}$ and is full column rank). The only way to determine the MLE for all parameters is to maximize the log likelihood \eqref{subloglike} for $\beta$ to obtain $\hat\beta$ and then $\hat\theta = M\hat\beta$ and $\hat\mu = \nabla c(\hat\theta)$ and $\hat\tau = M^T\hat\mu$.
 
 \vspace{0.5cm}Recall that the saturated model canonical parameter vector $\theta$ is "linked" to the saturated model mean value parameter vector through the change-of-parameter mappings $g(\theta)$. We can reparameterize $\theta = M\beta$ and write
 $$
@@ -911,11 +911,11 @@ $$
 $$
 We see that the deviance statistic is a function of a ratio of two likelihoods, one corresponding to the canonical submodel and one corresponding to the saturated model. The deviance statistic has approximate distribution
 $$
-  D(y;\hat\mu) \; \overset{H_o}{\sim} \; \chi^2_{\text{df}}
+  D(y;\hat\mu) \; \overset{H_o}{\sim} \; \chi^2_{n-p}
 $$
-where $H_o$ is that the canonical submodel is correct and the alternative test is that the canonical submodel is incorrect but the saturated model is correct, df = $n - p$, $n$ is the sample size, and $p$ is the number of parameters in the canonical submodel. So we reject correctness of the canonical submodel when
+where $H_o$ is that the canonical submodel is correct and the alternative test is that the canonical submodel is incorrect but the saturated model is correct, $n$ is the sample size, and $p$ is the number of parameters in the canonical submodel. So we reject correctness of the canonical submodel when
 $$
-  D(y;\hat\mu) \; > \: \chi^2_{\text{df}}(\alpha).
+  D(y;\hat\mu) \; > \: \chi^2_{n-p}(\alpha).
 $$
 <!-- (Note that the $\chi^2$ approximation can be poor.) -->
 
@@ -929,9 +929,9 @@ using the likelihood ratio $\chi^2$ statistic given by
  -2\left[l(\hat\mu_0;y) - l(\hat\mu_1;y)\right] &= -2\left[l(\hat\mu_0;y) - l(y;y)\right]
    - \left\{-2\left[l(\hat\mu_1;y) - l(y;y)\right]\right\} \\
    &= D(y;\hat\mu_0) - D(y;\hat\mu_1) \\
-   &\approx \chi^2_{\text{df}},
+   &\approx \chi^2_{p_1 - p_0},
 \end{align*}
-where df = $p_1 - p_0$, $p_1$ is the number of parameters in $\mathcal{M}_1$, and $p_0$ is the number of parameters in $\mathcal{M}_0$. (Note that the $\chi^2$ approximation is often adequate here even it is not adequate for the saturated model provided that $\mathcal{M}_1$ is not too close to saturated.)
+where $p_1$ is the number of parameters in $\mathcal{M}_1$, and $p_0$ is the number of parameters in $\mathcal{M}_0$. (Note that the $\chi^2$ approximation is often adequate here even it is not adequate for the saturated model provided that $\mathcal{M}_1$ is not too close to saturated.)
 
 
 ## Information criteria
@@ -993,7 +993,7 @@ Clearly, BIC is defined the way it is to be comparable to AIC, not to produce th
 
 In model selection AIC and BIC do two different jobs. No selection criterion can do both jobs \citep{yang2005can}:
 
- * BIC provides consistent model selection when the true unknown model is among the models under considexration.
+ * BIC provides consistent model selection when the true unknown model is among the models under consideration.
 
  * AIC is minimax-rate optimal (details of minimax-rate optimality are beyond the scope of this course) for estimating the regression function and other probabilities and expectations.  It does not need the true unknown model to be among the models under consideration.
 
