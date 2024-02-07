@@ -715,15 +715,15 @@ $$
 
 We will also need the following results taken from \cite{wainwright2019high}: 
 
-\begin{lem} \label{lem:subexpo}
+\begin{prop} \label{lem:subexpo}
 Consider an independent sequence $\{Y_i\}_{i=1}^n$ of random variables with mean $\mu_i$, such that each $Y_i$ is sub-exponential with parameters $(\lambda_i, b_i)$. Then $\sum_{i=1}^n\left(Y_i - \mu_i\right)$ is also sub-exponential with parameters $(\lambda_*,b_*)$ where 
 $$
   \lambda_* = \sqrt{\sum_{i=1}^n \lambda_i^2} \qquad \text{and} \qquad  b_* = \max_{i=1,...,n} b_i.
 $$
-\end{lem}
+\end{prop}
 
 
-\begin{lem} \label{lem:upperbound}
+\begin{prop} \label{lem:upperbound}
 Consider an independent sequence $\{Y_i\}_{i=1}^n$ of random variables with mean $\mu_i$, such that each $Y_i$ is sub-exponential with parameters $(\lambda_i, b_i)$. Then
 $$
 \Prob\left(n^{-1}\sum_{i=1}^n(Y_i-\mu_i) \geq t\right) \leq \left\{\begin{array}{cl}
@@ -733,7 +733,7 @@ $$
 \right.
 $$
 where $(\lambda_*,b_*)$ are as defined in the previous lemma.
-\end{lem}
+\end{prop}
 
 
 Our finiteness argument will be demonstrated in the case when $Y$ is a scalar canonical statistic full regular exponential family with canonical parameter $\theta$ (although we will still use the $\nabla$ to denote derivatives). \textbf{It is a problem for the reader to show that $Y$ is a sub-exponential random variable}. Now let $\hat\theta$ be the MLE for the canonical parameter $\theta$. We now show that the MLE of an exponential family obeys sub-exponential concentration. Consider a Taylor expansion of the score function of an exponential family evaluated at the MLE
@@ -742,7 +742,7 @@ Our finiteness argument will be demonstrated in the case when $Y$ is a scalar ca
     + \nabla^2l_n(\theta)(\hat\theta - \theta) + R_n	\\
     &= \sum_{i=1}^n\{y_i - \nabla c(\theta)\} + \nabla^2l_n(\theta)(\hat\theta - \theta) + R_n,
 \end{align*}
-where $\nabla^2l_n(\theta) = -n\nabla^2 c(\theta) = -nI(\theta)$ and $R_n = o_P(n^{-1/2})$. Notice that $\sum_{i=1}^n\{y_i - \nabla c(\theta)\}$ is a sum of mean zero sub-exponential random variables, and is also sub-exponential by Lemma \ref{lem:subexpo}. Furthermore, scalar products of $\sum_{i=1}^n\{y_i - \nabla c(\theta)\}$ are also sub-exponential. After rearranging terms in the above displayed equation we see that 
+where $\nabla^2l_n(\theta) = -n\nabla^2 c(\theta) = -nI(\theta)$ and $R_n = o_P(n^{-1/2})$. Notice that $\sum_{i=1}^n\{y_i - \nabla c(\theta)\}$ is a sum of mean zero sub-exponential random variables, and is also sub-exponential by Proposition \ref{lem:subexpo}. Furthermore, scalar products of $\sum_{i=1}^n\{y_i - \nabla c(\theta)\}$ are also sub-exponential. After rearranging terms in the above displayed equation we see that 
 $$
   (\hat\theta - \theta) = n^{-1}I^{-1}(\theta)\sum_{i=1}^n\{y_i - \nabla c(\theta)\} + \widetilde R_n,
 $$
@@ -757,7 +757,7 @@ where $t > 0$. There exists a number $a > 0$ such that, for $n$ large,
   &\leq \Prob\left( n^{-1}\sum_{i=1}^n\{y_i - \nabla c(\theta)\} \geq aI(\theta)t\right).
 \end{align*}
 
-Lemma \ref{lem:upperbound} implies that 
+Proposition \ref{lem:upperbound} implies that 
 $$
   \Prob\left( n^{-1}\sum_{i=1}^n\{y_i - \nabla c(\theta)\} \geq aI(\theta)t\right) 
     \leq 
@@ -769,7 +769,7 @@ $$
 $$
 We can therefore conclude that the MLE of $\theta$ exhibits sub-exponential concentration following the logic that $(\hat\theta - \theta)$ has the same tail bounds as a sub-exponential random variable. We can use these results to obtain the rate of convergence. Set $t = \sqrt{\log(n)/n}$ and observe that 
 $$
-  \Prob\left( (\hat\theta - \theta) \geq aI(\theta)\sqrt{\frac{\log(n)}{n}}\right) 
+  \Prob\left( (\hat\theta - \theta) \geq \sqrt{\frac{\log(n)}{n}}\right) 
     = O\left(n^{-\frac{a^2I^2(\theta)}{2\lambda}}\right).
 $$
 
