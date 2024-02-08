@@ -890,9 +890,9 @@ where $\Phi$ is the distribution function for the standard normal distribution. 
 
 Similar to the p-value above, we can also construct $(1-\alpha)\times 100\%$ Wald based confidence intervals of the form
 $$
-  \hat\beta_j \pm z_{\alpha/2}\text{se}(\hat\beta_j)
+  \hat\beta_j \pm z_{1-\alpha/2}\text{se}(\hat\beta_j)
 $$
-where $z_{\alpha/2}$ is a quantile of the standard normal distribution at $\alpha/2$ where $\alpha \in (0,1)$ is a chosen error tolerance.
+where $z_{1-\alpha/2}$ is the $(1-\alpha/2)$th quantile of the standard normal distribution where $\alpha \in (0,1)$ is a chosen error tolerance.
 
 
 ## Deviance, goodness of fit, and likelihood ratios
