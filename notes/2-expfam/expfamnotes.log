@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  7 FEB 2024 08:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  8 FEB 2024 08:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,10 +1091,10 @@ c/lm/lmtko10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt
 10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on expfamnotes.pdf (30 pages, 579754 bytes).
+Output written on expfamnotes.pdf (30 pages, 580052 bytes).
 PDF statistics:
- 741 PDF objects out of 1000 (max. 8388607)
- 651 compressed objects within 7 object streams
+ 743 PDF objects out of 1000 (max. 8388607)
+ 653 compressed objects within 7 object streams
  174 named destinations out of 1000 (max. 500000)
  57645 words of extra memory for PDF output out of 61914 (max. 10000000)
 

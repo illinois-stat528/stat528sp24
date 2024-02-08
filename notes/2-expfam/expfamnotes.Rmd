@@ -947,7 +947,7 @@ The "information" in AIC is [Kullback-Leibler information](https://en.wikipedia.
 
 What Akaike discovered is that the maximized value of the log likelihood is a biased estimate of Kullback-Leibler information. It overestimates it by $p$, the dimension of the model (number of parameters). Or, what is the same thing, the likelihood ratio test (LRT) statistic, which is minus twice the (maximized value of the) log likelihood, underestimates its expectation by $2 p$.  So
 $$
-   \text{AIC} = -2l(\hat{\beta}) + 2 p
+   \text{AIC} = -2l(\hat\mu;y) + 2 p
 $$
 All of this is a "large sample size" result based on the "usual" asymptotics of maximum likelihood, which is not valid for all statistical models. But it is always valid for exponential family models in general and categorical data analysis in particular (when sample size is "large").
 
@@ -962,7 +962,7 @@ Approaches based on hypothesis testing, such as that implemented by R function `
 
 In the late 1970's Schwarz proposed another information criterion, which is now usually called the [Bayesian information criterion (BIC)](https://en.wikipedia.org/wiki/Bayesian_information_criterion). Its formula is
 $$
-   \text{BIC} = -2l(\hat{\beta}) + \log(n) \cdot p
+   \text{BIC} = -2l(\hat\mu;y) + \log(n) \cdot p
 $$
 Since $\log(n) \ge 2$ for $n \ge 8$, BIC penalizes larger models more than AIC.
 BIC always selects smaller models than AIC.
@@ -1033,11 +1033,11 @@ Now solving
 $$
   U(\beta) \approx U(\beta_k) + H(\beta_k)(\beta - \beta_k) = 0
 $$
-for $\beta$ yields the next guess. That guess is
+for $\beta$ yields a guess for the maximizer of the above second order Taylor series approximation. That guess is
 \begin{equation} \label{NRupdates}
 	\beta_{k+1} = \beta_k - H(\beta_k)^{-1}U(\beta_k).
 \end{equation}
-This algorithm is fast, exhibits [quadratic convergence](https://en.wikipedia.org/wiki/Rate_of_convergence), provided that it converges. Convergence is likely in identifiable models where $H(\beta_{0})$ is positive definite. However, the Newton-Raphson method can be quite sensitive to the choice of starting values $\beta_{0}$.
+This algorithm is fast, exhibits [quadratic convergence](https://en.wikipedia.org/wiki/Rate_of_convergence), provided that it converges. Convergence is likely in identifiable models where $H(\beta_{0})$ is positive definite. However, the Newton-Raphson method can be quite sensitive to the choice of starting values $\beta_{0}$. More details, including a graphical demonstration of the algorithm, is given in Section 4.6 of \cite{agresti2013cat}.
 
 For many identifiable GLMs, including Poisson models with log link and binomial models with logit link, with full rank model matrices the Hessian is negative definite and the log likelihood is a strictly concave function. The maximum likelihood estimators of model parameters exist and are unique under quite general conditions \citep{wedderburn1976existence}. Thus Newton Raphson should exhibit solid performance for finding MLEs of the submodel canonical parameter vector.
 
@@ -1305,7 +1305,7 @@ $$
   (\tau_1 - \tau_2)^T(\beta_1 - \beta_2) > 0, \qquad \text{whenever} \; \tau_1 \neq \tau_2.
 $$
 
-By standard theory of maximum likelihood, MLEs of all parameters are consistent, efficient (have minimum asymptotic variance), and asymptotically normal, with easily calculated asymptotic variance (inverse Fisher information matrix). Fisher information is easily calculated, \eqref{FI} is Fisher information for the saturated model canonical parameter $\theta$;
+By standard theory of maximum likelihood, MLEs of all parameters are consistent, efficient (have minimum asymptotic variance), and asymptotically normal, with easily calculated asymptotic variance (inverse Fisher information matrix). \eqref{FI} is Fisher information for the saturated model canonical parameter $\theta$;
 $$
   \nabla^2_\beta c(M\beta) = M^T\left(\nabla c(M\beta)\right)M
 $$
@@ -1317,6 +1317,7 @@ $$
 $$
 and $M^TI(\theta)M$ is the asymptotic variance for $\hat\tau$. These can be used for hypothesis tests and confidence intervals about these other parameters.
 
+We can obtain reliable estimates of modeling parameters via optimization routines. The \texttt{glm} package uses a carefully written IRLS routine to maximize $l(\beta)$ and obtain $\hat{\beta}$.
 
 
 \section*{Acknowledgments}
