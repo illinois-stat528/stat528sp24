@@ -730,25 +730,28 @@ heatmap.fit(y, predict(m_small, type = "response"))
 <!-- The two quantities are essentially the same, both estimates of the ATE show that in-person instruction has no advantage over online instruction in STAT 200. Estimates of variability of these different ATEs can be found using the nonparametric (cases) bootstrap -->
 
 
-<!-- # Appendix: nonparametric cases bootstrap -->
+# Appendix: nonparametric cases bootstrap
 
-<!-- We introduce a nonparametric bootstrap procedure to estimate the uncertainty of estimates of model parameters. The idea of the bootstrap is to apply the same estimation task used in the original data set to many resamples of the observed data in order to estimate uncertainty of the modeling task. The intuition is that if the original data is large enough, then resamples from the original data mimic sampling from the data-generating process.  -->
+We introduce a nonparametric bootstrap procedure to estimate the uncertainty of estimates of model parameters. The idea of the bootstrap is to apply the same estimation task used in the original data set to many resamples of the observed data in order to estimate uncertainty of the modeling task. The intuition is that if the original data is large enough, then resamples from the original data mimic sampling from the data-generating process.
 
-<!-- Suppose that we have a sample of data $(y_i,x_i)$, $i = 1,\ldots, n$ where $y_i$ is a binary response variable and $x_i$ is a vector of predictors taking values in $\R^p$. For the bootstrapping cases method to estimate uncertainty of estimates of the submodel canonical parameter vector, the procedure is as follows:  -->
+Suppose that we have a sample of data $(y_i,x_i)$, $i = 1,\ldots, n$ where $y_i$ is a binary response variable and $x_i$ is a vector of predictors taking values in $\R^p$. For the bootstrapping cases method to estimate uncertainty of estimates of the submodel canonical parameter vector, the procedure is as follows:
 
-<!-- 1. Sample $(y_i^*,x_i^*)$, $i = 1,\ldots, n$ with replacement from the original sample $(y_i,x_i)$, $i = 1,\ldots, n$. -->
-<!-- 2. Calculate $\hat{\beta}^*$ using the resampled data in step 1 in the same way that $\hat{\beta}$ is calculated using the original data. -->
-<!-- 3. Repeat steps 1-2 a total of $B$ times to for the bootstrap distribution of $\hat{\beta}$. -->
+1. Sample $(y_i^*,x_i^*)$, $i = 1,\ldots, n$ with replacement from the original sample $(y_i,x_i)$, $i = 1,\ldots, n$.
+2. Calculate $\hat{\beta}^*$ using the resampled data in step 1 in the same way that $\hat{\beta}$ is calculated using the original data.
+3. Repeat steps 1-2 a total of $B$ times to for the bootstrap distribution of $\hat{\beta}$.
 
-<!-- We can then estimate the uncertainty using Wald-type confidence intervals where the standard errors are calculated using the bootstrap sample of $B$ values of $\hat{\beta}^*$ -->
-<!-- $$ -->
-<!--   \hat{\beta} \pm t_{n-1;1-\alpha/2} \hat{se}(\hat{\beta}) -->
-<!-- $$ -->
-<!-- where $t_{n-1,1-\alpha/2}$ is the $(1-\alpha/2)$th quantile of a $t$-distribution with $n-1$ degrees of freedom. Alternatively, we can report a percentile based confidence interval calculated using quantiles of the bootstrap distribution -->
+We can then estimate the uncertainty using Wald-type confidence intervals where the standard errors are calculated using the bootstrap sample of $B$ values of $\hat{\beta}^*$
+$$
+  \hat{\beta} \pm Z_{1 -\alpha/2} \hat{se}(\hat{\beta})
+$$
+where $Z_{1 -\alpha/2}$ is the $(1-\alpha/2)$th quantile of a standard normal distribution. 
+
+
+<!-- Alternatively, we can report a percentile based confidence interval calculated using quantiles of the bootstrap distribution -->
 <!-- $$ -->
 <!--   [Q^*_{(\alpha/2)}, Q^*_{(1-\alpha/2)}], -->
 <!-- $$ -->
-<!-- where $Q^*_{(\alpha/2)}$ and $Q^*_{(1-\alpha/2)}$ denote the quantiles of the bootstrap sample of $B$ values of $\hat{\beta}^*$.  -->
+<!-- where $Q^*_{(\alpha/2)}$ and $Q^*_{(1-\alpha/2)}$ denote the quantiles of the bootstrap sample of $B$ values of $\hat{\beta}^*$. -->
 
 
 <!-- The [analysis of the STAT 200 data](https://journals.sagepub.com/doi/full/10.1177/00472395231166592) used the percentile method. It should be noted that the percentile method is simple to compute, but it suffers some drawbacks. For more details, see Section 5.3 of [these course notes](http://users.stat.umn.edu/~helwig/notes/npboot-notes.html#nonparametric-bootstrap-basics). In the analysis of STAT 200 data, it appeared that the simple bootstrap percentile confidence interval above was sufficient. This interval closely matched usual Wald-type confidence intervals which assume correctness of the specified model.  -->
