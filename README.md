@@ -6,10 +6,12 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Week 4 materials are posted
+* Week 5 materials are posted
 
-* Week 4 Reading: 
-  + **Reading**: course notes on exponential families
+* Week 5 Reading: 
+  + **Reading**: course notes on binary response regression models 
+  
+* [stat528materials](https://github.com/DEck13/stat528materials) software package is now available. This package contains documentation for the CCSO data set.
 
 ## Cheatsheats
   + [dplyr](https://posit.co/wp-content/uploads/2022/10/data-transformation-1.pdf) for data transformation
