@@ -521,213 +521,215 @@ heatmap.fit(y, predict(m_small, type = "response"))
 ```
 
 
-<!-- # Alternatives to the logit link  -->
+# Alternatives to the logit link
 
-<!-- ## Probit Regression -->
+## Probit Regression
 
-<!-- In this class we have focused on exponential theory, canonical links, and generalized linear models that arise from this perspective. We now present an alternative to this paradigm in the form of the probit link function for binary response variables. Probit regression arises from normal latent variable models. Recall that we are interested in modeling $p(x) = \Prob(Y = 1|X = x)$ in the form -->
-<!-- $$ -->
-<!--   g^{-1}(p(x)) = x^T\beta -->
-<!-- $$ -->
-<!-- where $g^{-1}$ is not the logit function. In probit regression we specify $g = \Phi$ where $\Phi$ is the CDF of a standard normal distribution. Thus the probit regression model is of the form -->
-<!-- $$ -->
-<!--   \Phi^{-1}(p(x)) = x^T\beta. -->
-<!-- $$ -->
-<!-- A related latent variable (referred to as a threshold model) also specifies the probit model. This model assumes that there is an unobserved continuous response $y^*$ such that the observed response $y = 0$ if $y^* \leq \tau$ and $y = 1$ if $y^* > \tau$. Suppose that $y^* = \mu + \varepsilon$, where $\mu = x^T\beta$ and where $\varepsilon_i$ are independent realizations from a $N(0,\sigma^2)$ distribution. Then, -->
-<!-- \begin{align*} -->
-<!--   \Prob(Y = 1\mid X = x) &= \Prob(Y^* > \tau\mid X = x) = \Prob(x^T\beta + \varepsilon > \tau\mid X = x) \\ -->
-<!--     &= \Prob(-\varepsilon < x^T\beta - \tau\mid X = x) = \Phi\left((x^T\beta - \tau)/\sigma\right) -->
-<!-- \end{align*} -->
-<!-- where it is noted that $\varepsilon \overset{d}{=} -\varepsilon$. There is no information in the data about $\sigma$ or the threshold $\tau$. An equivalent model results if we multiply $(\beta^T,\sigma,\tau)$ by any positive constant. For identifiability, we set $\sigma = 1$ and $\tau = 0$, and the probit model results. It should be noted that the same latent variable threshold model story can be told by the logistic regression model. To see this, replace the normal distribution specification for $\varepsilon$ in the above with with a [logistic distribution](https://en.wikipedia.org/wiki/Logistic_distribution) with $\mu = 0$ and $s = 1$. -->
+In this class we have focused on exponential theory, canonical links, and generalized linear models that arise from this perspective. We now present an alternative to this paradigm in the form of the probit link function for binary response variables. Probit regression arises from normal latent variable models. Recall that we are interested in modeling $p(x) = \Prob(Y = 1|X = x)$ in the form
+$$
+  g^{-1}(p(x)) = x^T\beta
+$$
+where $g^{-1}$ is not the logit function. In probit regression we specify $g = \Phi$ where $\Phi$ is the CDF of a standard normal distribution. Thus the probit regression model is of the form
+$$
+  \Phi^{-1}(p(x)) = x^T\beta.
+$$
+A related latent variable (referred to as a threshold model) also specifies the probit model. This model assumes that there is an unobserved continuous response $y^*$ such that the observed response $y = 0$ if $y^* \leq \tau$ and $y = 1$ if $y^* > \tau$. Suppose that $y^* = \mu + \varepsilon$, where $\mu = x^T\beta$ and where $\varepsilon_i$ are independent realizations from a $N(0,\sigma^2)$ distribution. Then,
+\begin{align*}
+  \Prob(Y = 1\mid X = x) &= \Prob(Y^* > \tau\mid X = x) = \Prob(x^T\beta + \varepsilon > \tau\mid X = x) \\
+    &= \Prob(-\varepsilon < x^T\beta - \tau\mid X = x) = \Phi\left((x^T\beta - \tau)/\sigma\right)
+\end{align*}
+where it is noted that $\varepsilon \overset{d}{=} -\varepsilon$. There is no information in the data about $\sigma$ or the threshold $\tau$. An equivalent model results if we multiply $(\beta^T,\sigma,\tau)$ by any positive constant. For identifiability, we set $\sigma = 1$ and $\tau = 0$, and the probit model results. It should be noted that the same latent variable threshold model story can be told by the logistic regression model. To see this, replace the normal distribution specification for $\varepsilon$ in the above with with a [logistic distribution](https://en.wikipedia.org/wiki/Logistic_distribution) with $\mu = 0$ and $s = 1$.
 
-<!-- \vspace*{0.5cm}\noindent Another latent variable interpretation of the probit model is based on utility functions. Consider the choice between two options, such as two brands. Let $U_0$ denote the utility of outcome $y = 0$ and let $U_1$ denote the utility of outcome $y = 1$. For $y \in \{0,1\}$, suppose that $U_y = x^T\beta_y + \varepsilon_y$. A particular subject selects $y=1$ when $U_1 > U_0$. Now suppose that $\varepsilon_0$ and $\varepsilon_1$ are independent $N(0,1)$ random variables. Then, -->
-<!-- \begin{align*} -->
-<!--   \Prob(Y = 1\mid X = x) &= \Prob(x^T\beta_1 + \varepsilon_1 > x^T\beta_0 + \varepsilon_0\mid X = x) \\ -->
-<!--     &= \Prob\left((\varepsilon_0 - \varepsilon_1)/\sqrt{2} < x^T(\beta_1 - \beta_0)/\sqrt{2}\mid X = x\right) \\ -->
-<!--     &= \Phi(x^T\beta^*) -->
-<!-- \end{align*} -->
-<!-- where $\beta^* = (\beta_1 - \beta_0)/\sqrt{2}$. Again, this is the probit model. The probit model can extend to an inverse $t$ link, for which corresponding latent variable models can better accommodate outliers. -->
+\vspace*{0.5cm}\noindent Another latent variable interpretation of the probit model is based on utility functions. Consider the choice between two options, such as two brands. Let $U_0$ denote the utility of outcome $y = 0$ and let $U_1$ denote the utility of outcome $y = 1$. For $y \in \{0,1\}$, suppose that $U_y = x^T\beta_y + \varepsilon_y$. A particular subject selects $y=1$ when $U_1 > U_0$. Now suppose that $\varepsilon_0$ and $\varepsilon_1$ are independent $N(0,1)$ random variables. Then,
+\begin{align*}
+  \Prob(Y = 1\mid X = x) &= \Prob(x^T\beta_1 + \varepsilon_1 > x^T\beta_0 + \varepsilon_0\mid X = x) \\
+    &= \Prob\left((\varepsilon_0 - \varepsilon_1)/\sqrt{2} < x^T(\beta_1 - \beta_0)/\sqrt{2}\mid X = x\right) \\
+    &= \Phi(x^T\beta^*)
+\end{align*}
+where $\beta^* = (\beta_1 - \beta_0)/\sqrt{2}$. Again, this is the probit model. The probit model can extend to an inverse $t$ link, for which corresponding latent variable models can better accommodate outliers.
 
-<!-- Parameters in probit models can be interpreted in terms of effects on $\E(Y^*)$ for the threshold latent variable model presented above. Since $Y^* = x^T\beta + \varepsilon$ where $\varepsilon \sim N(0,1)$ has the CDF $\Phi$, a 1-unit increase in $x$ corresonds to a $\beta$ standard deviation increase in $\E(Y^*)$. Alternatively, we can summarize effects on the probability scale, such as by comparing estimated probabilities at extreme values or quartiles of a predictor, with other predictors set at their means. Although probit model parameter estimates are on a different scale than logistic model parameter estimates, the probability summaries of effects are similar. -->
-
-
-<!-- ## Probit model fitting -->
-
-<!-- Let $y_i$ be the number of successes out of $n_i$ trials at setting $x_i$, $i = 1,\ldots,n$. Let $x_{ij}$ denote the value of predictor $j$ for subject $i$. For the probit model $\Phi^{-1}(p(x_i)) = \sum_{j=1}\beta_jx_{ij}$, the log likelihood function is  -->
-<!-- $$ -->
-<!--   l(\beta) = \log\left\{\prod_{i=1}^n\left[\Phi\left(\sum_j \beta_jx_{ij}\right)\right]^{y_i} -->
-<!--   \left[1 - \Phi\left(\sum_j \beta_jx_{ij}\right)\right]^{n_i - y_i}\right\}. -->
-<!-- $$ -->
-<!-- Differentiation with respect to $\beta_j$ leads to, -->
-<!-- $$ -->
-<!--   \sum_{i}\left\{\left[\frac{n_i\left[y_i - \Phi\left(\sum_j\beta_j x_{ij}\right)\right]x_{ij}} -->
-<!--   {\Phi\left(\sum_j\beta_j x_{ij}\right)\left[1 - \Phi\left(\sum_j\beta_j x_{ij}\right)\right]}\right] \phi\left(\sum_j\beta_j x_{ij}\right)\right\} = 0, -->
-<!-- $$ -->
-<!-- with $\phi(\cdot)$ the standard normal pdf.  -->
-
-<!-- When the link function is not the canonical link (which is the logit function for binary data), there is no reduction of the data in the form of Fisher's notion of sufficieny. Fisher (1935), in an appendix to Bliss (1935) for the single predictor case, showed how to solve the above equations using the Fisher scoring algorithm. He also pointed out that cases with $y_i = 0$ or $y_i = n_i$ were not problematic for ML fitting, unlike weighted least squares using sample probits (or logits). The estimated asymptotic covariance matrix of $\hat\beta$ has the form  -->
-<!-- $$ -->
-<!--   \widehat{\text{cov}}(\hat\beta) = \left(M^T\widehat{W}M\right)^{-1}. -->
-<!-- $$ -->
-<!-- For probit models, $\widehat{W}$ is the diagonal matrix with elements  -->
-<!-- $$ -->
-<!--   w_i =\frac{n_i\left[\phi\left(\sum_j\hat\beta_j x_{ij}\right)\right]^2} -->
-<!--   {\left\{\Phi\left(\sum_j\hat\beta_j x_{ij}\right)\left[1 - \Phi\left(\hat\beta_j x_{ij}\right)\right]\right\}}. -->
-<!-- $$ -->
-<!-- The Newton-Raphson algorithm yields the same MLE estimates but slightly different standard errors. For the information matrix inverted to obtain the asymptotic covariance matrix, Newton-Raphson uses observed information, whereas Fisher scoring uses expected information. These differ for link functions other than the canonical link. -->
-
-<!-- ## Probit Example -->
-
-<!-- We return to our CCSO example and refit the logistic regression model with a probit link function. -->
-
-<!-- ```{r} -->
-<!-- m2 = glm(atleastone ~ -1 + race + sex + arrestAge, data = CCSO_small,  -->
-<!--           family = binomial(link = "probit"), x = "TRUE") -->
-<!-- summary(m2) -->
-<!-- ``` -->
-
-<!-- ```{r heatmap_probit, cache = TRUE} -->
-<!-- heatmap.fit(y, predict(m2, type = "response")) -->
-<!-- ``` -->
+Parameters in probit models can be interpreted in terms of effects on $\E(Y^*)$ for the threshold latent variable model presented above. Since $Y^* = x^T\beta + \varepsilon$ where $\varepsilon \sim N(0,1)$ has the CDF $\Phi$, a 1-unit increase in $x$ corresonds to a $\beta$ standard deviation increase in $\E(Y^*)$. Alternatively, we can summarize effects on the probability scale, such as by comparing estimated probabilities at extreme values or quartiles of a predictor, with other predictors set at their means. Although probit model parameter estimates are on a different scale than logistic model parameter estimates, the probability summaries of effects are similar.
 
 
-<!-- Summarise these results. -->
+## Probit model fitting
+
+Let $y_i$ be the number of successes out of $n_i$ trials at setting $x_i$, $i = 1,\ldots,n$. Let $x_{ij}$ denote the value of predictor $j$ for subject $i$. For the probit model $\Phi^{-1}(p(x_i)) = \sum_{j=1}\beta_jx_{ij}$, the log likelihood function is
+$$
+  l(\beta) = \log\left\{\prod_{i=1}^n\left[\Phi\left(\sum_j \beta_jx_{ij}\right)\right]^{y_i}
+  \left[1 - \Phi\left(\sum_j \beta_jx_{ij}\right)\right]^{n_i - y_i}\right\}.
+$$
+Differentiation with respect to $\beta_j$ leads to,
+$$
+  \sum_{i}\left\{\left[\frac{n_i\left[y_i - \Phi\left(\sum_j\beta_j x_{ij}\right)\right]x_{ij}}
+  {\Phi\left(\sum_j\beta_j x_{ij}\right)\left[1 - \Phi\left(\sum_j\beta_j x_{ij}\right)\right]}\right] \phi\left(\sum_j\beta_j x_{ij}\right)\right\} = 0,
+$$
+with $\phi(\cdot)$ the standard normal pdf.
+
+When the link function is not the canonical link (which is the logit function for binary data), there is no reduction of the data in the form of Fisher's notion of sufficieny. Fisher (1935), in an appendix to Bliss (1935) for the single predictor case, showed how to solve the above equations using the Fisher scoring algorithm. He also pointed out that cases with $y_i = 0$ or $y_i = n_i$ were not problematic for ML fitting, unlike weighted least squares using sample probits (or logits). The estimated asymptotic covariance matrix of $\hat\beta$ has the form
+$$
+  \widehat{\text{cov}}(\hat\beta) = \left(M^T\widehat{W}M\right)^{-1}.
+$$
+For probit models, $\widehat{W}$ is the diagonal matrix with elements
+$$
+  w_i =\frac{n_i\left[\phi\left(\sum_j\hat\beta_j x_{ij}\right)\right]^2}
+  {\left\{\Phi\left(\sum_j\hat\beta_j x_{ij}\right)\left[1 - \Phi\left(\hat\beta_j x_{ij}\right)\right]\right\}}.
+$$
+The Newton-Raphson algorithm yields the same MLE estimates but slightly different standard errors. For the information matrix inverted to obtain the asymptotic covariance matrix, Newton-Raphson uses observed information, whereas Fisher scoring uses expected information. These differ for link functions other than the canonical link.
+
+## Probit Example
+
+We return to our CCSO example and refit the logistic regression model with a probit link function.
+
+```{r}
+m2 = glm(atleastone ~ -1 + race + sex + arrestAge, data = CCSO_small,
+          family = binomial(link = "probit"), x = "TRUE")
+summary(m2)
+```
+
+```{r heatmap_probit, cache = TRUE}
+heatmap.fit(y, predict(m2, type = "response"))
+```
 
 
-<!-- # Inverse propensity score weighting (IPW) in Causal Inference -->
-
-<!-- ## Brief explanation of causal inference  -->
-
-<!-- This example will highlight the logistic regression as a model for treatment assignment in causal inference. In this example we will only scratch the surface of casual inference and will cover important causal estimators in very little detail. External references that go into more details about causal inference will be provided. Feel free to read them if you are interested. The goal of our data analysis will be to determine if course lectures provide any improvement to student exam scores when an online course implementation already exists.  -->
-
-<!-- One of the central goals of causal inference is to estimate the average treatment effect (ATE). In its most simple presentation, we will assume that the treatment variable is binary. The ATE measures the difference in mean outcomes between individuals assigned to the treatment and individuals assigned to the control. However, there is a difficulty with estimation since individuals do not simultaneously receive the treatment and the control. When the study is randomized this difficulty is mitigated because randomization ensures (when $n$ is large enough) that baseline covariates which may influence the response have the same distribution in both the treatment and control groups. In observational studies this may not be so, and the researcher may have no information about the treatment assignment mechanism. In the observational setting, the collected covariates could confound the relationship between the treatment variable and the response variable. -->
-
-<!-- One technique for estimating the ATE in causal studies is through inverse propensity score weighting (IPW). The IPW technique makes use of a treatment assignment model. In the simple setting we will take a logistic regression model as our model for treatment assignment. The idea of IPW is to create a pseudo population that exhibits balance in baseline covariates through the weighting of individuals corresponding to how likely they belong to either the treatment or control group given their covariate profile. Thus IPW can mimic random assignment up to measured confounders.  -->
-
-<!-- ## Define ATEs for additional in-person lectures -->
-
-<!-- We will now go through an example. In this example we estimate the [causal effect of adding in-person lectures to an online version of STAT 200 at UIUC](https://journals.sagepub.com/doi/full/10.1177/00472395231166592). The response variable $Y$ is the comprehensive 3-hour Final that was Scantron graded at the end of each semester, and the treatment variable $A$ is the presence or absence of in-person lectures. The online only course is considered the treatment and the regular in-person course with recorded lectures is the control.  -->
-
-<!-- We estimate the causal effect of online learning (or absence of in-person lecture) by estimating the ATE using inverse propensity score weighting methods. The form of this estimator of the ATE is -->
-<!-- $$ -->
-<!--  \widehat{\text{ATE}} = \frac{1}{n}\sum_{i=1}^n \left(w_iA_iY_i - w_i(1-A_i)Y_i\right), -->
-<!-- $$ -->
-<!-- where the weights $w_i$ are a functions of the propensity scores $\hat{p}_i = \widehat{P}(A_i = 1|X_i)$, $i = 1,\ldots,n$. The propensity scores are each subjects conditional probability of belonging to the treatment group given their covariate information. We will estimate the propensity scores using a logistic regression model. -->
+Summarise these results.
 
 
-<!-- The most basic inverse propensity weighted (IPW) estimator has weights $w_i$ of the form -->
-<!-- $$ -->
-<!--   w_i = \frac{A_i}{\hat{p}_i} + \frac{1 - A_i}{1 - \hat{p}_i}. -->
-<!-- $$ -->
-<!-- If the propensity score were to be known apriori in the above, then $\widehat{\text{ATE}}$ is an unbiased estimator for the average treatment effect. Therefore, $p_i$ must be the true propensity score for this estimator to be consistent (ie our logistic regression model must be correctly specified). -->
+# Inverse propensity score weighting (IPW) in Causal Inference
+
+## Brief explanation of causal inference
+
+This example will highlight the logistic regression as a model for treatment assignment in causal inference. In this example we will only scratch the surface of casual inference and will cover important causal estimators in very little detail. External references that go into more details about causal inference will be provided. Feel free to read them if you are interested. The goal of our data analysis will be to determine if course lectures provide any improvement to student exam scores when an online course implementation already exists.
+
+One of the central goals of causal inference is to estimate the average treatment effect (ATE). In its most simple presentation, we will assume that the treatment variable is binary. The ATE measures the difference in mean outcomes between individuals assigned to the treatment and individuals assigned to the control. However, there is a difficulty with estimation since individuals do not simultaneously receive the treatment and the control. When the study is randomized this difficulty is mitigated because randomization ensures (when $n$ is large enough) that baseline covariates which may influence the response have the same distribution in both the treatment and control groups. In observational studies this may not be so, and the researcher may have no information about the treatment assignment mechanism. In the observational setting, the collected covariates could confound the relationship between the treatment variable and the response variable.
+
+One technique for estimating the ATE in causal studies is through [inverse propensity score weighting (IPW)](https://www.rebeccabarter.com/blog/2017-07-05-ip-weighting). The IPW technique makes use of a treatment assignment model. In the simple setting we will take a logistic regression model as our model for treatment assignment (as often done in practice). The idea of IPW is to create a pseudo population that exhibits balance in baseline covariates through the weighting of individuals corresponding to how likely they belong to either the treatment or control group given their covariate profile. Thus IPW techniques can mimic random assignment up to measured confounders.
+
+## Define ATEs for additional in-person lectures
+
+We will now go through an example. In this example we estimate the [causal effect of adding in-person lectures to an online version of STAT 200 at UIUC](https://journals.sagepub.com/doi/full/10.1177/00472395231166592). The response variable $Y$ is the comprehensive 3-hour Final that was Scantron graded at the end of each semester, and the treatment variable $A$ is the presence or absence of in-person lectures. The online only course is considered the treatment and the regular in-person course with recorded lectures is the control.
+
+We estimate the causal effect of online learning (or absence of in-person lecture) by estimating the ATE using inverse propensity score weighting methods. The form of this estimator of the ATE is
+$$
+ \widehat{\text{ATE}} = \frac{1}{n}\sum_{i=1}^n \left(w_iA_iY_i - w_i(1-A_i)Y_i\right),
+$$
+where the weights $w_i$ are a functions of the propensity scores $\hat{p}_i = \widehat{P}(A_i = 1|X_i)$, $i = 1,\ldots,n$. The propensity scores are each subjects conditional probability of belonging to the treatment group given their covariate information. We will estimate the propensity scores using a logistic regression model.
 
 
-<!-- This basic IPW estimator can be unstable, it does not create balanced pseudo populations (which one would expect under purely random assignment), and is inappropriate for continuous predictors in our analysis. We consider an [alternative stable estimator of the ATE](https://onlinelibrary.wiley.com/doi/full/10.1002/sim.6607) (referred to as $\text{ATE}_{\text{IPW}}$). The alternative stable estimator of the ATE has conventional inverse propensity score weights with changes being made to the aggregation. This estimator of the ATE is  -->
-<!-- $$ -->
-<!--  \widehat{\text{ATE}}_{\text{alt}} =  -->
-<!--    \left(\sum_{i=1}^n\frac{A_i}{\hat{p}_i}\right)^{-1}\sum_{i=1}^nw_iA_iY_i -  -->
-<!--    \left(\sum_{i=1}^n\frac{1-A_i}{1-\hat{p}_i}\right)^{-1}\sum_{i=1}^nw_i(1-A_i)Y_i -->
-<!-- $$ -->
-<!-- where $w_i$ in the above are basic IPW weights. -->
+The most basic inverse propensity weighted (IPW) estimator has weights $w_i$ of the form
+$$
+  w_i = \frac{A_i}{\hat{p}_i} + \frac{1 - A_i}{1 - \hat{p}_i}.
+$$
+If the propensity score were to be known apriori in the above, then $\widehat{\text{ATE}}$ is an unbiased estimator for the average treatment effect. Therefore, $p_i$ must be the true propensity score for this estimator to be consistent (ie our logistic regression model must be correctly specified).
 
 
-<!-- The estimators $\widehat{\text{ATE}}$ and $\widehat{\text{ATE}}_{\text{alt}}$ are consistent if the propensity score model is correctly specified, so should be approximately unbiased in finite samples. We will also consider a [double robust (DR) estimator](https://www.tandfonline.com/doi/abs/10.1080/01621459.1994.10476818) of the ATE. This estimator is  -->
-<!-- $$ -->
-<!--   \widehat{\text{ATE}}_{\text{DR}} = \frac{1}{n}\sum_{i=1}^n \frac{A_iY_i - (A_i - \hat p_i)m_1(X_i,\hat{\alpha}_1)}{\hat p_i} -  \frac{1}{n}\sum_{i=1}^n \frac{(1-A_i)Y_i + (A_i - \hat p_i)m_0(X_i,\hat{\alpha}_0)}{1 - \hat p_i}, -->
-<!-- $$ -->
-<!-- where $m_a(X,\alpha_a) = E(Y|A=a,X)$ is the regression of the response on $X$ in each level of $A \in \{0,1\}$, depending on parameters $\alpha_a$, and $\hat{\alpha}_a$ is the estimator for $\alpha_a$ based on the data from subjects with $A = a$. -->
-
-<!-- ## Estimate ATEs -->
-
-<!-- We now load in the data and provide estimates to the ATEs above.  -->
-
-<!-- ```{r, eval = FALSE, echo = FALSE} -->
-<!-- ## create the data -->
-<!-- set.seed(13) -->
-<!-- dat = read.csv("200_1105.csv")[1:1105, ] %>%  -->
-<!--   rename(ObjExam = ObjectiveExam) %>%  -->
-<!--   select(ObjExam, Online, ACTMath, ACTMajor, ACT, Gender,  -->
-<!--     International, F17, S18, S19, Fa19, FR, SO, JR)  -->
-<!-- dat$ACT = as.numeric(as.character(dat$ACT)) -->
-<!-- dat$ACTMajor = as.numeric(as.character(dat$ACTMajor)) -->
-<!-- dat$ACTMath = as.numeric(as.character(dat$ACTMath)) -->
-<!-- dat$Gender = as.numeric(as.character(dat$Gender)) -->
-<!-- dat$Online = as.numeric(as.character(dat$Online)) -->
-<!-- dat$International = as.numeric(as.character(dat$International)) -->
-<!-- n = nrow(dat) -->
-<!-- dat = dat[sample(c(FALSE,TRUE), replace = TRUE, size = 1105, prob = c(0.25,0.75)), ] -->
-<!-- write.csv(dat, "online.csv") -->
-<!-- ``` -->
+This basic IPW estimator can be unstable, it does not create balanced pseudo populations (which one would expect under purely random assignment), and is inappropriate for continuous predictors in our analysis. We consider an [alternative stable estimator of the ATE](https://onlinelibrary.wiley.com/doi/full/10.1002/sim.6607) (referred to as $\text{ATE}_{\text{IPW}}$). The alternative stable estimator of the ATE has conventional inverse propensity score weights with changes being made to the aggregation. This estimator of the ATE is
+$$
+ \widehat{\text{ATE}}_{\text{alt}} =
+   \left(\sum_{i=1}^n\frac{A_i}{\hat{p}_i}\right)^{-1}\sum_{i=1}^nw_iA_iY_i -
+   \left(\sum_{i=1}^n\frac{1-A_i}{1-\hat{p}_i}\right)^{-1}\sum_{i=1}^nw_i(1-A_i)Y_i
+$$
+where $w_i$ in the above are basic IPW weights.
 
 
-<!-- ```{r} -->
-<!-- dat = read.csv("online.csv", header = TRUE)[, -1] -->
-<!-- head(dat) -->
-<!-- ``` -->
+The estimators $\widehat{\text{ATE}}$ and $\widehat{\text{ATE}}_{\text{alt}}$ are consistent if the propensity score model is correctly specified, so should be approximately unbiased in finite samples. We will also consider a [double robust (DR) estimator](https://www.tandfonline.com/doi/abs/10.1080/01621459.1994.10476818) of the ATE. This estimator is
+$$
+  \widehat{\text{ATE}}_{\text{DR}} = \frac{1}{n}\sum_{i=1}^n \frac{A_iY_i - (A_i - \hat p_i)m_1(X_i,\hat{\alpha}_1)}{\hat p_i} -  \frac{1}{n}\sum_{i=1}^n \frac{(1-A_i)Y_i + (A_i - \hat p_i)m_0(X_i,\hat{\alpha}_0)}{1 - \hat p_i},
+$$
+where $m_a(X,\alpha_a) = E(Y|A=a,X)$ is the regression of the response on $X$ in each level of $A \in \{0,1\}$, depending on parameters $\alpha_a$, and $\hat{\alpha}_a$ is the estimator for $\alpha_a$ based on the data from subjects with $A = a$.
 
-<!-- We specify the propensity score logistic regression model and obtain the estimated propensity scores (estimates of the probability of being in the treatment group). -->
+## Estimate ATEs
 
-<!-- ```{r} -->
-<!-- # basic data wrangling (will induce non problematic rank deficiency) -->
-<!-- dat_small = dat %>% dplyr::select(Online, ACTMath, ACTMajor, ACT, Gender, -->
-<!--                         International, F17, S18, S19, Fa19, FR, SO, JR) -->
-
-<!-- # prop score model -->
-<!-- m = glm(Online ~., data = dat_small, family = "binomial") -->
-<!-- trt = dat_small$Online -->
-<!-- preds = predict(m, type = "response") -->
-<!-- ``` -->
+We now load in the data and provide estimates to the ATEs above.
 
 
-<!-- The propensity score model seems to align well with the observed data. -->
-<!-- ```{r heatmap_prop_model, warning = FALSE, message = FALSE, cache = TRUE} -->
-<!-- trt = dat_small$Online -->
-<!-- heatmap.fit(trt, preds) -->
-<!-- ``` -->
+```{r}
+dat = read.csv("online.csv", header = TRUE)[, -1]
+head(dat)
+```
+
+We specify the propensity score logistic regression model and obtain the estimated propensity scores (estimates of the probability of being in the treatment group).
+
+```{r}
+# basic data wrangling (will induce non problematic rank deficiency)
+dat_small = dat %>% dplyr::select(Online, ACTMath, ACTMajor, ACT, Gender,
+                        International, F17, S18, S19, Fa19, FR, SO, JR)
+
+# prop score model
+m = glm(Online ~., data = dat_small, family = "binomial")
+trt = dat_small$Online
+preds = predict(m, type = "response")
+```
 
 
-<!-- We now obtain the weights for the stabilized estimator -->
-<!-- $$ -->
-<!--   \widetilde{w}_i =  \frac{\frac{A_i}{\hat{p}_i}}{\sum_{i=j}^n\frac{A_j}{\hat{p}_j}} + \frac{\frac{1-A_i}{1 -\hat{p}_i}}{\sum_{j=1}^n\frac{1-A_j}{1-\hat{p}_j}} -->
-<!-- $$ -->
-<!-- and we check for the balance of weights in the online and in-person groups across the Gender and International variables  -->
-<!-- ```{r} -->
-<!-- # estimate the stabilized IPW weights   -->
-<!-- weights_alt_trt = 1 / sum(trt / preds) * trt /preds -->
-<!-- weights_alt_notrt = 1 / sum((1 - trt)/(1 - preds)) * (1-trt)/(1-preds) -->
-<!-- dat = data.frame(dat, weights = weights_alt_trt - weights_alt_notrt) -->
+The propensity score model seems to align well with the observed data.
+```{r heatmap_prop_model, warning = FALSE, message = FALSE, cache = TRUE}
+trt = dat_small$Online
+heatmap.fit(trt, preds)
+```
 
-<!-- # check balance for gender and international (other variables are also balanced) -->
-<!-- dat %>% group_by(Gender, Online) %>% summarise(sum(weights)) -->
-<!-- dat %>% group_by(International, Online) %>% summarise(sum(weights)) -->
-<!-- ``` -->
+\vspace{12pt}
 
-<!-- We now estimate the ATE corresponding to these weights. -->
+The standard IPW technique suggests that the removal of an in-person course hurts grades by roughly three points. However, there are some large weights corresponding to individuals in the online-only group which lead to a lack of reliability in this estimator.
 
-<!-- ```{r} -->
-<!-- ATE_alt = sum(weights_alt_trt * dat$ObjExam) -  -->
-<!--   sum(weights_alt_notrt * dat$ObjExam) -->
-<!-- ATE_alt -->
-<!-- ``` -->
+\vspace{12pt}
 
-<!-- We now estimate the doubly robust ATE -->
+```{r}
+weights_IPW = (trt / preds - (1-trt) / (1 -preds))
+mean(weights_IPW * dat$ObjExam)
+max(abs(weights_IPW))
 
-<!-- ```{r} -->
-<!-- # estimate DR version ATE  -->
-<!-- m_trt = lm(ObjExam ~ ACTMath + ACTMajor + ACT + International + Gender +  -->
-<!--             FR + SO + JR + F17 + S18 + S19,  -->
-<!--             data = dat[trt == 1, ]) -->
-<!-- Y_trt = predict(m_trt, newdata = dat) -->
-<!-- m_notrt = lm(ObjExam ~ ACTMath + ACTMajor + ACT + International + Gender +  -->
-<!--               FR + SO + JR + F17 + S18 + S19,  -->
-<!--               data = dat[trt == 0, ]) -->
-<!-- Y_notrt = predict(m_notrt, newdata = dat) -->
-<!-- ATE_DR = mean( (dat$ObjExam * trt - (trt - preds) * Y_trt) / preds -  -->
-<!--   (dat$ObjExam * (1 - trt) + (trt - preds)*Y_notrt) / (1 - preds)) -->
-<!-- ATE_DR -->
-<!-- ``` -->
+weights_IPW[abs(weights_IPW) > 8]
+```
 
-<!-- The two quantities are essentially the same, both estimates of the ATE show that in-person instruction has no advantage over online instruction in STAT 200. Estimates of variability of these different ATEs can be found using the nonparametric (cases) bootstrap -->
+
+We now obtain the weights for the stabilized estimator
+$$
+  \widetilde{w}_i =  \frac{\frac{A_i}{\hat{p}_i}}{\sum_{i=j}^n\frac{A_j}{\hat{p}_j}} + \frac{\frac{1-A_i}{1 -\hat{p}_i}}{\sum_{j=1}^n\frac{1-A_j}{1-\hat{p}_j}}
+$$
+and we check for the balance of weights in the online and in-person groups across the Gender and International variables
+\vspace{12pt}
+
+```{r}
+# estimate the stabilized IPW weights
+weights_alt_trt = 1 / sum(trt / preds) * trt /preds
+weights_alt_notrt = 1 / sum((1 - trt)/(1 - preds)) * (1-trt)/(1-preds)
+dat = data.frame(dat, weights = weights_alt_trt - weights_alt_notrt)
+
+# check balance for gender and international (other variables are also balanced)
+dat %>% group_by(Gender, Online) %>% summarise(sum(weights))
+dat %>% group_by(International, Online) %>% summarise(sum(weights))
+```
+
+\vspace{12pt}
+We now estimate the ATE corresponding to these weights.
+\vspace{12pt}
+
+```{r}
+ATE_alt = sum(weights_alt_trt * dat$ObjExam) -
+  sum(weights_alt_notrt * dat$ObjExam)
+ATE_alt
+```
+
+\vspace{12pt}
+We now estimate the doubly robust ATE
+\vspace{12pt}
+
+```{r}
+# estimate DR version ATE
+m_trt = lm(ObjExam ~ ACTMath + ACTMajor + ACT + International + Gender +
+            FR + SO + JR + F17 + S18 + S19,
+            data = dat[trt == 1, ])
+Y_trt = predict(m_trt, newdata = dat)
+m_notrt = lm(ObjExam ~ ACTMath + ACTMajor + ACT + International + Gender +
+              FR + SO + JR + F17 + S18 + S19,
+              data = dat[trt == 0, ])
+Y_notrt = predict(m_notrt, newdata = dat)
+ATE_DR = mean( (dat$ObjExam * trt - (trt - preds) * Y_trt) / preds -
+  (dat$ObjExam * (1 - trt) + (trt - preds)*Y_notrt) / (1 - preds))
+ATE_DR
+```
+
+The two quantities are essentially the same, both estimates of the ATE show that additional in-person instruction has no advantage over online instruction in STAT 200. Estimates of variability of these different ATEs can be found using the nonparametric (cases) bootstrap
 
 
 # Appendix: nonparametric cases bootstrap
@@ -744,17 +746,14 @@ We can then estimate the uncertainty using Wald-type confidence intervals where 
 $$
   \hat{\beta} \pm Z_{1 -\alpha/2} \hat{se}(\hat{\beta})
 $$
-where $Z_{1 -\alpha/2}$ is the $(1-\alpha/2)$th quantile of a standard normal distribution. 
+where $Z_{1 -\alpha/2}$ is the $(1-\alpha/2)$th quantile of a standard normal distribution. Alternatively, we can report a percentile based confidence interval calculated using quantiles of the bootstrap distribution
+$$
+  [Q^*_{(\alpha/2)}, Q^*_{(1-\alpha/2)}],
+$$
+where $Q^*_{(\alpha/2)}$ and $Q^*_{(1-\alpha/2)}$ denote the quantiles of the bootstrap sample of $B$ values of $\hat{\beta}^*$.
 
 
-<!-- Alternatively, we can report a percentile based confidence interval calculated using quantiles of the bootstrap distribution -->
-<!-- $$ -->
-<!--   [Q^*_{(\alpha/2)}, Q^*_{(1-\alpha/2)}], -->
-<!-- $$ -->
-<!-- where $Q^*_{(\alpha/2)}$ and $Q^*_{(1-\alpha/2)}$ denote the quantiles of the bootstrap sample of $B$ values of $\hat{\beta}^*$. -->
-
-
-<!-- The [analysis of the STAT 200 data](https://journals.sagepub.com/doi/full/10.1177/00472395231166592) used the percentile method. It should be noted that the percentile method is simple to compute, but it suffers some drawbacks. For more details, see Section 5.3 of [these course notes](http://users.stat.umn.edu/~helwig/notes/npboot-notes.html#nonparametric-bootstrap-basics). In the analysis of STAT 200 data, it appeared that the simple bootstrap percentile confidence interval above was sufficient. This interval closely matched usual Wald-type confidence intervals which assume correctness of the specified model.  -->
+The [analysis of the STAT 200 data](https://journals.sagepub.com/doi/full/10.1177/00472395231166592) used the percentile method. It should be noted that the percentile method is simple to compute, but it suffers some drawbacks. For more details, see Section 5.3 of [these course notes](http://users.stat.umn.edu/~helwig/notes/npboot-notes.html#nonparametric-bootstrap-basics). In the analysis of STAT 200 data, it appeared that the simple bootstrap percentile confidence interval above was sufficient. This interval closely matched usual Wald-type confidence intervals which assume correctness of the specified model.
 
 
 # Acknowledgments
