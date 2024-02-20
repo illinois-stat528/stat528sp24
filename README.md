@@ -6,10 +6,10 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Week 5 materials are posted
+* Week 6 materials are posted
 
-* Week 5 Reading: 
-  + **Reading**: course notes on binary response regression models 
+* Week 6 Reading: 
+  + **Reading**: course notes on count response regression models 
   
 * [stat528materials](https://github.com/DEck13/stat528materials) software package is now available. This package contains documentation for the CCSO data set.
 
