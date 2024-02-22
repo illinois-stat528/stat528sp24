@@ -174,3 +174,112 @@ round(data.frame(coef.m1=coef(m1),
                  se.m2=se(m2), 
                  ratio=se(m2)/se(m1)), 4)
 
+# START HERE 
+
+## revisit our test between levels (with overdispersion)
+
+## is oversipersion present?
+
+# negative binomial regression
+library(faraway)
+?solder
+head(solder)
+
+## fit with Poisson
+
+## check saturated model
+
+## fit with Poisson quadratic
+
+## check saturated model
+
+## check for outliers and overdispersion
+
+### half normal plot
+halfnorm(modp2)
+
+
+### overdispersion?
+plot(predict(modp2, type = "response"), (solder$skips - fitted(modp2))^2, 
+     xlab= expression(hat(theta)),ylab=expression((y-hat(mu))^2), 
+     pch = 19)
+lines(sort(predict(modp2, type = "response")), 
+      sort(fitted(modp2)), lty="dashed", 
+      col = "red")
+
+dispersiontest(modp, trafo=1)
+dispersiontest(modp2, trafo=1)
+
+## try negative binomial regression
+library(MASS)
+modn = glm(skips ~ ., negative.binomial(1), solder)
+summary(modn)
+
+## get optimal k
+?glm.nb
+modnk = glm.nb(skips ~ ., solder)
+summary(modnk)
+
+## look at coefficients from Poisson and neg Binom fits
+
+
+# zero-inflated regression
+library(pscl)
+?bioChemists
+
+## Poisson fit
+modp = glm(art ~ ., data=bioChemists, family=poisson)
+
+## test against saturated
+
+## look at data
+ocount = table(bioChemists$art)[1:8]
+pcount = colSums(predprob(modp)[,1:8])
+?predprob
+
+plot(pcount, ocount, type="n", xlab="Predicted", ylab="Observed", 
+     ylim = c(0, 300), axes = FALSE)
+axis(side = 1)
+axis(side = 2)
+text(pcount,ocount, 0:7)
+
+
+## on probability scale
+probs = dpois(0:7, mean(bioChemists$art))
+obs_freq = table(bioChemists$art)[1:8]/sum(table(bioChemists$art)[1:8])
+plot(probs, obs_freq, 
+     type="n", xlab="Predicted", ylab="Observed")
+axis(side = 1)
+axis(side = 2)
+text(probs, obs_freq, 0:7)
+
+## zero-inflated model
+modz = zeroinfl(art ~ ., data=bioChemists)
+summary(modz)
+
+## smaller model
+modz2 = zeroinfl(art ~ fem+kid5+ment | ment, data=bioChemists)
+
+## summary table for smaller model
+
+## test of nested models
+anova(modz2, modz, test = "LRT")
+
+## do by hand
+
+## get estimates of mean-value parameters by hand
+modz2 = zeroinfl(art ~ fem+kid5+ment | ment, data=bioChemists, 
+                 x = TRUE)
+preds = as.numeric(predict(modz2))
+
+
+
+
+# zero-truncated regression 
+require(foreign)
+require(ggplot2)
+require(VGAM)
+require(boot)
+
+dat = read.dta("https://stats.idre.ucla.edu/stat/data/ztp.dta")
+head(dat)

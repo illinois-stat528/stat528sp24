@@ -493,14 +493,21 @@ Consider this example. ATT ran an experiment varying five factors relevant to a 
 ```{r}
 library(faraway)
 modp = glm(skips ~ . , family=poisson, data=solder)
+
+## saturated model fits better
+pchisq(deviance(modp), df.residual(modp), lower = FALSE)
+
+## Faraway mentions rule of thumb that saturated model is 
+## likely better when deviance noticeably exceeds df
 c(deviance(modp), df.residual(modp))
 ```
-We see that the full model has a residual deviance of 1797 on 881 degrees of freedom. This is not a good fit (as a rule of thumb, deviance should be less than degrees of freedom for a well-fitting submodel). Perhaps including interaction terms will improve the fit: 
+Perhaps including interaction terms will improve the fit: 
 ```{r}
 modp2 = glm(skips ~ (Opening +Solder + Mask + PadType + Panel)^2, 
              family=poisson, data=solder)
-c(deviance(modp2), df.residual(modp2))
+
 pchisq(deviance(modp2), df.residual(modp2), lower=FALSE)
+c(deviance(modp2), df.residual(modp2))
 ```
 The fit is improved but not enough to conclude that the model fits. We could try adding more interactions but that would make interpretation increasingly difficult. A check for outliers reveals no problem. An alternative model for counts is the negative binomial. The functions for fitting come from the \texttt{MASS} package. We can specify the link parameter $k$. Here we choose $k = 1$ to demonstrate the method, although there is no substantive motivation from this application to use this value. Note that the $k = 1$ case corresponds to an assumption of a geometric distribution for the response.
 ```{r, message=FALSE}
@@ -561,7 +568,7 @@ modz = zeroinfl(art ~ ., data=bioChemists)
 summary(modz)
 ```
 
-We notice that the \texttt{ment} variable which counts the number of articles produced by the mentor is the most significant predictor in both the Poisson and binary regressions. This is because the zero-inflated approach models the probability of a zero count (not the probability of a successful 1 count). Hence there is no contradiction.
+We notice that the \texttt{ment} variable which counts the number of articles produced by the mentor is the most significant predictor in both the Poisson and binary regressions. Notice that the signs of regression coefficient estimates are reversed across the two models. This is because the zero-inflated approach models the probability of a zero count (not the probability of a successful 1 count). Hence there is no contradiction in inferences.
 
 We can use the standard likelihood testing theory to compare nested models. For example, suppose we consider a simplified version of the zero-inflated Poisson model where we now have different predictors for the two components of the model. The count part of the model is specified before the | and the binary response model after.
 
@@ -597,7 +604,7 @@ We note that the zero-inflated Poisson distribution also arises as a special cas
 $$
   1 \to Y_1 \to Y_2,
 $$
-where $Y_1$ encodes subjects either reaching or not reaching a reproductive stage (modeled as a binary random variable) and then, conditional on reproduction, $Y_2$ encodes how many offspring produced by the subjects in the reproductive stage (modeled as a 0-truncated Poisson random variable).
+where $Y_1$ encodes subjects either reaching or not reaching a reproductive stage (modeled as a binary random variable) and then, conditional on reproduction, $Y_2$ encodes how many offspring produced by the subjects in the reproductive stage (modeled as a Poisson or 0-truncated Poisson random variable).
 
 
 # Acknowledgments
@@ -611,64 +618,6 @@ where $Y_1$ encodes subjects either reaching or not reaching a reproductive stag
 
 
 
-
-
-
-
-
-
-```{r loaddata2, cache = TRUE, echo = FALSE, eval = FALSE}
-library(faraway)
-m2 = glm(Species ~., family = "poisson", data = gala)
-m2 = glm(Species ~ Area + Elevation + Nearest + Scruz + Adjacent, 
-          family = "poisson", data = gala)
-summary(m2)
-
-## load in data
-system.time(CCSO2 = fread("https://uofi.box.com/shared/static/9elozjsg99bgcb7gb546wlfr3r2gc9b7.csv"))
-head(CCSO2)
-
-
-## data wrangling
-CCSO_small2 = CCSO2 %>% rename(Days = "Days in Jail", Age = "Age at Arrest", 
-                        Date = "BOOKING DATE", Sex = "SEX", Race = "RACE",
-                        Crime = "CRIME CODE", Agency = "ARREST AGENCY") %>% 
-  dplyr::select(Days, Age, Sex, Date, Race, Crime, Agency) %>%
-  filter(Crime == "THEFT: OVER $300") %>%  
-  filter(Race %in% c("Asian/Pacific Islander","Black","White","Hispanic")) %>% 
-  filter(Sex %in% c("Female","Male")) %>% 
-  filter(Days > 0) %>% 
-  mutate(Crime = fct_drop(Crime), Race = fct_drop(Race), Sex = fct_drop(Sex))
-CCSO_small2 = CCSO_small2[complete.cases(CCSO_small2), ]
-dim(CCSO_small2)
-
-y = CCSO_small2$Days
-
-m1 = glm(Days ~ Race + Sex + Age, family = "poisson", data = CCSO_small2)
-summary(m1)
-
-Ey = predict(m1, type = "response")
-
-plot(Ey, (y - Ey) / sqrt(Ey), pch = 19)
-
-
-m2 = glm(Days ~ Race + Sex + Age + Agency, family = "poisson", data = CCSO_small2)
-summary(m2)
-
-m3 = glm(Days ~ Race + Sex + Age + Agency, family = "quasipoisson", data = CCSO_small2)
-summary(m3)
-
-par(mfrow = c(1,2))
-plot(predict(m2, type = "link"), residuals(m2), 
-     xlab = "theta", ylab = "Deviance residuals", pch = 19)
-plot(predict(m3, type = "link"), residuals(m3), 
-     xlab = "theta", ylab = "Deviance residuals", pch = 19)
-
-plot(predict(m2, type = "link"), residuals(m2, "pearson"), 
-     xlab = "theta", ylab = "Pearson residuals", pch = 19)
-plot(predict(m3, type = "link"), residuals(m3, "pearson"), 
-     xlab = "theta", ylab = "Pearson residuals", pch = 19)
-```
 
 
 
