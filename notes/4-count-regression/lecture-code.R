@@ -178,7 +178,9 @@ round(data.frame(coef.m1=coef(m1),
 
 ## revisit our test between levels (with overdispersion)
 
-## is oversipersion present?
+## is overdispersion present?
+library(AER)
+dispersiontest(m1, trafo = 1)
 
 # negative binomial regression
 library(faraway)
