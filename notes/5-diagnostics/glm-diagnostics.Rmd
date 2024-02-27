@@ -151,7 +151,7 @@ For discrete data we have a similar result when $s = F(k|x)$ for some value $k$,
 $$
   \Prob \left(Y\leq k| F(k|x)=s\right)=s.
 $$
-The idea in \cite{yang2021assessment} is to use subsets of the data for which $F(k|x)\approx s$ to estimate  $\Pr(Y\leq k| F(k|x)\approx s)$ instead. Definite decisions about which data points to include will not be made. Instead, closeness will be judged by a kernel smoother. This method has a similar intuition to the methodology in \cite{esarey2012assessing}.
+The idea in \cite{yang2021assessment} is to use subsets of the data for which $F(k|x)\approx s$ to estimate  $\Pr(Y\leq k| F(k|x) \approx s)$ instead. Definite decisions about which data points to include will not be made. Instead, closeness will be judged by a kernel smoother. This method has a similar intuition to the methodology in \cite{esarey2012assessing}.
 
 <!-- Define the grid point $F(k| \mathbf{x})$ closest to $s$ as $H(s;X,\beta)$ -->
 
@@ -160,9 +160,9 @@ The idea in \cite{yang2021assessment} is to use subsets of the data for which $F
 We define the conditional range of the distribution function given $X = x$ as a grid $$
   \Delta(x) = \{F(k|x) : k = 0,1,...\}.
 $$
-If $X$ contains continuous components, when $X$ varies in regression, there might be a subset of observations for which $s \in \Delta(X)$ holds approximately. Equivalently, the distance between $s$ and $\Delta(X)$, 
+If $X$ contains continuous components, when $X$ varies in regression, there might be a subset of observations for which $s \in \Delta(x)$ holds approximately. Equivalently, the distance between $s$ and $\Delta(x)$, 
 $$
-  d(s, \Delta(X)) = \min\{| s - \eta |, \eta \in \Delta(X)\},
+  d(s, \Delta(x)) = \min\{| s - \eta |, \eta \in \Delta(x)\},
 $$
 is small in this case.
 
