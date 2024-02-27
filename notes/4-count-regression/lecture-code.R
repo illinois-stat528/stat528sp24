@@ -177,21 +177,43 @@ round(data.frame(coef.m1=coef(m1),
 # START HERE 
 
 ## revisit our test between levels (with overdispersion)
+summary(m2)
+comp = c(0,0,0,0,0,-1,1)
+betahat = m2$coefficients
+grad = exp(betahat) * comp
+est = sum(grad)
+est
+
+InvFish = vcov(m2)
+asympVar = as.numeric(t(grad) %*% InvFish %*% grad)
+asympVar
+SE = sqrt(asympVar)
+SE
+
 
 ## is overdispersion present?
 library(AER)
 dispersiontest(m1, trafo = 1)
 
+
 # negative binomial regression
 library(faraway)
 ?solder
 head(solder)
+solder %>% arrange(desc(skips))
 
 ## fit with Poisson
+modp = glm(skips ~., data = solder, family = "poisson")
+summary(modp)
 
 ## check saturated model
+pchisq(deviance(modp), df.residual(modp), lower = FALSE)
+nrow(solder)
 
 ## fit with Poisson quadratic
+modp2 = glm(skips ~.^2, data = solder, family = "poisson")
+summary(modp2)
+pchisq(deviance(modp2), df.residual(modp2), lower = FALSE)
 
 ## check saturated model
 
@@ -199,7 +221,15 @@ head(solder)
 
 ### half normal plot
 halfnorm(modp2)
+n = nrow(solder)
+dat = data.frame(
+  resid = sort(residuals(modp2)), 
+  q = qnorm( (n + 1:n) / (2*n + 1))
+)
 
+ggplot(dat) + 
+  aes(x = q, y = resid) + 
+  geom_point()
 
 ### overdispersion?
 plot(predict(modp2, type = "response"), (solder$skips - fitted(modp2))^2, 
@@ -223,7 +253,12 @@ modnk = glm.nb(skips ~ ., solder)
 summary(modnk)
 
 ## look at coefficients from Poisson and neg Binom fits
+sort(coef(modp2), decreasing = TRUE)[1:5]
+sort(coef(modn), decreasing = TRUE)[1:5]
+sort(coef(modnk), decreasing = TRUE)[1:5]
 
+dat = solder %>% mutate(preds = predict(modn, type = "response"))
+dat %>% arrange(desc(preds))
 
 # zero-inflated regression
 library(pscl)
@@ -233,6 +268,7 @@ library(pscl)
 modp = glm(art ~ ., data=bioChemists, family=poisson)
 
 ## test against saturated
+pchisq(deviance(modp), df.residual(modp), lower = FALSE)
 
 ## look at data
 ocount = table(bioChemists$art)[1:8]
@@ -263,18 +299,36 @@ summary(modz)
 modz2 = zeroinfl(art ~ fem+kid5+ment | ment, data=bioChemists)
 
 ## summary table for smaller model
+summary(modz2)
 
 ## test of nested models
 anova(modz2, modz, test = "LRT")
 
+
 ## do by hand
+pchisq(-2*(modz2$loglik - modz$loglik), 6, lower = FALSE)
 
 ## get estimates of mean-value parameters by hand
 modz2 = zeroinfl(art ~ fem+kid5+ment | ment, data=bioChemists, 
                  x = TRUE)
+M = modz2$x
+betahat = coef(modz2)
+betahatp = betahat[1:4]
+betahatb = betahat[5:6]
+Mp = M[[1]]
+Mb = M[[2]]
+
+thetap = as.numeric(Mp %*% betahatp)
+thetab = as.numeric(Mb %*% betahatb)
+
+mup = exp(thetap)
+mub = 1/(1 + exp(-thetab))
+
+(1 - mub) * mup
+
 preds = as.numeric(predict(modz2))
 
-
+all.equal((1 - mub) * mup, preds)
 
 
 # zero-truncated regression 
