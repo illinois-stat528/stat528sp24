@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  27 FEB 2024 05:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  27 FEB 2024 09:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1393,60 +1393,60 @@ Package pdftex.def Info: glm-diagnostics_files/figure-latex/heatmap-1.pdf  used
  on input line 271.
 (pdftex.def)             Requested size: 433.63878pt x 292.10388pt.
 [2] [3 <./glm-diagnostics_files/figure-latex/heatmap-1.pdf>] [4]
-Overfull \hbox (144.4932pt too wide) in paragraph at lines 426--426
+Overfull \hbox (144.4932pt too wide) in paragraph at lines 429--429
 []\T1/lmtt/m/n/10 ## Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |M
 ultistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |[] 
  []
 
-<glm-diagnostics_files/figure-latex/m1-1.pdf, id=111, 459.7175pt x 313.17pt>
+<glm-diagnostics_files/figure-latex/m1-1.pdf, id=110, 459.7175pt x 313.17pt>
 File: glm-diagnostics_files/figure-latex/m1-1.pdf Graphic file (type pdf)
 <use glm-diagnostics_files/figure-latex/m1-1.pdf>
 Package pdftex.def Info: glm-diagnostics_files/figure-latex/m1-1.pdf  used on i
-nput line 445.
+nput line 448.
 (pdftex.def)             Requested size: 459.7304pt x 313.17877pt.
 [5]
-Overfull \hbox (144.4932pt too wide) in paragraph at lines 466--466
+Overfull \hbox (144.4932pt too wide) in paragraph at lines 469--469
 []\T1/lmtt/m/n/10 ## Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |M
 ultistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |[] 
  []
 
-<glm-diagnostics_files/figure-latex/m2-1.pdf, id=116, 459.7175pt x 313.17pt>
+<glm-diagnostics_files/figure-latex/m2-1.pdf, id=115, 459.7175pt x 313.17pt>
 File: glm-diagnostics_files/figure-latex/m2-1.pdf Graphic file (type pdf)
 <use glm-diagnostics_files/figure-latex/m2-1.pdf>
 Package pdftex.def Info: glm-diagnostics_files/figure-latex/m2-1.pdf  used on i
-nput line 485.
+nput line 488.
 (pdftex.def)             Requested size: 459.7304pt x 313.17877pt.
 [6 <./glm-diagnostics_files/figure-latex/m1-1.pdf>] [7 <./glm-diagnostics_files
 /figure-latex/m2-1.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-569.
+572.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
-93.
+96.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [8] [9]
-<glm-diagnostics_files/figure-latex/unnamed-chunk-9-1.pdf, id=158, 429.605pt x 
+<glm-diagnostics_files/figure-latex/unnamed-chunk-9-1.pdf, id=157, 429.605pt x 
 288.07625pt>
 File: glm-diagnostics_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (ty
 pe pdf)
 <use glm-diagnostics_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: glm-diagnostics_files/figure-latex/unnamed-chunk-9-1.p
-df  used on input line 786.
+df  used on input line 789.
 (pdftex.def)             Requested size: 429.61049pt x 288.07993pt.
 [10]
-<glm-diagnostics_files/figure-latex/unnamed-chunk-9-2.pdf, id=165, 429.605pt x 
+<glm-diagnostics_files/figure-latex/unnamed-chunk-9-2.pdf, id=164, 429.605pt x 
 288.07625pt>
 File: glm-diagnostics_files/figure-latex/unnamed-chunk-9-2.pdf Graphic file (ty
 pe pdf)
 <use glm-diagnostics_files/figure-latex/unnamed-chunk-9-2.pdf>
 Package pdftex.def Info: glm-diagnostics_files/figure-latex/unnamed-chunk-9-2.p
-df  used on input line 820.
+df  used on input line 823.
 (pdftex.def)             Requested size: 429.61049pt x 288.07993pt.
 [11 <./glm-diagnostics_files/figure-latex/unnamed-chunk-9-1.pdf>]
-Overfull \hbox (10318.08267pt too wide) in paragraph at lines 844--844
+Overfull \hbox (10318.08267pt too wide) in paragraph at lines 847--847
 []\T1/lmtt/m/n/10 ##   |                                                       
                        |                                                       
                |   0%  |                                                       
@@ -1792,16 +1792,16 @@ Overfull \hbox (10318.08267pt too wide) in paragraph at lines 844--844
 ===============| 100%[] 
  []
 
-<glm-diagnostics_files/figure-latex/heatmaps-1.pdf, id=177, 433.62pt x 292.0912
+<glm-diagnostics_files/figure-latex/heatmaps-1.pdf, id=176, 433.62pt x 292.0912
 5pt>
 File: glm-diagnostics_files/figure-latex/heatmaps-1.pdf Graphic file (type pdf)
 
 <use glm-diagnostics_files/figure-latex/heatmaps-1.pdf>
 Package pdftex.def Info: glm-diagnostics_files/figure-latex/heatmaps-1.pdf  use
-d on input line 846.
+d on input line 849.
 (pdftex.def)             Requested size: 433.63878pt x 292.10388pt.
 [12 <./glm-diagnostics_files/figure-latex/unnamed-chunk-9-2.pdf>]
-Overfull \hbox (10318.08267pt too wide) in paragraph at lines 872--872
+Overfull \hbox (10318.08267pt too wide) in paragraph at lines 875--875
 []\T1/lmtt/m/n/10 ##   |                                                       
                        |                                                       
                |   0%  |                                                       
@@ -2147,25 +2147,25 @@ Overfull \hbox (10318.08267pt too wide) in paragraph at lines 872--872
 ===============| 100%[] 
  []
 
-<glm-diagnostics_files/figure-latex/heatmaps-2.pdf, id=189, 433.62pt x 292.0912
+<glm-diagnostics_files/figure-latex/heatmaps-2.pdf, id=188, 433.62pt x 292.0912
 5pt>
 File: glm-diagnostics_files/figure-latex/heatmaps-2.pdf Graphic file (type pdf)
 
 <use glm-diagnostics_files/figure-latex/heatmaps-2.pdf>
 Package pdftex.def Info: glm-diagnostics_files/figure-latex/heatmaps-2.pdf  use
-d on input line 874.
+d on input line 877.
 (pdftex.def)             Requested size: 433.63878pt x 292.10388pt.
 [13 <./glm-diagnostics_files/figure-latex/heatmaps-1.pdf>] [14 <./glm-diagnosti
 cs_files/figure-latex/heatmaps-2.pdf>] (./glm-diagnostics.bbl) [15] (./glm-diag
 nostics.aux) ) 
 Here is how much of TeX's memory you used:
- 36468 strings out of 478268
- 837218 string characters out of 5846347
+ 36470 strings out of 478268
+ 837240 string characters out of 5846347
  1581849 words of memory out of 5000000
  53820 multiletter control sequences out of 15000+600000
- 555239 words of font info for 169 fonts, out of 8000000 for 9000
+ 555322 words of font info for 170 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,9n,94p,27043b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,8n,94p,27043b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/t
 exlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/202
@@ -2187,10 +2187,10 @@ onts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
 /public/lm/lmtko10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/l
 m/lmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/sy
 mbols/msbm10.pfb>
-Output written on glm-diagnostics.pdf (15 pages, 504626 bytes).
+Output written on glm-diagnostics.pdf (15 pages, 503438 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 278 compressed objects within 3 object streams
+ 354 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
  47 named destinations out of 1000 (max. 500000)
  47248 words of extra memory for PDF output out of 51595 (max. 10000000)
 

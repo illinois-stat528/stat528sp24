@@ -103,7 +103,7 @@ With this choice of smoother specified, the estimate of $R(\hat{p})$ at $m$ is g
 $$
   R(\hat{p} = m) = \hat{\gamma}_0,
 $$
-the prediction for the fitted line at $\hat{p}_i = m$. This method is performed for several $m \in (0,1)$. See [here](https://en.wikipedia.org/wiki/Kernel_smoother) for more details on kernal smoothing.
+the prediction for the fitted line at $\hat{p} = m$. This method is performed for several $m \in (0,1)$. See [here](https://en.wikipedia.org/wiki/Kernel_smoother) for more details on kernal smoothing.
 
 
 ### CCSO example
@@ -144,21 +144,21 @@ heatmap.fit(y, p1.fit)
 
 We now present the methodology of \cite{yang2021assessment} for assessing the fit of regression models with discrete outcomes. The method uses "Quasi-empirical residual distribution functions" as the main tool. The idea is to extend the [probability integral transform](https://en.wikipedia.org/wiki/Probability_integral_transform) to discrete settings. Recall that if $Y$ is continuous, then for any fixed value $s \in (0, 1)$, we have that
 \begin{align}\label{unic}
-	\Prob(F(Y|\mathbf{X}=\mathbf{x})\leq s)=s.
+	\Prob(F(Y|x)\leq s)=s.
 \end{align}
 
-For discrete data we have a similar result when $s = F(k|X)$ for some value $k$, ie,
+For discrete data we have a similar result when $s = F(k|x)$ for some value $k$, ie,
 $$
-  \Prob \left(Y\leq k| F(k| X)=s\right)=s.
+  \Prob \left(Y\leq k| F(k|x)=s\right)=s.
 $$
-The idea in \cite{yang2021assessment} is to use subsets of the data for which $F(k| X)\approx s$ to estimate  $\Pr(Y\leq k| F(k| X)\approx s)$ instead. Definite decisions about which data points to include will not be made. Instead, closeness will be judged by a kernel smoother. This method has a similar intuition to the methodology in \cite{esarey2012assessing}.
+The idea in \cite{yang2021assessment} is to use subsets of the data for which $F(k|x)\approx s$ to estimate  $\Pr(Y\leq k| F(k|x)\approx s)$ instead. Definite decisions about which data points to include will not be made. Instead, closeness will be judged by a kernel smoother. This method has a similar intuition to the methodology in \cite{esarey2012assessing}.
 
 <!-- Define the grid point $F(k| \mathbf{x})$ closest to $s$ as $H(s;X,\beta)$ -->
 
 ### Theoretical notions of closeness
 
 We define the conditional range of the distribution function given $X = x$ as a grid $$
-  \Delta(x) = \{F(k | x) : k = 0,1,...\}.
+  \Delta(x) = \{F(k|x) : k = 0,1,...\}.
 $$
 If $X$ contains continuous components, when $X$ varies in regression, there might be a subset of observations for which $s \in \Delta(X)$ holds approximately. Equivalently, the distance between $s$ and $\Delta(X)$, 
 $$
@@ -174,27 +174,27 @@ Here, we exclude $\{1\}$ to avoid boundary effects. Removing this point is not a
 $$
   H^{+}(s; x) = F(F^{(-1)}(s | x) | x).
 $$
-It can be shown that $H^{+}(s; x)$ is the smallest interior point on the grid $\Delta(x)$ that is larger than or equal to $s$. To see this observe that 
-\begin{align*}
-  H^{+}(s; x) &= F(F^{(-1)}(s | x) | x) \\
-    &= F\left( \, \inf\{y \, : \, s \leq F(y|x) < 1 \, | \, x\} \, \right) \\ 
-    &= \min\{F(k|x) \, : \, F(k|x) \geq s, \, k = 0,1,...\} \\
-    &= \min\{\eta \in \Delta(X) \setminus \{1\} \, : \, \eta \geq s\}.
-\end{align*}
-In a similar manner we can define
-$$
-  H^{-}(s; x) = \max\{ \, \eta \in \Delta(x)\setminus\{1\} \, : \, \eta \leq s\}.
-$$
-Now define $H(s; x)$ as the proximal interpolator which maps $s$ to its nearest neighbor on $\Delta(x)$.
 
+<!-- It can be shown that $H^{+}(s; x)$ is the smallest interior point on the grid $\Delta(x)$ that is larger than or equal to $s$. To see this observe that  -->
+<!-- \begin{align*} -->
+<!--   H^{+}(s; x) &= F(F^{(-1)}(s | x) | x) \\ -->
+<!--     &= F\left( \, \inf\{y \, : \, s \leq F(y|x) < 1 \, | \, x\} \, \right) \\  -->
+<!--     &= \min\{F(k|x) \, : \, F(k|x) \geq s, \, k = 0,1,...\} \\ -->
+<!--     &= \min\{\eta \in \Delta(x) \setminus \{1\} \, : \, \eta \geq s\}. -->
+<!-- \end{align*} -->
+<!-- In a similar manner we can define -->
+<!-- $$ -->
+<!--   H^{-}(s; x) = \max\{ \, \eta \in \Delta(x)\setminus\{1\} \, : \, \eta \leq s\}. -->
+<!-- $$ -->
+It can be shown that $H^{+}(s; x)$ is the smallest interior point on the grid $\Delta(x)$ that is larger than or equal to $s$. In a similar manner we can define $H^{-}(s; x)$ as the largest interior point on the grid $\Delta(x)$ that is smaller than or equal to $s$.
 
-It follows that 
+Now define $H(s; x)$ as the proximal interpolator which maps $s$ to its nearest neighbor on $\Delta(x)$. In other words, $H(s; x)$ is defined to be whichever $H^{-}(s; x)$ or $H^{+}(s; x)$ is closest to $s$. It follows that 
 $$
   d(s, \Delta(x)\setminus\{1\}) = | H(s; x) - s |.
 $$
 When $s$ is "close to" being on the grid given $x$ in the sense that $H(s; x) \approx s$, we have an approximation to Equation \eqref{unic},
 $$
-  P(F(Y | x) \leq H(s;x)) = H(s;x) \approx s,
+  P(F(Y|x) \leq H(s;x)) = H(s;x) \approx s,
 $$
 
 
@@ -215,6 +215,12 @@ $$
   W_n (s;X_i ,\beta) = \frac{K \left(\frac{H(s; X_i; \beta) - s}{\epsilon_n}\right)}{\sum_{j=1}^n K \left(\frac{H(s; X_j; \beta) - s}{\epsilon_n}\right)},
 $$
 and $K(\cdot)$ is a bounded, symmetric, and [Lipschitz continuous](https://en.wikipedia.org/wiki/Lipschitz_continuity) kernel. In practice, $\beta$ is unknown; let $\hat{\beta}$ be the corresponding estimator. Then everything in the above can be estimated via plug-in. Asymptotic results and bandwidth selection are beyond the scope of this course. More details can be found in \cite{yang2021assessment}.
+
+Essentially, $\hat{U}(s;\beta)$ is an estimator of the probability
+$$
+  \Prob(Y\leq k | F(k|X)=s) = \Prob(F(Y|X) \leq s|F(k|X)=s),
+$$
+if there exists such an integer $k$ satisfying the condition $F (k | X) = s$. This probability equals $s$ under the true model.
 
 
 ### Numerical examples
