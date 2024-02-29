@@ -402,7 +402,46 @@ optimal.thresholds(DATA = data.frame(ID = seq_along(nrow(dat)),
 ```
 
 
+### Out-of-sample classification 
 
+We now investigate the out-of-sample classification performance of our final logistic regression with a quadratic term for launch angle. We split our original data set into a training set and a testing set. The training data is for model fitting. It will contain 75\% of observations. The classification accuracy of our trained model will be assessed on the test set.
+
+```{r}
+index = sample(1:nrow(dat), size=round(0.75*nrow(dat)), replace = FALSE)
+train = dat[index, ]
+test = dat[-index, ]
+```
+\vspace{5pt}
+We fit our model on the training data.
+\vspace{5pt}
+
+```{r}
+m_train = glm(HR ~ launch_speed + poly(launch_angle, 2), 
+         data = train, family = "binomial")
+```
+
+\vspace{5pt}
+We get the binary response vector from the test daa set and obtain conditional probability estimates for observations in the test data set.
+\vspace{5pt}
+
+```{r}
+y_test = test$HR
+preds_test = predict(m_train, newdata = test)
+```
+
+\vspace{5pt}
+We assess classification accuracy and the sensitivity and specificity of our fitted logistic regression model on the out-of-sample test set.
+\vspace{5pt}
+
+```{r}
+confusionMatrix(
+  data = as.factor(as.numeric(preds_test >= 0.5)), 
+  reference = as.factor(y_test))
+
+roc_test = roc(y_test, preds_test)
+roc_test
+plot(roc_test, print.auc = TRUE)
+```
 
 
 
