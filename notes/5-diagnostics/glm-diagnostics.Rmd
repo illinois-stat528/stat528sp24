@@ -402,7 +402,7 @@ optimal.thresholds(DATA = data.frame(ID = seq_along(nrow(dat)),
 ```
 
 
-## Count response models 
+
 
 
 
