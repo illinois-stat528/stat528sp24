@@ -6,10 +6,7 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Week 7 materials are posted
-
-* Week 7 Reading: 
-  + **Reading**: course notes on glm diagnostics. 
+* Take-home midterm now posted. It is due on Friday 03/08 at 11:59 pm.
   
 * [stat528materials](https://github.com/DEck13/stat528materials) software package is now available. This package contains documentation for the CCSO data set.
 
