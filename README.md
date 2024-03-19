@@ -6,7 +6,9 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Take-home midterm now posted. It is due on Friday 03/08 at 11:59 pm.
+* multinomial regression notes and HW4 are posted. HW4 is due on 03/29 at 11:59 PM.
+
+* A possible solution to the midterm is posted.
   
 * [stat528materials](https://github.com/DEck13/stat528materials) software package is now available. This package contains documentation for the CCSO data set.
 
