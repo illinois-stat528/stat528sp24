@@ -378,317 +378,317 @@ system.time({mod4alt = multinom(events ~ launch_speed +
 4. One may be interested in taking this analysis further and investigating where the ball is likely to go when a specific batter faces a specific pitcher. People at UIUC have done [work on this project](https://seam.stat.illinois.edu/index.html) (note that one student author works at the Houston Astros and the other student author is an intern at the Baltimore Orioles). Fitting a multinomial regression model to estimate outcomes of individual matchups is likely impossible (too many parameters). The SEAM approach instead uses distance based weighting to pool outcomes from similar players in order to perform its estimation. SEAM has its roots in [PECOTA](https://en.wikipedia.org/wiki/PECOTA) and it borrows aesthetics from nonparametric density estimation, model averaging, and synthetic control methodology. One can see that PECOTA performs well when [compared to other more refined statistical approaches](http://stat.wharton.upenn.edu/~stjensen/papers/shanejensen.traj09.pdf). A discussion of the reasons for this is beyond the scope of this course.
 
 
-<!-- # Ordinal Responses -->
-
-<!-- Let response $Y$ be ordinal, ungrouped, and represented with codes $1,\ldots,J$ in that order. As before $x \in \R^p$. We will now consider conditional probabilities of the form -->
-<!-- $$ -->
-<!--   \Prob\left(Y \leq j\mid x\right) = \pi_1(x) + \cdots + \pi_j(x), \qquad j = 1,\ldots,J. -->
-<!-- $$ -->
-
-<!-- The \textbf{cumulative logits} are  -->
-
-<!-- $$ -->
-<!--   \text{logit}\left(\Prob(Y\leq j\mid x)\right) = \log\left(\frac{\Prob\left(Y\leq j\mid x\right)}{\Prob\left(Y > j \mid x\right)}\right) -->
-<!-- $$ -->
-<!-- for $j = 1,\ldots,J-1$. -->
-
-<!-- We now motivate the \textbf{proportional odds model}. Let $x \in \R^p$ that does not include an intercept. Then the model is given by -->
-<!-- $$ -->
-<!--   \text{logit}\left(\Prob(Y\leq j\mid x)\right) = \alpha_j + x^T\beta, \qquad j = 1,\ldots,J-1, -->
-<!-- $$ -->
-<!-- where $\alpha_1 \leq \alpha_2 \leq \cdots \leq \alpha_{J-1}$. For each $j$, this is a logistic regression model, with binary outcome indicating subset $\{1,\ldots,j\}$ versus $\{j+1,\ldots,J\}$.  Also, $\beta$ does not depend on $j$. Why are there order restriction on the $\alpha_j$ values? For $1 \leq j < J-1$, -->
-<!-- $$ -->
-<!--   0 < \Prob\left(Y \leq j\mid x\right) \leq \Prob\left(Y \leq j+1\mid x\right) < 1, -->
-<!-- $$ -->
-<!-- so, since the logit function is an increasing function, we have that  -->
-<!-- \begin{align*} -->
-<!--   0 &\leq \text{logit}\left(\Prob(Y\leq j+1\mid x)\right) - \text{logit}\left(\Prob(Y\leq j\mid x)\right) \\ -->
-<!--   &= (\alpha_{j+1} + x^T\beta) - (\alpha_{j} + x^T\beta) \\ -->
-<!--   &= \alpha_{j+1} - \alpha_j, -->
-<!-- \end{align*} -->
-<!-- which is true if and only if $\alpha_{j+1} \geq \alpha_{j}$. The same $\beta$ is assumed across $j$ indices, otherwise there would exist $x$ for which the probabilities would be in the wrong order. The probabilities $\pi_j(x)$ can be recovered from the cumulative probabilities:  -->
-<!-- \begin{itemize} -->
-<!-- \item for $j=1$, -->
-<!-- $$ -->
-<!--   \pi_1(x) = \Prob\left(Y\leq 1\mid x\right), -->
-<!-- $$ -->
-<!-- \item for $1 < j < J$, -->
-<!-- $$ -->
-<!--   \pi_j(x) = \Prob\left(Y\leq j\mid x\right) - \Prob\left(Y\leq j-1\mid x\right), -->
-<!-- $$ -->
-<!-- \item for $j = J$,  -->
-<!-- $$ -->
-<!--   \pi_J(x) = 1 - \Prob\left(Y\leq J-1\mid x\right). -->
-<!-- $$ -->
-<!-- \end{itemize} -->
-
-<!-- We now develop interpretations for the proportional odds models. For some $j < J$, consider the \textbf{cumulative odds ratio} -->
-<!-- $$ -->
-<!--   \frac{\text{odds}(Y \leq j\mid x_1)}{\text{odds}(Y \leq j\mid x_2)}, -->
-<!-- $$ -->
-<!-- which is the odds ratio for $Y \leq j$ at $x_1$ versus $x_2$. The natural logarithm of the above is  -->
-<!-- \begin{align*} -->
-<!--   &\text{logit}\left(\Prob(Y\leq j\mid x_1)\right) - \text{logit}\left(\Prob(Y\leq j\mid x_2)\right) \\ -->
-<!--   &\qquad= (\alpha_j + x_1^T\beta) - (\alpha_j + x_2^T\beta) \\ -->
-<!--   &\qquad= (x_1 - x_2)^T\beta, -->
-<!-- \end{align*} -->
-<!-- which does not depend on $j$. When $p=1$, the log cumulative odds ratio becomes $\beta(x_1 - x_2)$ which is proportional to $x_1 - x_2$, with the same proportionality constant for all $j$. If $x_1 - x_2 = 1$, the cumulative odds ratio (for any $j < J$) is $e^{\beta}$. Consider the implications when $X$ is binary and $J = 3$:  -->
-
-<!-- \begin{center} -->
-<!-- \begin{tabular}{c|c|c|c|} -->
-<!-- \multicolumn{1}{c}{} & \multicolumn{3}{c}{$Y$} \\ -->
-<!-- \multicolumn{1}{c}{} & \multicolumn{1}{c}{$1$} & \multicolumn{1}{c}{$2$} & \multicolumn{1}{c}{$3$} \\ -->
-<!--  \cline{2-4}  -->
-<!--  $X = 1$ & $\pi_1(1)$ & $\pi_2(1)$ & $\pi_3(1)$ \\ -->
-<!--  $X = 0$ & $\pi_1(0)$ & $\pi_2(0)$ & $\pi_3(0)$ \\ -->
-<!--  \cline{2-4}   -->
-<!-- \end{tabular} -->
-<!-- \end{center} -->
-
-<!-- \vspace*{0.5cm}\noindent where the rows sum to 1. Under the proportional odds model, we must have  -->
-<!-- $$ -->
-<!--   \frac{\pi_1(1)(\pi_2(0) + \pi_3(0))}{(\pi_2(1) + \pi_3(1))\pi_1(0)}  -->
-<!--     = \frac{(\pi_1(1) + \pi_2(1))\pi_3(0)}{\pi_3(1)(\pi_1(0) + \pi_2(0))} -->
-<!-- $$ -->
-<!-- with the common value being $e^\beta$. -->
-
-
-<!-- ## Checking the proportional odds assumptions -->
-
-<!-- One can use a test (eg LRT) of the fitted model versus a more general model that allows a separate $\beta_j$ for each cumulative logit $(j = 1,\ldots,J-1)$. The more general model does not rigidly specify the proportional structure and therefore, allows for non-parallel curves. This leads to possible invalid probabilities. However, it might still fit adequately within the range of the data. See Section 8.2.5 in \cite{agresti2013cat}. -->
-
-<!-- We can fit the proportional odds model using maximum likelihood estimation via Newton-Raphson or Fisher scoring. The log likelihood for this model is  -->
-<!-- $$ -->
-<!--   \sum_{i=1}^n\sum_{j=1}^J y_{ij}\log\left[\frac{\exp(\alpha_j + x_i^T\beta)}{1 + \exp(\alpha_j + x_i^T\beta)} - \frac{\exp(\alpha_{j-1} + x_i^T\beta)}{1 + \exp(\alpha_{j-1} + x_i^T\beta)}\right]. -->
-<!-- $$ -->
-<!-- Notice that observed and expected information is not the same in this model since it is a noncanonical link model. -->
-
-
-<!-- ## R Example: Happiness and Traumatic Events  -->
-
-<!-- The following is modified from a social survey:  -->
-
-<!-- ```{r} -->
-<!-- happiness = read.table("happiness.txt", header=TRUE) -->
-<!-- ``` -->
-
-<!-- ```{r, echo = FALSE} -->
-<!-- colnames(happiness)[1] = c("control") -->
-<!-- ``` -->
-
-<!-- We first display the first six rows of the data  -->
-
-<!-- ```{r} -->
-<!-- head(happiness) -->
-<!-- ``` -->
-
-<!-- Here trauma is a count of the number of traumatic events that the individual faced in the previous year. The variable happiness is an ordinal categorical variable indicating the current happiness level of the individual (1 if very happy, 2 if pretty happy, and 3 if not too happy). The control variable is a binary categorical variable that was deemed important by the researchers who conducted the study (0 if in category A, 1 if in category B). We now fit a proportional odds model (cumulative logit):  -->
-
-<!-- ```{r} -->
-<!-- mod = vglm(happy ~ trauma + control, family=propodds(reverse=FALSE), -->
-<!--             data=happiness) -->
-<!-- summary(mod) -->
-<!-- ``` -->
-<!-- In our notation, the estimates are  -->
-
-<!-- \begin{align*} -->
-<!-- \begin{array}{c} -->
-<!--   \hat\alpha_1 \approx -0.518 \\ -->
-<!--   \hat\alpha_2 \approx 3.401 -->
-<!-- \end{array} \qquad \hat\beta \approx \left(\begin{array}{c} -->
-<!--   -0.406 \\ -->
-<!--   -2.036 -->
-<!-- \end{array}\right) -->
-<!-- \end{align*} -->
-
-<!-- \vspace*{0.5cm}\noindent where  -->
-<!-- $$ -->
-<!--   x = \left(\begin{array}{c} -->
-<!--   \text{trauma} \\ -->
-<!--   \text{control} -->
-<!-- \end{array}\right). -->
-<!-- $$ -->
-<!-- So happiness is estimated lower ($Y$ is estimated to be larger) as trauma increases. We can estimate the odds of ``very happy'' for control category A relative to control category B (trauma held fixed), and a Wald 95\% confidence interval for these estimates: -->
-
-<!-- ```{r} -->
-<!-- exp(2.036) -->
-
-<!-- exp(2.036 + c(-1,1)*1.96*0.691) -->
-<!-- ``` -->
-
-<!-- We can perform a likelihood ratio test for the control effect: -->
-
-<!-- ```{r} -->
-<!-- modred = vglm(happy ~ trauma, family=propodds(reverse=FALSE), -->
-<!--                data=happiness) -->
-<!-- llrts = deviance(modred) - deviance(mod) -->
-<!-- llrts.df = df.residual(modred) - df.residual(mod) -->
-<!-- llrts -->
-<!-- llrts.df -->
-<!-- 1 - pchisq(llrts, llrts.df) -->
-<!-- ``` -->
-
-<!-- We can also graph probability curves (versus trauma) by happiness category and control: -->
-
-<!-- ```{r, fig.height=5} -->
-<!-- curve(predict(mod, data.frame(trauma=x,control=0), type="response")[,1], -->
-<!--       xlab="Trauma", ylab="Probability", -->
-<!--       xlim=range(happiness$trauma), ylim=c(0,1)) -->
-<!-- curve(predict(mod, data.frame(trauma=x,control=0), type="response")[,2], -->
-<!--       add=TRUE, col="red") -->
-<!-- curve(predict(mod, data.frame(trauma=x,control=0), type="response")[,3], -->
-<!--       add=TRUE, col="blue") -->
-<!-- curve(predict(mod, data.frame(trauma=x,control=1), type="response")[,1], -->
-<!--       add=TRUE, lty=2) -->
-<!-- curve(predict(mod, data.frame(trauma=x,control=1), type="response")[,2], -->
-<!--       add=TRUE, col="red", lty=2) -->
-<!-- curve(predict(mod, data.frame(trauma=x,control=1), type="response")[,3], -->
-<!--       add=TRUE, col="blue", lty=2) -->
-<!-- legend("topright", c("A","B"), lty=1:2) -->
-<!-- legend("topleft", c("Very Happy","Pretty Happy","Not Too Happy"), lty=1, -->
-<!--        col=c("black","red","blue")) -->
-<!-- ``` -->
-
-<!-- We can check the assumption of proportional odds by comparison with a model that does not assume it: -->
-
-<!-- ```{r} -->
-<!-- modnotprop = vglm(happy ~ trauma + control, family=cumulative(parallel=FALSE), -->
-<!--                    data=happiness) -->
-<!-- summary(modnotprop) -->
-<!-- ``` -->
-
-<!-- Now perform the LRT: -->
-
-<!-- ```{r} -->
-<!-- llrts = deviance(mod) - deviance(modnotprop) -->
-<!-- llrts.df = df.residual(mod) - df.residual(modnotprop) -->
-<!-- llrts -->
-<!-- llrts.df -->
-<!-- 1 - pchisq(llrts, llrts.df) -->
-<!-- ``` -->
-
-<!-- Here is an alternative function for fitting proportional odds models: -->
-
-<!-- ```{r} -->
-<!-- library(MASS) -->
-<!-- mod2 = polr(factor(happy) ~ trauma + control, data=happiness) -->
-<!-- summary(mod2) -->
-<!-- ``` -->
-
-<!-- Note: Signs of coefficients (but not intercepts) are different from what was obtained using \texttt{vglm}, because \texttt{polr} uses a different parameterization (See Section 8.2.3 in \cite{agresti2013cat}).  -->
-
-<!-- Remark: If you change the direction of the $Y$ ordering (i.e., label in the reverse order), this will change the signs of the $\alpha_i$ values and of $\beta$, and rearrange the $\alpha_i$ values (to keep them ordered least to greatest). Other than that, the model will be equivalent: the direction of the $Y$ ordering doesn’t fundamentally change the class of models being fit. -->
-
-
-<!-- ## More about ordinal responses  -->
-
-<!-- Let ungrouped response $Y$ be ordinal, with ordered codes $1,\ldots,J$ and let $x \in \R^p$ be an explanatory variable without an intercept element. Besides proportional odds, what other models are available? -->
-
-
-<!-- ### Latent variable formulation -->
-
-<!-- Suppose that $Y$ derives from a latent continuous variable $Y^*$. The real line is divided into $J$ successive segments (with unknown boundaries), and $Y$ indicates which one contains $Y^*$. With this formulation we have that -->
-<!-- $$ -->
-<!--   Y = j \qquad \text{if} \qquad \alpha_{j-1} < Y^* \leq \alpha_j, -->
-<!-- $$ -->
-<!-- where the cutpoints (or thresholds) are -->
-<!-- $$ -->
-<!--   -\infty = \alpha_0 < \alpha_1 \leq \cdots \leq \alpha_{J-1} < \alpha_J = \infty. -->
-<!-- $$ -->
-<!-- The interior cutpoints $\alpha_1,\ldots,\alpha_{J-1}$ are unknown. Suppose that $Y^*$ satisfies a no-intercept linear regression -->
-<!-- $$ -->
-<!--   Y^* = x^T\beta + \varepsilon, -->
-<!-- $$ -->
-<!-- where the error term $\varepsilon$ has known cumulative density function $G$ (usually with mean zero), assumed to be continuous and invertible. (Alternatively, we could add an intercept, but then fix one of the cutpoints, e.g., set $\alpha_1 = 0$). See the figure below for intuition for a single variable $X$, and $\beta > 0$, -->
-
-<!-- \begin{center} -->
-<!-- \includegraphics[]{generallatentordinal.pdf} -->
-<!-- \end{center} -->
-
-<!-- \vspace*{0.5cm}\noindent Note: -->
-<!-- \begin{itemize} -->
-<!-- \item In this parameterization, if an element of $\beta$ is positive, its $X$ variable is positively related to $Y$ (all else held constant):  -->
-<!-- \begin{align*} -->
-<!--   \beta_k > 0: &\qquad X_k \; \text{larger} \implies Y \; \text{tends larger} \\ -->
-<!--   \beta_k < 0: &\qquad X_k \; \text{larger} \implies Y \; \text{tends smaller} -->
-<!-- \end{align*} -->
-<!-- \item Assuming the latent variables $Y^*$ are independent (conditionally on the given $X$ values), the observations $Y$ are independent.  -->
-<!-- \end{itemize} -->
-
-<!-- \vspace*{0.5cm}\noindent For $j < J$, -->
-<!-- \begin{align*} -->
-<!--   \Prob(Y \leq j \mid x) &= \Prob(Y^* \leq \alpha_j \mid x) \\ -->
-<!--     &= \Prob(Y^* - x^T\beta \leq \alpha_j - x^T\beta \mid x) \\ -->
-<!--     &= \Prob(\varepsilon \leq \alpha_j - x^T\beta) \\ -->
-<!--     &= G(\alpha_j - x^T\beta). -->
-<!-- \end{align*} -->
-<!-- Thus,  -->
-<!-- $$ -->
-<!--   G^{-1}\left(\Prob(Y\leq j \mid x)\right) = \alpha_j - x^T\beta -->
-<!-- $$ -->
-
-<!-- If $G^{-1}$ is the logit function, the latent model is equivalent to the proportional odds model, except with a different sign for $\beta$. The choice $G = \text{logit}^{-1}$ is the cumulative distribution function of the standard \textbf{logistic distribution}. In general, this kind of model may be called a \textbf{cumulative link model}. Estimation uses maximum likelihood, and the usual concepts apply: deviances, residuals, Wald, LRT, etc. Other link choices exist such as the cumulative probit model $(G = \Phi = \text{c.d.f. of} \; N(0,1))$ and the proportional hazards model with the complementary log-log link $G^{-1}(p) = \log(-\log(1-p))$. -->
-
-
-<!-- ### R Example: Happiness and Trauma (Again) -->
-
-<!-- Recall the happiness and traumatic events data:  -->
-
-<!-- ```{r} -->
-<!-- head(happiness) -->
-<!-- ``` -->
-
-<!-- Here trauma is a count of the number of traumatic events that the individual faced in the previous year. The variable happiness is an ordinal categorical variable indicating the current happiness level of the individual (1 if very happy, 2 if pretty happy, and 3 if not too happy). The control variable is a binary categorical variable that was deemed important by the researchers who conducted the study (0 if in category A, 1 if in category B). Another way to fit the proportional odds model, as a cumulative link model:  -->
-<!-- ```{r} -->
-<!-- mod.logit = vglm(happy ~ trauma + control, family=cumulative(parallel=TRUE), -->
-<!--                   data=happiness) -->
-<!-- ``` -->
-
-<!-- The logit link is the default cumulative link. Without \texttt{parallel=TRUE}, the $\beta$ vector would be free to vary with $j$. It is important to note that the cumulative link model will use $\alpha_j + x^T\beta$ instead of $\alpha_j - x^T\beta$. -->
-
-<!-- ```{r} -->
-<!-- summary(mod.logit) -->
-<!-- ``` -->
-
-<!-- To fit a cumulative probit model instead, just change the link function. For example: -->
-
-<!-- ```{r} -->
-<!-- mod.probit = vglm(happy ~ trauma + control, -->
-<!--                    family=cumulative(link="probitlink",parallel=TRUE), -->
-<!--                    data=happiness) -->
-<!-- ``` -->
-
-<!-- Again, this model will use the form $\alpha_j + x^T\beta$ instead of $\alpha_j - x^T\beta$. -->
-
-<!-- ```{r} -->
-<!-- summary(mod.probit) -->
-<!-- ``` -->
-
-<!-- Recall the alternative analysis function \texttt{polr} from the \texttt{MASS} package -->
-
-<!-- ```{r} -->
-<!-- library(MASS) -->
-<!-- mod.logit2 = polr(factor(happy) ~ trauma + control, data=happiness) -->
-<!-- ``` -->
-
-<!-- This implementation uses the logit cumulative link by default. Also, it does use $\alpha_j - x^T\beta$ and not $\alpha_j + x^T\beta$. -->
-
-<!-- ```{r} -->
-<!-- summary(mod.logit2) -->
-<!-- ``` -->
-
-<!-- To use probit cumulative link instead: -->
-
-<!-- ```{r} -->
-<!-- mod.probit2 = polr(factor(happy) ~ trauma + control, data=happiness, -->
-<!--                     method="probit") -->
-<!-- ``` -->
-
-<!-- Again, this implementation uses the formulation $\alpha_j - x^T\beta$. -->
-
-<!-- ```{r} -->
-<!-- summary(mod.probit2) -->
-<!-- ``` -->
+# Ordinal Responses
+
+Let response $Y$ be ordinal, ungrouped, and represented with codes $1,\ldots,J$ in that order. As before $x \in \R^p$. We will now consider conditional probabilities of the form
+$$
+  \Prob\left(Y \leq j\mid x\right) = \pi_1(x) + \cdots + \pi_j(x), \qquad j = 1,\ldots,J.
+$$
+
+The \textbf{cumulative logits} are
+
+$$
+  \text{logit}\left(\Prob(Y\leq j\mid x)\right) = \log\left(\frac{\Prob\left(Y\leq j\mid x\right)}{\Prob\left(Y > j \mid x\right)}\right)
+$$
+for $j = 1,\ldots,J-1$.
+
+We now motivate the \textbf{proportional odds model}. Let $x \in \R^p$ that does not include an intercept. Then the model is given by
+$$
+  \text{logit}\left(\Prob(Y\leq j\mid x)\right) = \alpha_j + x^T\beta, \qquad j = 1,\ldots,J-1,
+$$
+where $\alpha_1 \leq \alpha_2 \leq \cdots \leq \alpha_{J-1}$. For each $j$, this is a logistic regression model, with binary outcome indicating subset $\{1,\ldots,j\}$ versus $\{j+1,\ldots,J\}$.  Also, $\beta$ does not depend on $j$. Why are there order restriction on the $\alpha_j$ values? For $1 \leq j < J-1$,
+$$
+  0 < \Prob\left(Y \leq j\mid x\right) \leq \Prob\left(Y \leq j+1\mid x\right) < 1,
+$$
+so, since the logit function is an increasing function, we have that
+\begin{align*}
+  0 &\leq \text{logit}\left(\Prob(Y\leq j+1\mid x)\right) - \text{logit}\left(\Prob(Y\leq j\mid x)\right) \\
+  &= (\alpha_{j+1} + x^T\beta) - (\alpha_{j} + x^T\beta) \\
+  &= \alpha_{j+1} - \alpha_j,
+\end{align*}
+which is true if and only if $\alpha_{j+1} \geq \alpha_{j}$. The same $\beta$ is assumed across $j$ indices, otherwise there would exist $x$ for which the probabilities would be in the wrong order. The probabilities $\pi_j(x)$ can be recovered from the cumulative probabilities:
+\begin{itemize}
+\item for $j=1$,
+$$
+  \pi_1(x) = \Prob\left(Y\leq 1\mid x\right),
+$$
+\item for $1 < j < J$,
+$$
+  \pi_j(x) = \Prob\left(Y\leq j\mid x\right) - \Prob\left(Y\leq j-1\mid x\right),
+$$
+\item for $j = J$,
+$$
+  \pi_J(x) = 1 - \Prob\left(Y\leq J-1\mid x\right).
+$$
+\end{itemize}
+
+We now develop interpretations for the proportional odds models. For some $j < J$, consider the \textbf{cumulative odds ratio}
+$$
+  \frac{\text{odds}(Y \leq j\mid x_1)}{\text{odds}(Y \leq j\mid x_2)},
+$$
+which is the odds ratio for $Y \leq j$ at $x_1$ versus $x_2$. The natural logarithm of the above is
+\begin{align*}
+  &\text{logit}\left(\Prob(Y\leq j\mid x_1)\right) - \text{logit}\left(\Prob(Y\leq j\mid x_2)\right) \\
+  &\qquad= (\alpha_j + x_1^T\beta) - (\alpha_j + x_2^T\beta) \\
+  &\qquad= (x_1 - x_2)^T\beta,
+\end{align*}
+which does not depend on $j$. When $p=1$, the log cumulative odds ratio becomes $\beta(x_1 - x_2)$ which is proportional to $x_1 - x_2$, with the same proportionality constant for all $j$. If $x_1 - x_2 = 1$, the cumulative odds ratio (for any $j < J$) is $e^{\beta}$. Consider the implications when $X$ is binary and $J = 3$:
+
+\begin{center}
+\begin{tabular}{c|c|c|c|}
+\multicolumn{1}{c}{} & \multicolumn{3}{c}{$Y$} \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{$1$} & \multicolumn{1}{c}{$2$} & \multicolumn{1}{c}{$3$} \\
+ \cline{2-4}
+ $X = 1$ & $\pi_1(1)$ & $\pi_2(1)$ & $\pi_3(1)$ \\
+ $X = 0$ & $\pi_1(0)$ & $\pi_2(0)$ & $\pi_3(0)$ \\
+ \cline{2-4}
+\end{tabular}
+\end{center}
+
+\vspace*{0.5cm}\noindent where the rows sum to 1. Under the proportional odds model, we must have
+$$
+  \frac{\pi_1(1)(\pi_2(0) + \pi_3(0))}{(\pi_2(1) + \pi_3(1))\pi_1(0)}
+    = \frac{(\pi_1(1) + \pi_2(1))\pi_3(0)}{\pi_3(1)(\pi_1(0) + \pi_2(0))}
+$$
+with the common value being $e^\beta$.
+
+
+## Checking the proportional odds assumptions
+
+One can use a test (eg LRT) of the fitted model versus a more general model that allows a separate $\beta_j$ for each cumulative logit $(j = 1,\ldots,J-1)$. The more general model does not rigidly specify the proportional structure and therefore, allows for non-parallel curves. This leads to possible invalid probabilities. However, it might still fit adequately within the range of the data. See Section 8.2.5 in \cite{agresti2013cat}.
+
+We can fit the proportional odds model using maximum likelihood estimation via Newton-Raphson or Fisher scoring. The log likelihood for this model is
+$$
+  \sum_{i=1}^n\sum_{j=1}^J y_{ij}\log\left[\frac{\exp(\alpha_j + x_i^T\beta)}{1 + \exp(\alpha_j + x_i^T\beta)} - \frac{\exp(\alpha_{j-1} + x_i^T\beta)}{1 + \exp(\alpha_{j-1} + x_i^T\beta)}\right],
+$$
+where we can take $\alpha_0 = -\infty$ and $\alpha_J = +\infty$. Notice that observed and expected information is not the same in this model since it is a noncanonical link model.
+
+
+## R Example: Happiness and Traumatic Events
+
+The following is modified from a social survey:
+
+```{r}
+happiness = read.table("happiness.txt", header=TRUE)
+```
+
+```{r, echo = FALSE}
+colnames(happiness)[1] = c("control")
+```
+
+We first display the first six rows of the data
+
+```{r}
+head(happiness)
+```
+
+Here trauma is a count of the number of traumatic events that the individual faced in the previous year. The variable happiness is an ordinal categorical variable indicating the current happiness level of the individual (1 if very happy, 2 if pretty happy, and 3 if not too happy). The control variable is a binary categorical variable that was deemed important by the researchers who conducted the study (0 if in category A, 1 if in category B). We now fit a proportional odds model (cumulative logit):
+
+```{r}
+mod = vglm(happy ~ trauma + control, family=propodds(reverse=FALSE),
+            data=happiness)
+summary(mod)
+```
+In our notation, the estimates are
+
+\begin{align*}
+\begin{array}{c}
+  \hat\alpha_1 \approx -0.518 \\
+  \hat\alpha_2 \approx 3.401
+\end{array} \qquad \hat\beta \approx \left(\begin{array}{c}
+  -0.406 \\
+  -2.036
+\end{array}\right)
+\end{align*}
+
+\vspace*{0.5cm}\noindent where
+$$
+  x = \left(\begin{array}{c}
+  \text{trauma} \\
+  \text{control}
+\end{array}\right).
+$$
+So happiness is estimated lower ($Y$ is estimated to be larger) as trauma increases. We can estimate the odds of ``very happy'' for control category A relative to control category B (trauma held fixed), and a Wald 95\% confidence interval for these estimates:
+
+```{r}
+exp(2.036)
+
+exp(2.036 + c(-1,1)*1.96*0.691)
+```
+
+We can perform a likelihood ratio test for the control effect:
+
+```{r}
+modred = vglm(happy ~ trauma, family=propodds(reverse=FALSE),
+               data=happiness)
+llrts = deviance(modred) - deviance(mod)
+llrts.df = df.residual(modred) - df.residual(mod)
+llrts
+llrts.df
+1 - pchisq(llrts, llrts.df)
+```
+
+We can also graph probability curves (versus trauma) by happiness category and control:
+
+```{r, fig.height=5}
+curve(predict(mod, data.frame(trauma=x,control=0), type="response")[,1],
+      xlab="Trauma", ylab="Probability",
+      xlim=range(happiness$trauma), ylim=c(0,1))
+curve(predict(mod, data.frame(trauma=x,control=0), type="response")[,2],
+      add=TRUE, col="red")
+curve(predict(mod, data.frame(trauma=x,control=0), type="response")[,3],
+      add=TRUE, col="blue")
+curve(predict(mod, data.frame(trauma=x,control=1), type="response")[,1],
+      add=TRUE, lty=2)
+curve(predict(mod, data.frame(trauma=x,control=1), type="response")[,2],
+      add=TRUE, col="red", lty=2)
+curve(predict(mod, data.frame(trauma=x,control=1), type="response")[,3],
+      add=TRUE, col="blue", lty=2)
+legend("topright", c("A","B"), lty=1:2)
+legend("topleft", c("Very Happy","Pretty Happy","Not Too Happy"), lty=1,
+       col=c("black","red","blue"))
+```
+
+We can check the assumption of proportional odds by comparison with a model that does not assume it:
+
+```{r}
+modnotprop = vglm(happy ~ trauma + control, family=cumulative(parallel=FALSE),
+                   data=happiness)
+summary(modnotprop)
+```
+
+Now perform the LRT:
+
+```{r}
+llrts = deviance(mod) - deviance(modnotprop)
+llrts.df = df.residual(mod) - df.residual(modnotprop)
+llrts
+llrts.df
+1 - pchisq(llrts, llrts.df)
+```
+
+Here is an alternative function for fitting proportional odds models:
+
+```{r}
+library(MASS)
+mod2 = polr(factor(happy) ~ trauma + control, data=happiness)
+summary(mod2)
+```
+
+Note: Signs of coefficients (but not intercepts) are different from what was obtained using \texttt{vglm}, because \texttt{polr} uses a different parameterization (See Section 8.2.3 in \cite{agresti2013cat}).
+
+Remark: If you change the direction of the $Y$ ordering (i.e., label in the reverse order), this will change the signs of the $\alpha_i$ values and of $\beta$, and rearrange the $\alpha_i$ values (to keep them ordered least to greatest). Other than that, the model will be equivalent: the direction of the $Y$ ordering doesn’t fundamentally change the class of models being fit.
+
+
+## More about ordinal responses
+
+Let ungrouped response $Y$ be ordinal, with ordered codes $1,\ldots,J$ and let $x \in \R^p$ be an explanatory variable without an intercept element. Besides proportional odds, what other models are available?
+
+
+### Latent variable formulation
+
+Suppose that $Y$ derives from a latent continuous variable $Y^*$. The real line is divided into $J$ successive segments (with unknown boundaries), and $Y$ indicates which one contains $Y^*$. With this formulation we have that
+$$
+  Y = j \qquad \text{if} \qquad \alpha_{j-1} < Y^* \leq \alpha_j,
+$$
+where the cutpoints (or thresholds) are
+$$
+  -\infty = \alpha_0 < \alpha_1 \leq \cdots \leq \alpha_{J-1} < \alpha_J = \infty.
+$$
+The interior cutpoints $\alpha_1,\ldots,\alpha_{J-1}$ are unknown. Suppose that $Y^*$ satisfies a no-intercept linear regression
+$$
+  Y^* = x^T\beta + \varepsilon,
+$$
+where the error term $\varepsilon$ has known cumulative density function $G$ (usually with mean zero), assumed to be continuous and invertible. (Alternatively, we could add an intercept, but then fix one of the cutpoints, e.g., set $\alpha_1 = 0$). See the figure below for intuition for a single variable $X$, and $\beta > 0$,
+
+\begin{center}
+\includegraphics[]{generallatentordinal.pdf}
+\end{center}
+
+\vspace*{0.5cm}\noindent Note:
+\begin{itemize}
+\item In this parameterization, if an element of $\beta$ is positive, its $X$ variable is positively related to $Y$ (all else held constant):
+\begin{align*}
+  \beta_k > 0: &\qquad X_k \; \text{larger} \implies Y \; \text{tends larger} \\
+  \beta_k < 0: &\qquad X_k \; \text{larger} \implies Y \; \text{tends smaller}
+\end{align*}
+\item Assuming the latent variables $Y^*$ are independent (conditionally on the given $X$ values), the observations $Y$ are independent.
+\end{itemize}
+
+\vspace*{0.5cm}\noindent For $j < J$,
+\begin{align*}
+  \Prob(Y \leq j \mid x) &= \Prob(Y^* \leq \alpha_j \mid x) \\
+    &= \Prob(Y^* - x^T\beta \leq \alpha_j - x^T\beta \mid x) \\
+    &= \Prob(\varepsilon \leq \alpha_j - x^T\beta) \\
+    &= G(\alpha_j - x^T\beta).
+\end{align*}
+Thus,
+$$
+  G^{-1}\left(\Prob(Y\leq j \mid x)\right) = \alpha_j - x^T\beta
+$$
+
+If $G^{-1}$ is the logit function, the latent model is equivalent to the proportional odds model, except with a different sign for $\beta$. The choice $G = \text{logit}^{-1}$ is the cumulative distribution function of the standard \textbf{logistic distribution}. In general, this kind of model may be called a \textbf{cumulative link model}. Estimation uses maximum likelihood, and the usual concepts apply: deviances, residuals, Wald, LRT, etc. Other link choices exist such as the cumulative probit model $(G = \Phi = \text{c.d.f. of} \; N(0,1))$ and the proportional hazards model with the complementary log-log link $G^{-1}(p) = \log(-\log(1-p))$.
+
+
+### R Example: Happiness and Trauma (Again)
+
+Recall the happiness and traumatic events data:
+
+```{r}
+head(happiness)
+```
+
+Here trauma is a count of the number of traumatic events that the individual faced in the previous year. The variable happiness is an ordinal categorical variable indicating the current happiness level of the individual (1 if very happy, 2 if pretty happy, and 3 if not too happy). The control variable is a binary categorical variable that was deemed important by the researchers who conducted the study (0 if in category A, 1 if in category B). Another way to fit the proportional odds model, as a cumulative link model:
+```{r}
+mod.logit = vglm(happy ~ trauma + control, family=cumulative(parallel=TRUE),
+                  data=happiness)
+```
+
+The logit link is the default cumulative link. Without \texttt{parallel=TRUE}, the $\beta$ vector would be free to vary with $j$. It is important to note that the cumulative link model will use $\alpha_j + x^T\beta$ instead of $\alpha_j - x^T\beta$.
+
+```{r}
+summary(mod.logit)
+```
+
+To fit a cumulative probit model instead, just change the link function. For example:
+
+```{r}
+mod.probit = vglm(happy ~ trauma + control,
+                   family=cumulative(link="probitlink",parallel=TRUE),
+                   data=happiness)
+```
+
+Again, this model will use the form $\alpha_j + x^T\beta$ instead of $\alpha_j - x^T\beta$.
+
+```{r}
+summary(mod.probit)
+```
+
+Recall the alternative analysis function \texttt{polr} from the \texttt{MASS} package
+
+```{r}
+library(MASS)
+mod.logit2 = polr(factor(happy) ~ trauma + control, data=happiness)
+```
+
+This implementation uses the logit cumulative link by default. Also, it does use $\alpha_j - x^T\beta$ and not $\alpha_j + x^T\beta$.
+
+```{r}
+summary(mod.logit2)
+```
+
+To use probit cumulative link instead:
+
+```{r}
+mod.probit2 = polr(factor(happy) ~ trauma + control, data=happiness,
+                    method="probit")
+```
+
+Again, this implementation uses the formulation $\alpha_j - x^T\beta$.
+
+```{r}
+summary(mod.probit2)
+```
 
 
 
