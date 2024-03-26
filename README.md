@@ -6,7 +6,9 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* multinomial regression notes and HW4 are posted. HW4 is due on 03/29 at 11:59 PM.
+* Data separation notes are posted.
+
+* Multinomial regression notes and HW4 are posted. HW4 is due on 03/29 at 11:59 PM.
 
 * A possible solution to the midterm is posted.
   
