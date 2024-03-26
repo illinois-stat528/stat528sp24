@@ -202,12 +202,12 @@ Before we discuss such an inferential approach we will give an example as motiva
 
 ## Some theoretical details
 
-### Problem setup
+### Preliminaries
 
-We will consider an exponential family with log likelihood
-$$
+We will consider a full exponential family with log likelihood
+\begin{equation} \label{loglike}
   l(\theta) = \langle y, \theta \rangle - c(\theta).
-$$
+\end{equation}
 Let $C$ be the convex support of the canonical statistic, where we define the convex support as the smallest convex set that contains all values of the canonical statistic with probability equal to one. Define the tangent cone of $C$ at observed value of the canonical statistics $y$ as
 $$
   T_C(y) = \text{cl}\{s(w -y): w \in C \; \text{and} \; s > 0\},
@@ -216,7 +216,7 @@ where cl denotes the closure of a set.
 
 A similar but simpler version of Theorem 4 from \cite{geyer2009likelihood} states that:
 \begin{thm}
-For a full exponential family with convex support $C$ and observed value of the canonical statistic $y \in C$, the following are equivalent:
+For a full exponential family with log likelihood \eqref{loglike}, convex support $C$ and observed value of the canonical statistic $y \in C$, the following are equivalent:
 \begin{itemize}
 \item[a)] The MLE exists.
 \item[b)] The tangent cone $T_C(y)$ is a vector subspace.
@@ -247,14 +247,14 @@ Thus the MLE does not exist when the canonical statistic is on the boundary of i
 The MLE may exist in the completion of the exponential family when it does not exist (ie when the canonical statistic is on the boundary of its support). We now define the completion of the exponential family.
 
 \begin{defn}
-Let $\theta_n$, $n = 1,\ldots,$ be a sequence of canonical parameter vectors for an exponential family having above log likelihood. Let $h_n(y) = l(\theta_n)$, and suppose that $h_n(y) \to h(y)$ pointwise as $n \to \infty$ where limits $-\infty$ and $+\infty$ are allowed. The limiting functions $h$ form the completion of the exponential family.
+Let $\theta_n$, $n = 1,\ldots,$ be a sequence of canonical parameter vectors for an exponential family having log likelihood \eqref{loglike}. Let $h_n(y) = l(\theta_n)$, and suppose that $h_n(y) \to h(y)$ pointwise as $n \to \infty$ where limits $-\infty$ and $+\infty$ are allowed. The limiting functions $h$ form the completion of the exponential family.
 \end{defn}
 
 In the above definition $h_n$ is a sequence of affine functions, 
 $$
   h_n(y) = l(\theta_n) = \langle y, \theta_n \rangle - c(\theta_n)
 $$
-and the limiting function $h$ is a "generalized affine function." Generalized affine functions and their properties are defined and discussed in Section 6.1 of [Eck and Geyer (2021)](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-15/issue-1/Computationally-efficient-likelihood-inference-in-exponential-families-when-the-maximum/10.1214/21-EJS1815.full).
+and the limiting function $h$ is a "generalized affine function." Generalized affine functions and their properties are beyond the scope of this course. Definitions and details of generalized affine functions are presented in Section 6.1 of [Eck and Geyer (2021)](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-15/issue-1/Computationally-efficient-likelihood-inference-in-exponential-families-when-the-maximum/10.1214/21-EJS1815.full).
 
 
 ### Likelihood maximizing sequences
@@ -265,8 +265,9 @@ l(\theta_n) \to \sup_{\theta \in \Theta} l(\theta), \qquad as \; n \to \infty,
 $$
 where $\sup_{\theta\in\Theta} l(\theta) < \infty$. 
 
-Define $h_n(y) = l(\theta_n)$ as in the definition about the completion of exponential families. The limiting density $e^h$ corresponds to the MLE distribution in the completion. Again, mathematical properties of these objects are discussed in Section 6 of [Eck and Geyer (2021)](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-15/issue-1/Computationally-efficient-likelihood-inference-in-exponential-families-when-the-maximum/10.1214/21-EJS1815.full).
+Define $h_n(y) = l(\theta_n)$ as in the definition about the completion of exponential families. The limiting density $e^h$ corresponds to the MLE distribution in the completion. Again, these objects are beyond the scope of this course. Further details can be found in [Eck and Geyer (2021)](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-15/issue-1/Computationally-efficient-likelihood-inference-in-exponential-families-when-the-maximum/10.1214/21-EJS1815.full).
 
+### MLE exists in completion and Fisher Information degeneracy
 
 Now suppose that the MLE does not exist in the traditional exist and it exists in the completion of the exponential family, and suppose that we know the convex support set of the MLE distribution in the completion. Call this support set $A$. 
 
