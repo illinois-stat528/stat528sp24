@@ -282,7 +282,7 @@ Suppose that we can characterize $V$ as the subspace where a finite set of linea
 $$
   V = \{ w \in \R^p : \inner{w,\eta_i} = 0, i=1,\ldots,j\}. 
 $$
-Then we have that the LCM is the OM conditioned on the event
+Then we have that the LCM is conditioned 
 $$
   \inner{M^T(Y-y),\eta_i} = 0, \qquad i=1,\ldots,j.
 $$
