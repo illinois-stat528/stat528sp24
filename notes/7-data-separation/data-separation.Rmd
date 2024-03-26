@@ -296,15 +296,15 @@ Thus, the LCM is the OM conditioned on the event
 \begin{equation} \label{LCMevent}
   \inner{Y,M\eta_i} = \inner{y,M\eta_i}, \qquad \text{almost surely for} \; i \in 1,\ldots,j.
 \end{equation}
-The event \eqref{LCMevent} fixes some components of the response vector at their observed values and leaves the rest entirely unconstrained. Those components that are entirely unconstrained are those for which the corresponding component of $M\eta_i$ is zero (or, taking account of the inexactness of computer arithmetic, nearly zero) for all $i = 1,\ldots,j$. 
+The event \eqref{LCMevent} fixes some components of the response vector at their observed values and leaves the rest entirely unconstrained. Those components that are entirely unconstrained are those for which the corresponding component of $M\eta_i$ is zero (or, taking account of the inexactness of computer arithmetic, nearly zero) for all $i = 1,\ldots,j$. Such data points are said to form the LCM. Classical methods can be used to analyze the sample comprised of unconstrained data points which form the LCM.
 
-In our motivating Agresti example we see that there no such points where $M\eta_i = 0$. Therefore all components of the response are fixed at their observed value in this example.
+In our motivating Agresti example we see that there no such points where $M\eta_i = 0$. 
 
 ```{r}
 M %*% eigen(FI)$vec
 ```
 
-This data is completely degenerate.
+Therefore all components of the response are fixed at their observed value in this example. This data is completely degenerate.
 
 
 ## One-sided confidence intervals
