@@ -136,7 +136,6 @@ points(x, y, pch = 21, bg = "white")
 #### Pick up here from last time
 
 # demo on warning message
-
 z = c((1:8)*10, 1e3)
 w = c(0,0,0,1,0,1,1,1,1)
 m = glm(w ~ z, family = "binomial")
@@ -153,7 +152,7 @@ b = c(-50, 1)
 ## model matrix
 M = cbind(1, x)
 
-## check condition
+## check separation condition
 cbind(M %*% b, y)
 
 ## model fit
@@ -283,7 +282,6 @@ m_glmdr = glmdr(HG ~ ., data = endometrial, family = "binomial")
 m_summary = summary(m_glmdr)
 names(m_summary)
 
-
 m2 = update(m, subset = m_glmdr$linearity)
 summary(m2)
 
@@ -310,6 +308,7 @@ library(brglm2) # for brglm2
 
 # bayesglm (Gelman)
 
+## fit a few candidate models
 bayes_mod1 = bayesglm(HG~.,data=endometrial,family="binomial",
                       prior.scale = 1)
 bayes_mod = bayesglm(HG~.,data=endometrial,family="binomial")
@@ -317,6 +316,13 @@ bayes_mod5 = bayesglm(HG~.,data=endometrial,family="binomial",
                       prior.scale = 5)
 bayes_mod10 = bayesglm(HG~.,data=endometrial,family="binomial",
                        prior.scale = 10)
+
+AIC(bayes_mod); AIC(bayes_mod10)
+
+bayes_mod1e6 = bayesglm(HG~.,data=endometrial,family="binomial",
+                        prior.scale = 1e6)
+
+AIC(bayes_mod); AIC(bayes_mod10); AIC(bayes_mod1e6)
 
 ## p-value of NV coefficient
 c(summary(bayes_mod1)$coef[2,4], 
