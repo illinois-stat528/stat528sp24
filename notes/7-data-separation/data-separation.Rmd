@@ -446,7 +446,7 @@ points(x, y, pch = 21, bg = "white")
 
 ## Commentary on Agresti
 
-The $n = 8$ data point example that we analyzed comes from Section 6.5.1 in Agresti. However, this textbook provides no model based inferential solution to this problem. In the above, we provided such a solution that exists within the exponential family modeling and maximum likelihood estimation paradigms. To be fair to Agresti, "solutions" to complete separation are discussed in Sections 7.4.8. This approach circumvents the model-based approach. 
+The $n = 8$ data point example that we analyzed comes from Section 6.5.1 in Agresti. However, this textbook provides no model based inferential solution to this problem. In the above, we provided such a solution that exists within the exponential family modeling and maximum likelihood estimation paradigms. To be fair to Agresti, "solutions" to complete separation are discussed in Sections 7.4.7 and 7.4.8. This approach circumvents the model-based approach. 
 
 
 
@@ -477,8 +477,8 @@ We observe **quasi-complete separation** in NV (a categorical variable with two 
 b = c(0,1,0,0)
 library(data.table)
 foo = setDT(as.data.frame(cbind(m$y, m$x %*% b)))
-colnames(foo) = c("y", "sep")
-foo[, .(.N), by = c("y", "sep")]
+colnames(foo) = c("y", "NV")
+foo[, .(.N), by = c("y", "NV")]
 ```
 
 We now use \texttt{glmdr} to do our fitting.
