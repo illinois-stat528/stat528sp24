@@ -6,11 +6,7 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Data separation notes are posted.
-
-* Multinomial regression notes and HW4 are posted. HW4 is due on 03/29 at 11:59 PM.
-
-* A possible solution to the midterm is posted.
+* Linear mixed model notes and HW5 are posted. HW5 is due on 04/12 at 11:59 PM
   
 * [stat528materials](https://github.com/DEck13/stat528materials) software package is now available. This package contains documentation for the CCSO data set.
 
