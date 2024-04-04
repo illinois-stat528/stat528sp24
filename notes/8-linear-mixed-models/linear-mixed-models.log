@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  2 APR 2024 07:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  3 APR 2024 21:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -628,7 +628,7 @@ File: linear-mixed-models_files/figure-latex/unnamed-chunk-30-1.pdf Graphic fil
 e (type pdf)
 <use linear-mixed-models_files/figure-latex/unnamed-chunk-30-1.pdf>
 Package pdftex.def Info: linear-mixed-models_files/figure-latex/unnamed-chunk-3
-0-1.pdf  used on input line 1415.
+0-1.pdf  used on input line 1418.
 (pdftex.def)             Requested size: 453.6939pt x 313.16922pt.
 [20 <./linear-mixed-models_files/figure-latex/unnamed-chunk-30-1.pdf>] [21] [22
 ]
@@ -638,10 +638,10 @@ File: linear-mixed-models_files/figure-latex/unnamed-chunk-33-1.pdf Graphic fil
 e (type pdf)
 <use linear-mixed-models_files/figure-latex/unnamed-chunk-33-1.pdf>
 Package pdftex.def Info: linear-mixed-models_files/figure-latex/unnamed-chunk-3
-3-1.pdf  used on input line 1614.
+3-1.pdf  used on input line 1617.
 (pdftex.def)             Requested size: 460.72012pt x 310.15799pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1614--1619
+Underfull \hbox (badness 10000) in paragraph at lines 1617--1622
 [][]
  []
 
@@ -651,10 +651,10 @@ File: linear-mixed-models_files/figure-latex/unnamed-chunk-34-1.pdf Graphic fil
 e (type pdf)
 <use linear-mixed-models_files/figure-latex/unnamed-chunk-34-1.pdf>
 Package pdftex.def Info: linear-mixed-models_files/figure-latex/unnamed-chunk-3
-4-1.pdf  used on input line 1630.
+4-1.pdf  used on input line 1633.
 (pdftex.def)             Requested size: 459.71637pt x 310.15799pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1630--1637
+Underfull \hbox (badness 10000) in paragraph at lines 1633--1640
 [][]
  []
 
@@ -665,7 +665,7 @@ File: linear-mixed-models_files/figure-latex/unnamed-chunk-37-1.pdf Graphic fil
 e (type pdf)
 <use linear-mixed-models_files/figure-latex/unnamed-chunk-37-1.pdf>
 Package pdftex.def Info: linear-mixed-models_files/figure-latex/unnamed-chunk-3
-7-1.pdf  used on input line 1675.
+7-1.pdf  used on input line 1678.
 (pdftex.def)             Requested size: 436.63019pt x 250.93687pt.
 [24 <./linear-mixed-models_files/figure-latex/unnamed-chunk-34-1.pdf>]
 <linear-mixed-models_files/figure-latex/unnamed-chunk-37-2.pdf, id=276, 407.522
@@ -674,26 +674,26 @@ File: linear-mixed-models_files/figure-latex/unnamed-chunk-37-2.pdf Graphic fil
 e (type pdf)
 <use linear-mixed-models_files/figure-latex/unnamed-chunk-37-2.pdf>
 Package pdftex.def Info: linear-mixed-models_files/figure-latex/unnamed-chunk-3
-7-2.pdf  used on input line 1684.
+7-2.pdf  used on input line 1687.
 (pdftex.def)             Requested size: 407.53394pt x 219.8274pt.
 [25 <./linear-mixed-models_files/figure-latex/unnamed-chunk-37-1.pdf> <./linear
 -mixed-models_files/figure-latex/unnamed-chunk-37-2.pdf>] [26]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1829.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1833.
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 1865.
+(amsmath)                 on input line 1869.
 
 [27]
-Overfull \vbox (1.41856pt too high) detected at line 1944
+Overfull \vbox (1.41856pt too high) detected at line 1948
  []
 
 [28] [29] [30] [31] [32] (./linear-mixed-models.bbl) [33] (./linear-mixed-model
 s.aux) ) 
 Here is how much of TeX's memory you used:
  15073 strings out of 478268
- 241923 string characters out of 5846347
+ 241925 string characters out of 5846347
  598054 words of memory out of 5000000
  32744 multiletter control sequences out of 15000+600000
  536131 words of font info for 171 fonts, out of 8000000 for 9000
@@ -721,7 +721,7 @@ lm/lmtk10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtko10
 .pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr
 /local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local/te
 xlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on linear-mixed-models.pdf (33 pages, 1785805 bytes).
+Output written on linear-mixed-models.pdf (33 pages, 1786269 bytes).
 PDF statistics:
  545 PDF objects out of 1000 (max. 8388607)
  428 compressed objects within 5 object streams

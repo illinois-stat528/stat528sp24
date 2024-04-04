@@ -115,22 +115,29 @@ quantile(pvb, c(0.025, 0.975))
 fixef(mmod)
 
 
+###########################
+# Soybean analysis
+###########################
 
 dat = read_csv("stat528sp24/notes/8-linear-mixed-models/soybean.csv")
 head(dat)
 
+## subset of data
 foo = dat %>% select(Date, year, ID, plot_number, 
   plot_number_year, mAqE, Precip_cum, Precip_7day, 
   Ta_7day, Fsd_7day, Date_num)
 
+## linear model
 m1_mAqE_lm = lm(mAqE ~ ID + Date_num + I(Date_num^2),
                data = foo) 
 
+## random effect for plot
 m1_mAqE = lmer(mAqE ~ ID + Date_num + I(Date_num^2) + 
   (1|plot_number_year),
   data = foo, REML = FALSE, 
   control = lmerControl(optimizer ="Nelder_Mead")) 
 
+## random effect for plot plus weather variables
 m1_mAqE_full = lmer(mAqE ~ ID + Date_num + I(Date_num^2) + 
   Precip_cum + Precip_7day + Ta_7day + Fsd_7day + (1|plot_number_year),
   data = foo, REML = FALSE, 
@@ -140,6 +147,7 @@ AIC(m1_mAqE_lm)
 AIC(m1_mAqE)
 AIC(m1_mAqE_full)
 
+summary(m1_mAqE_full)
 
 par(mfrow = c(1,2))
 plot(fitted(m1_mAqE_full), residuals(m1_mAqE_full), 
@@ -155,8 +163,9 @@ M = model.matrix(mAqE ~ ID + Date_num + I(Date_num^2) +
                    Precip_cum + Precip_7day + Ta_7day + Fsd_7day, 
                  data = dat)
 
-# Note that likelihood ratios are asymptotic, i.e. don't account for 
-# uncertainty in the estimate of the residual variance
+# Note that likelihood ratios are asymptotic, i.e. don't 
+# account for uncertainty in the estimate of the residual 
+# variance
 library(parallel)
 ncores = detectCores() - 2
 system.time({AIC_IDs = matrix(unlist(lapply(
@@ -171,3 +180,133 @@ rownames(AIC_IDs) = colnames(M)[grep("ID", colnames(M))]
 colnames(AIC_IDs) = c("AqE")
 cbind(round(AIC_IDs,2), ifelse(AIC_IDs < 0, 1, 0))
 
+
+######################
+# split plot analysis
+######################
+
+?irrigation
+data(irrigation)
+
+## data summary
+summary(irrigation)
+
+## data visualization
+ggplot(irrigation, aes(y=yield, x=field, shape=irrigation, color= variety)) +
+  geom_point(size = 2) +
+  theme_minimal()
+
+lmod = lmer(yield ~ irrigation * variety + (1|field) + (1|field:variety),
+            data = irrigation)
+
+lmod = lmer(yield ~ irrigation * variety + (1|field),
+            data = irrigation)
+sumary(lmod)
+
+library(pbkrtest)
+lmoda = lmer(yield ~ irrigation + variety + (1|field), data=irrigation)
+?KRmodcomp
+KRmodcomp(lmod, lmoda)
+
+lmodi = lmer(yield ~ irrigation + (1|field), irrigation)
+KRmodcomp(lmoda, lmodi)
+
+lmodv = lmer(yield ~ variety + (1|field), irrigation)
+KRmodcomp(lmoda, lmodv)
+
+par(mfrow = c(1,2))
+plot(fitted(lmod), residuals(lmod), xlab="Fitted", ylab="Residuals", pch = 19)
+qqnorm(residuals(lmod), main="", pch = 19)
+
+
+
+######################################
+# Nested random effects via an example
+######################################
+
+?eggs
+data(eggs)
+summary(eggs)
+
+ggplot(eggs, aes(y=Fat, x=Lab, color=Technician, shape=Sample)) +
+  geom_point(size = 2, 
+             position = position_jitter(width=0.1, height=0.0)) +
+  scale_color_grey() +
+  theme_minimal()
+
+cmod = lmer(Fat ~ 1 + (1|Lab) + 
+              (1|Lab:Technician) + 
+              (1|Lab:Technician:Sample), data=eggs)
+sumary(cmod)
+confint(cmod, method="boot")
+
+cmod2 = lmer(Fat ~ 1 + 
+               (1|Lab) + 
+               (1|Lab:Technician), data=eggs)
+as.matrix(model.matrix(cmod2, type = "random"))
+confint(cmod2, method="boot")
+
+cmod3 = lmer(Fat ~ 1 + (1|Lab), data=eggs)
+confint(cmod3, method="boot")
+
+
+cmod = lmer(Fat ~ 1 + 
+              (1|Lab) + 
+              (1|Lab:Technician) + 
+              (1|Lab:Technician:Sample), data=eggs, 
+            REML = FALSE)
+cmod2 = lmer(Fat ~ 1 + 
+               (1|Lab) + 
+               (1|Lab:Technician), data=eggs, 
+             REML = FALSE)
+cmod3 = lmer(Fat ~ 1 + (1|Lab), data=eggs, REML = FALSE)
+
+AIC(cmod)
+AIC(cmod2)
+AIC(cmod3)
+
+confint(cmod, method="boot")
+confint(cmod2, method="boot")
+confint(cmod3, method="boot")
+
+
+
+###########################################
+## Example: Panel Study of Income Dynamics
+###########################################
+
+library(tidyverse)
+data(psid)
+?psid
+
+psid20 = filter(psid, person <= 20)
+ggplot(psid20, aes(x=year, y=income)) +
+  geom_line() +
+  facet_wrap(~ person) +
+  theme_minimal()
+
+
+ggplot(psid20, aes(x=year, y=income+100, group=person)) +
+  geom_line() +
+  facet_wrap(~ sex) +
+  scale_y_log10() +
+  theme_minimal()
+
+lmod = lm(log(income) ~ I(year-78), subset=(person==1), psid)
+coef(lmod)
+
+ml = lmList(log(income) ~ I(year-78) | person, psid)
+intercepts = sapply(ml,coef)[1,]
+slopes = sapply(ml,coef)[2,]
+
+plot(intercepts,slopes,xlab="Intercept",ylab="Slope")
+psex = psid$sex[match(1:85,psid$person)]
+boxplot(split(slopes,psex))
+
+t.test(slopes[psex=="M"],slopes[psex=="F"])
+t.test(intercepts[psex=="M"],intercepts[psex=="F"])
+
+
+psid$cyear = psid$year - 78
+mmod = lmer(log(income) ~ cyear*sex + age + educ + (cyear|person), psid)
+sumary(mmod, digits=3)

@@ -529,17 +529,17 @@ plot(fitted(lmod), residuals(lmod), xlab="Fitted", ylab="Residuals", pch = 19)
 qqnorm(residuals(lmod), main="", pch = 19)
 ```
 
-We can see that there is no problem with the nonconstant variance, but that the residuals indicate a bimodal distribution caused by the pairs of observations in each field. This type of divergence from normality is unlikely to cause any major problems with the estimation and inference. We can test the random effects like this:
+We can see that there is no problem with the nonconstant variance, but that the residuals indicate a bimodal distribution caused by the pairs of observations in each field. This type of divergence from normality is unlikely to cause any major problems with the estimation and inference. We can test the random effects using the \texttt{exactRLRT} function which performs a likelihood ratio test based on simulated values from the finite sample distribution for testing whether the variance of a random effect is 0 in a linear mixed model with known correlation structure of the tested random effect and iid errors:
 ```{r bootLRT2, cache = TRUE}
 library(RLRsim)
 exactRLRT(lmod)
 ```
-We see that the fields do seem to vary as the result is clearly significant.
+We see that the fields do seem to vary as the result is significant.
 
 
 # Nested random effects via an example
 
-In this Section we provide an example of nesting. Consistency between laboratory tests is important and yet the results may depend on who did the test and where the test was performed. In an experiment to test levels of consistency, a large jar of dried egg powder was divided up into a number of samples. Because the powder was homogenized, the fat content of the samples is the same, but this fact is withheld from the laboratories. Four samples were sent to each of six laboratories. Two of the samples were labeled as G and two as H, although in fact they were identical. The laboratories were instructed to give two samples to two different technicians. The technicians were then instructed to divide their samples into two parts and measure the fat content of each. So each laboratory reported eight measures, each technician four measures, that is, two replicated measures on each of two samples. The data comes from Bliss (1967):
+In this section we provide an example of nesting. Consistency between laboratory tests is important and yet the results may depend on who did the test and where the test was performed. In an experiment to test levels of consistency, a large jar of dried egg powder was divided up into a number of samples. Because the powder was homogenized, the fat content of the samples is the same, but this fact is withheld from the laboratories. Four samples were sent to each of six laboratories. Two of the samples were labeled as G and two as H, although in fact they were identical. The laboratories were instructed to give two samples to two different technicians. The technicians were then instructed to divide their samples into two parts and measure the fat content of each. So each laboratory reported eight measures, each technician four measures, that is, two replicated measures on each of two samples. The data comes from Bliss (1967):
 
 ```{r}
 data(eggs)
@@ -710,7 +710,9 @@ The model summary is:
 ```{r}
 sumary(mmod, digits=3)
 ```
-We now analyze this summary table. Lets start with the fixed effects. We see that income increases about 10% for each additional year of education (exp(0.104) $\approx$ 0.104). We see that age does not appear to be significant. For females, the reference level in this example, income increases about 8.5% a year, while for men, it increases about 8.5% - 2.9% = 5.9% a year. We see that, for this data, the incomes of women are exp(1.150) = 3.16 times higher (far higher!). Now the random effects. We know the mean for males and females, but individuals will vary about this. The standard deviation for the intercept and slope are 0.531 and 0.049 ($\sigma\sqrt{D_{11}}$ and $\sigma\sqrt{D_{22}}$), respectively. These have a correlation of 0.187 (cor$(\gamma^0,\gamma^1)$). Finally, there is some additional variation in the measurement not so far accounted for having standard deviation of 0.684 (sd($\varepsilon_{ij}$)). We see that the variation in increase in income is relatively small while the variation in overall income between individuals is quite large. Furthermore, given the large residual variation, there is a large year-to-year variation in incomes.
+We now analyze this summary table. Lets start with the fixed effects. We see that income increases about 10% for each additional year of education (exp(0.104)). We see that age does not appear to be significant. For females, the reference level in this example, income increases about 8.5% a year, while for men, it increases about 8.5% - 2.6% = 5.9% a year. We see that, for this data, the incomes of men in 1978 are exp(1.150) = 3.16 times higher (far higher!) than for women. 
+
+Now the random effects. We know the mean for males and females, but individuals will vary about this. The standard deviation for the intercept and slope are 0.531 and 0.049 ($\sigma\sqrt{D_{11}}$ and $\sigma\sqrt{D_{22}}$), respectively. These have a correlation of 0.187 (cor$(\gamma^0,\gamma^1)$). Finally, there is some additional variation in the measurement not so far accounted for having standard deviation of 0.684 (sd($\varepsilon_{ij}$)). We see that the variation in increase in income is relatively small while the variation in overall income between individuals is quite large. Furthermore, given the large residual variation, there is a large year-to-year variation in incomes.
 
 
 
