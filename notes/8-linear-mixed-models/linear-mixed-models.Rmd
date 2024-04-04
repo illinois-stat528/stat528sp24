@@ -242,7 +242,7 @@ we can then find the posterior mean, denoted as $\hat{\alpha}$ as
 $$
   E(\alpha_i|Y) = \int \alpha_i f(\alpha_i|Y) d\alpha_i.
 $$
-For the general case, this works out to be
+This works out to be
 $$
   \hat\alpha = DZ^TV^{-1}(Y - X\beta).
 $$
@@ -446,7 +446,11 @@ system.time({AIC_IDs = matrix(unlist(lapply(
 })), ncol = 1)})
 rownames(AIC_IDs) = colnames(M)[grep("ID", colnames(M))]
 colnames(AIC_IDs) = c("AqE")
-cbind(round(AIC_IDs,2), ifelse(AIC_IDs < 0, 1, 0))
+data.frame(
+  AIC = as.numeric(round(AIC_IDs,2)), 
+  selection = as.numeric(ifelse(AIC_IDs < 0, 1, 0)), 
+  coefficient = summary(m1_mAqE_full)$coef[2:41, 1]
+)
 ```
 
 
@@ -505,6 +509,8 @@ lmod = lmer(yield ~ irrigation * variety + (1|field),
              data = irrigation)
 sumary(lmod)
 ```
+
+Note that \texttt{lmer} does not provide p-values for fixed-effects. Per Ben Bolker, one of the developers of \texttt{lmer}, not printing p-values has been a "feature" of \texttt{lmer} forever (see a formal technical report on LMM and GLMM on this issue [here](https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html#why-doesnt-lme4-display-denominator-degrees-of-freedomp-values-what-other-options-do-i-have) and Doug Bate's less than formal take [here](https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html)).
 
 We can see that the largest variance component is that due to the field effect, with $\hat\sigma_f = 4.03$ compared to $\hat\sigma_\varepsilon = 1.45$. The relatively large standard errors compared to the fixed effect estimates suggest that there may be no significant fixed effects. We can check this sequentially using a backwards model selection procedure with F-tests with adjusted degrees of freedom:
 ```{r}

@@ -24,9 +24,8 @@ coef(lmod)
 mmod = lmer(bright ~ 1 + (1|operator), pulp)
 summary(mmod)
 
-######################
+
 # Parametric bootstrap
-######################
 
 ## null model fit
 nullmod = lm(bright ~ 1, pulp) 
@@ -59,15 +58,16 @@ sqrt(pval*(1-pval)/B)
 
 
 
-###########################
 # Predicting random effects
-###########################
-
-## operator random effects
-ranef(mmod)$operator
 
 ## operator fixed effects from linear model
 (cc = model.tables(lmod))
+pulp %>% group_by(operator) %>% 
+  summarise(bright = mean(bright)) %>% 
+  select(bright) - mean(pulp$bright)
+
+## operator random effects
+ranef(mmod)$operator
 
 ## estimated fixed effects divided by predicted random effects
 ## shrinkage
@@ -81,9 +81,25 @@ dotplot(ranef(mmod, condVar=TRUE))
 fixef(mmod)
 fixef(mmod) + ranef(mmod)$operator
 
-## get a 95% CI for a new observation for operator a
+
+## get a 95% CI for a new observation (operator unspecified)
 group.sd = as.data.frame(VarCorr(mmod))$sdcor[1]
 resid.sd = as.data.frame(VarCorr(mmod))$sdcor[2]
+?simulate.merMod
+B = 1000
+pv = numeric(B)
+system.time(for(i in 1:B){
+  y = unlist(simulate(mmod, use.u = TRUE))
+  bmod = suppressWarnings(refit(mmod, y))
+  pv[i] = predict(bmod, re.form=~0)[1] + 
+    rnorm(n=1,sd=group.sd) +  
+    rnorm(n=1,sd=resid.sd)
+})
+quantile(pv, c(0.025, 0.975))
+
+
+## get a 95% CI for a new observation for operator a
+?simulate.merMod
 B = 1000
 pva = numeric(B)
 system.time(for(i in 1:B){
@@ -93,9 +109,8 @@ system.time(for(i in 1:B){
                   newdata=data.frame(operator="a")) + 
     rnorm(n=1,sd=resid.sd)
 })
-
 quantile(pva, c(0.025, 0.975))
-fixef(mmod)
+
 
 
 ## get a 95% CI for a new observation for operator b
@@ -114,11 +129,19 @@ system.time(for(i in 1:B){
 quantile(pvb, c(0.025, 0.975))
 fixef(mmod)
 
+data.frame(
+  operator = rep(c("u","a","b"), each=1e3),
+  bright = c(pv,pva,pvb)
+) %>% 
+  ggplot() + 
+  aes(x = bright, color = operator) + 
+  geom_density() + 
+  theme_minimal() + 
+  geom_vline(aes(xintercept = 60.4))
+  
 
-###########################
+
 # Soybean analysis
-###########################
-
 dat = read_csv("stat528sp24/notes/8-linear-mixed-models/soybean.csv")
 head(dat)
 
@@ -126,6 +149,7 @@ head(dat)
 foo = dat %>% select(Date, year, ID, plot_number, 
   plot_number_year, mAqE, Precip_cum, Precip_7day, 
   Ta_7day, Fsd_7day, Date_num)
+dim(foo)
 
 ## linear model
 m1_mAqE_lm = lm(mAqE ~ ID + Date_num + I(Date_num^2),
@@ -178,13 +202,18 @@ system.time({AIC_IDs = matrix(unlist(lapply(
   })), ncol = 1)})
 rownames(AIC_IDs) = colnames(M)[grep("ID", colnames(M))]
 colnames(AIC_IDs) = c("AqE")
-cbind(round(AIC_IDs,2), ifelse(AIC_IDs < 0, 1, 0))
 
 
-######################
+bar = data.frame(
+  AIC = as.numeric(round(AIC_IDs,2)), 
+  selection = as.numeric(ifelse(AIC_IDs < 0, 1, 0)), 
+  coefficient = summary(m1_mAqE_full)$coef[2:41, 1]
+)
+bar
+
+
+
 # split plot analysis
-######################
-
 ?irrigation
 data(irrigation)
 
@@ -220,10 +249,8 @@ qqnorm(residuals(lmod), main="", pch = 19)
 
 
 
-######################################
-# Nested random effects via an example
-######################################
 
+# Nested random effects via an example
 ?eggs
 data(eggs)
 summary(eggs)
