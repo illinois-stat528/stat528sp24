@@ -848,7 +848,9 @@ Therefore, the sparsity of $Z^T$ increases with the number of grouping factor le
 
 ## Constructing the relative covariance factor
 
-The $q \times q$ covariance factor $\Lambda_\theta$ is a block diagonal matrix whose $i$th diagonal block $\Lambda_i$ is of size $q_i$, $i=1,\ldots,k$. We refer to $\Lambda_i$ as the \emph{term-wise relative covariance factor}. Furthermore, $\Lambda_i$ is a homogeneous block diagonal matrix with each of the $l_i$ lower-triangular blocks on the diagonal being a copy of a $p_i \times p_i$ lower-triangular template matrix $T_i$. The covariance parameter vector $\theta$ of length $m_i = {p_i + 1 \choose 2}$, $i = 1,\ldots,k$, consists of the elements in the lower triangle of $T_i$. To provide a unique representation we require that the diagonal elements of the $T_i$ terms to be non-negative.
+The $q \times q$ covariance factor $\Lambda_\theta$ is a block diagonal matrix whose $i$th diagonal block $\Lambda_i$ is of size $q_i$, $i=1,\ldots,k$. We refer to $\Lambda_i$ as the \emph{term-wise relative covariance factor}. 
+
+<!-- Furthermore, $\Lambda_i$ is a homogeneous block diagonal matrix with each of the $l_i$ lower-triangular blocks on the diagonal being a copy of a $p_i \times p_i$ lower-triangular template matrix $T_i$. The covariance parameter vector $\theta$ of length $m_i = {p_i + 1 \choose 2}$, $i = 1,\ldots,k$, consists of the elements in the lower triangle of $T_i$. To provide a unique representation we require that the diagonal elements of the $T_i$ terms to be non-negative. -->
 
 More details are given in the [lme4 vignette](https://cran.r-project.org/web/packages/lme4/vignettes/lmer.pdf).
 
