@@ -42,7 +42,7 @@ Notice that the density \eqref{expofamdisp} is a generalization of the exponenti
 <!--   \hat{\phi} = \frac{\sum_{i=1}^n(y_i - \hat\mu_i)^2/\hat\mu_i}{n-p} -->
 <!-- $$ -->
 
-Let $\E Y_i = \mu_i$ and let this be connected to the linear predictor using the change-of-parameter mapping $g$ by $\mu_i = g(x_i^T\beta)$. Now let the random effects $b$ have distribution $h(b|V)$ for parameters $V$. The fixed effects are $\beta$. Conditional on the random effects $b$, 
+Let $\E Y_i = \mu_i$ and let this be connected to the linear predictor using the change-of-parameter mapping $g$ by $\mu_i = g(\theta_i)$. Now let the random effects $b$ have distribution $h(b|V)$ for parameters $V$. The fixed effects are $\beta$. Conditional on the random effects $b$, 
 $$
   \theta_i = x_i^T\beta + z_i^Tb
 $$
@@ -59,9 +59,17 @@ Typically, the random effects are also assumed to be normal $b \sim N(0, D)$. Ho
 A variety of possible approaches are available for fitting GLMMs and obtaining inferences of model parameters. These approaches each have their own strengths and weaknesses, there is not one approach that is universally recognized as the best in all scenarios. We  will present an overview of the theory behind these approaches before demonstrating the implementation on examples.
 
 
-\textbf{Penalized Quasi-Likelihood (PQL)}: Earlier in this course we mentioned a connection between GLM optimization and weighted least squares (WLS) regression from LM when we discussed the IRLS algorithm (see the exponential family notes for details). a slightly different different IRLS algorithm (details below) can be used to fit GLMM models. We have $\E(\tilde y_i|\beta,b) = x_i^T\beta + z_i^Tb$ and we may derive an expression for $\mathrm{Var}(\tilde y_i|b)$. We can then use LMM optimization methods with appropriate weighting to fit GLMM models. The name quasi-likelihood is not entirely appropriate for PQL as we still use the distributional assumptions. The PQL method has the advantage of relatively easy implementation given that existing LMM optimization methods can be adapted to the GLMM setting. However, the inference is only asymptotically correct. Biased estimates are mostly likely to arise for binomial responses with small groups (covariate classes) and will be worst for Bernoulli responses. Similar problems will be observed for Poisson response data where the counts tend to be low. A PQL method is implemented using \texttt{glmmPQL} in the \texttt{MASS} package.
+\textbf{Penalized Quasi-Likelihood (PQL)}: Earlier in this course we mentioned a connection between GLM optimization and weighted least squares (WLS) regression from LM when we discussed the IRLS algorithm (see the exponential family notes for details). A slightly different different IRLS algorithm (details below) can be used to fit GLMM models. Here, the pseudo-response will be defined as 
+  $$
+    \tilde y^k = \hat\theta^k + (y - \hat\mu^k)\frac{\partial\theta}{\partial\mu}|_{\hat\theta^k},
+  $$
+where $k$ is the iteration number. We will suppose 
+$$
+  \E(\tilde y_i|\beta,b) = x_i^T\beta + z_i^Tb
+$$ 
+and we may derive an expression for $\mathrm{Var}(\tilde y_i|b)$. We can then use LMM optimization methods with appropriate weighting to fit GLMM models. The name quasi-likelihood is not entirely appropriate for PQL as we still use the distributional assumptions. The PQL method has the advantage of relatively easy implementation given that existing LMM optimization methods can be adapted to the GLMM setting. However, the inference is only asymptotically correct. Biased estimates are mostly likely to arise for binomial responses with small groups (covariate classes) and will be worst for Bernoulli responses. Similar problems will be observed for Poisson response data where the counts tend to be low. A PQL method is implemented using \texttt{glmmPQL} in the \texttt{MASS} package.
 
-\textbf{Numerical Integration}: If the dimension of the random effects is not too large then it is possible to use numerical integration methods to approximate the likelihood. The [Laplace approximation](https://bookdown.org/rdpeng/advstatcomp/laplace-approximation.html) is one of the least demanding methods for computing integrals of the form $\int\exp(g(x))dx$. We need only find the maximum of $g$ and the second derivative of $g(x)$ at that point. For the integral in the GLMM likelihood, this can provide a surprisingly good approximation despite the integrand being evaluated at just one point. We can do better with more function evaluations. For these kinds of integrals, [Gauss-Hermite quadrature](https://en.wikipedia.org/wiki/Gauss%E2%80%93Hermite_quadrature) is appropriate. The Gauss-Hermite quadrature method approximates integrals of the form:
+\textbf{Numerical Integration}: If the dimension of the random effects is not too large then it is possible to use numerical integration methods to approximate the likelihood. The [Laplace approximation](https://bookdown.org/rdpeng/advstatcomp/laplace-approximation.html) is one of the least demanding methods for computing integrals of the form $\int\exp(g(x))dx$. We need only find the maximum of $g$ and the second derivative of $g(x)$ at the maximizer. For the integral in the GLMM likelihood, this can provide a surprisingly good approximation despite the integrand being evaluated at just one point. We can do better with more function evaluations. For these kinds of integrals, [Gauss-Hermite quadrature](https://en.wikipedia.org/wiki/Gauss%E2%80%93Hermite_quadrature) is appropriate. The Gauss-Hermite quadrature method approximates integrals of the form:
 $$
   \int g(x)\exp(-x^2)dx \approx \sum_k w_kg(x_k),
 $$
@@ -204,7 +212,7 @@ summary(modpql)
 ```
 The SD for the subject effect is 3.06. We can use the same ideas from logistic regression to interpret this value. We have exp(3.06) = 21.3 so the odds of stability are multiplied by this factor. Hence we can see that there is substantial variation in the inherent stability of individuals. Indeed, this variation is of comparable magnitude to the treatment effects.
 
-We see strongly significant surface and vision effects while some other effects have marginally significant p-values. However, this inference is based on the linearized model and rather dubious assumptions as explained in Section 10.2 in \cite{faraway2016extending}, so these results cannot be relied upon. Furthermore, the Bernoulli response may lead to biased estimates of regression coefficients. \textbf{Explain why the Bernoulli response may lead to biased estimates of regression coefficients.}
+We see strongly significant surface and vision effects while some other effects have marginally significant p-values. However, this inference is based on the linearized model and rather dubious assumptions as explained in Section 10.2 in \cite{faraway2016extending}, so these results cannot be relied upon. Furthermore, the Bernoulli response may lead to biased estimates of regression coefficients. 
 
 
 ### Numerical integration
@@ -236,9 +244,9 @@ modgh2 = glmer(stable ~ Surface + Vision + (1|Subject), nAGQ=25,
                 family=binomial, data=ctsib)
 anova(modgh, modgh2)
 ```
-This uses the standard likelihood-based methods to construct a chi-squared test. We have the same reasons as with LMMs to view these results with some skepticism. \textbf{Elaborate on these reasons.}
+This uses the standard likelihood-based methods to construct a chi-squared test. We have the same reasons as with LMMs to view these results with some skepticism. 
 
-Even so, this is a balanced experiment of a reasonable size so this provides some confidence in the result. We see that a simplification to just the treatment variables as fixed effects seems reasonable. If we feel uncomfortable with this conclusion, we may further point to the minimization of AIC (or BIC) as a justification for choosing the smaller model.
+Even so, this is a balanced experiment of a reasonable size so this provides some confidence in the result. We see that a simplification to just the treatment variables as fixed effects seems reasonable. If we feel uncomfortable with this conclusion, we may further point to the minimization of AIC (or BIC) as a justification for choosing the smaller model. One could also run a parametric bootstrap to help decide which model fits the best.
 
 We now check model diagnostics. Here are the QQ plots subsetted by the treatment variables:
 ```{r}
@@ -291,7 +299,7 @@ but there is some uncertainty regarding the size of the effect. We can produce a
 restab = sapply(result$marginals.fixed, 
   function(x) inla.zmarginal(x, silent=TRUE))
 restab = cbind(restab, inla.zmarginal(sigmaalpha,silent=TRUE))
-colnames(restab) = c("mu","norm","dome","open","alpha")
+colnames(restab) = c("intercept","norm","dome","open","SD")
 data.frame(restab)
 ```
 
@@ -348,7 +356,8 @@ library(glmm)
 ctsib$SubjectF = as.factor(ctsib$Subject)
 
 set.seed(13)
-clust = makeCluster(14)
+nCores = detectCores() - 2
+clust = makeCluster(nCores)
 system.time({
   m1 = glmm(stable ~ Sex + Age + Height + 
     # random effect distribution centered at 0; no reference group
@@ -481,7 +490,7 @@ epilo = filter(epilepsy, id != 49)
 
 Excluding a case should not be taken lightly. For projects where the analyst works with producers of the data, it will be possible to discuss substantive reasons for excluding cases. 
 
-It is worth starting with a GLM even though the model is not correct due to the grouping of the observations. We must use an offset to allow for the difference in lengths in the baseline and treatment periods.
+It is worth starting with a GLM even though the model is not correct due to the grouping of the observations. We must use an offset to study seizure rate instead of seizures. This is due to data collection having different time windows at different periods in the study design.
 
 ```{r}
 modglm = glm(seizures ~offset(log(timeadj)) + expind + treat + 
@@ -590,7 +599,8 @@ We can use the \texttt{glmm} package to implement the MCLA approach to fitting G
 epilo$idF = as.factor(epilo$id)
 epilo$seizures = as.integer(epilo$seizures)
 set.seed(13)
-clust = makeCluster(8)
+nCores = detectCores() - 2
+clust = makeCluster(nCores)
 system.time({
   m1 = glmm(seizures ~ offset(log(timeadj)) + 
     expind + treat + I(expind*treat), random = list(~0+idF), 
