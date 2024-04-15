@@ -62,6 +62,7 @@ sqrt(pval*(1-pval)/B)
 
 ## operator fixed effects from linear model
 (cc = model.tables(lmod))
+
 pulp %>% group_by(operator) %>% 
   summarise(bright = mean(bright)) %>% 
   select(bright) - mean(pulp$bright)
@@ -74,6 +75,7 @@ ranef(mmod)$operator
 cc[[1]]$operator / ranef(mmod)$operator
 
 ## 95% CI for predicted random effects
+?ranef
 library(lattice)
 dotplot(ranef(mmod, condVar=TRUE))
 
@@ -143,6 +145,7 @@ data.frame(
 
 # Soybean analysis
 dat = read_csv("stat528sp24/notes/8-linear-mixed-models/soybean.csv")
+as.data.frame(dat)
 head(dat)
 
 ## subset of data
@@ -261,9 +264,7 @@ ggplot(eggs, aes(y=Fat, x=Lab, color=Technician, shape=Sample)) +
   scale_color_grey() +
   theme_minimal()
 
-cmod = lmer(Fat ~ 1 + (1|Lab) + 
-              (1|Lab:Technician) + 
-              (1|Lab:Technician:Sample), data=eggs)
+cmod = lmer(Fat ~ 1 + (1|Lab) + (1|Lab:Technician) + (1|Lab:Technician:Sample), data=eggs)
 sumary(cmod)
 confint(cmod, method="boot")
 
@@ -328,12 +329,24 @@ slopes = sapply(ml,coef)[2,]
 
 plot(intercepts,slopes,xlab="Intercept",ylab="Slope")
 psex = psid$sex[match(1:85,psid$person)]
+
+boxplot(split(intercepts,psex))
 boxplot(split(slopes,psex))
 
 t.test(slopes[psex=="M"],slopes[psex=="F"])
 t.test(intercepts[psex=="M"],intercepts[psex=="F"])
 
-
 psid$cyear = psid$year - 78
 mmod = lmer(log(income) ~ cyear*sex + age + educ + (cyear|person), psid)
 sumary(mmod, digits=3)
+
+## construction of model matrix
+library(Matrix)
+# first argument is the number of levels
+# second argument is the number of replications
+(f = gl(3,2))
+(Ji = t(as(f, Class = "sparseMatrix")))
+
+(Xi = cbind(1,rep.int(c(-1,1), 3L)))
+(Zi = t(KhatriRao(t(Ji), t(Xi))))
+

@@ -6,6 +6,8 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
+* Generalized linear mixed model and generalized estimating equation notes, and HW6 are posted. HW6 is due on 04/19 at 11:59 PM
+
 * Linear mixed model notes and HW5 are posted. HW5 is due on 04/12 at 11:59 PM
   
 * [stat528materials](https://github.com/DEck13/stat528materials) software package is now available. This package contains documentation for the CCSO data set.
@@ -346,25 +348,29 @@ A list of the designated University employees who, as counselors, confidential a
 
 * Week 13 [04/09, 04/11]
   + LMM
-  + **Reading**: course notes, chapters 10-11 of Faraway
+  + GLMM/GEE
+  + **Reading**: course notes, chapters 10-11, 13 of Faraway
   + Homework 5 due on Friday, 04/12 at 11:59 PM
   
 * Week 14 [04/16, 04/18]
   + GLMM/GEE
-  + **Reading**: course notes, chapter 13 of Faraway
+  + Aster models 
+  + **Reading**: course notes, chapter 13 of Faraway, materials cited in aster notes
+  + **Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri)
+  + Homework 6 due on Friday, 04/19 at 11:59 PM
 
 * Week 15 [04/23, 04/25]
   + Aster models 
-  + **Reading**: course notes, materials cited in aster notes
-  + **Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri).
-  + Homework 6 due on Friday, 04/26 at 11:59 PM
-
-* Week 16 [04/30]
   + Multivariate regression and envelope basics
   + **Reading**: course notes
+  + **Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri)
+
+
+* Week 16 [04/30]
+  + Review day, open discussion
   + Last day of instruction on 05/01
-  + Final take-home exam assigned
   + Homework 7 due on Wednesday, 05/01 at 11:59 PM
+  + Final take-home exam assigned on 05/02
 
 * Final exam due on 05/10 at 11:59 PM.
 
