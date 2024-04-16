@@ -6,9 +6,9 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Generalized linear mixed model and generalized estimating equation notes, and HW6 are posted. HW6 is due on 04/19 at 11:59 PM
+* Aster notes added. HW7 coming soon.
 
-* Linear mixed model notes and HW5 are posted. HW5 is due on 04/12 at 11:59 PM
+* Generalized linear mixed model and generalized estimating equation notes, and HW6 are posted. HW6 is due on 04/19 at 11:59 PM
   
 * [stat528materials](https://github.com/DEck13/stat528materials) software package is now available. This package contains documentation for the CCSO data set.
 
@@ -353,14 +353,12 @@ A list of the designated University employees who, as counselors, confidential a
   + Homework 5 due on Friday, 04/12 at 11:59 PM
   
 * Week 14 [04/16, 04/18]
-  + GLMM/GEE
   + Aster models 
   + **Reading**: course notes, chapter 13 of Faraway, materials cited in aster notes
   + **Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri)
   + Homework 6 due on Friday, 04/19 at 11:59 PM
 
 * Week 15 [04/23, 04/25]
-  + Aster models 
   + Multivariate regression and envelope basics
   + **Reading**: course notes
   + **Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri)
