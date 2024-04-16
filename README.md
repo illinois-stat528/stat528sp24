@@ -355,13 +355,12 @@ A list of the designated University employees who, as counselors, confidential a
 * Week 14 [04/16, 04/18]
   + Aster models 
   + **Reading**: course notes, chapter 13 of Faraway, materials cited in aster notes
-  + **Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri)
+  + **Background Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri)
   + Homework 6 due on Friday, 04/19 at 11:59 PM
 
 * Week 15 [04/23, 04/25]
   + Multivariate regression and envelope basics
   + **Reading**: course notes
-  + **Reading**: Section 1 and 6 of the Stanford Encyclopedia of Philosophy entry on [Population Genetics](https://plato.stanford.edu/entries/population-genetics/#PopGenCri)
 
 
 * Week 16 [04/30]
