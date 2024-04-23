@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  23 APR 2024 07:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  23 APR 2024 08:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -992,7 +992,7 @@ Package pdftex.def Info: multivariate-notes_files/figure-latex/unnamed-chunk-12
 Here is how much of TeX's memory you used:
  34853 strings out of 478268
  795352 string characters out of 5846347
- 1213624 words of memory out of 5000000
+ 1213625 words of memory out of 5000000
  52254 multiletter control sequences out of 15000+600000
  534510 words of font info for 155 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1021,7 +1021,7 @@ exlive/2022/texmf-dist/fonts/type1/public/lm/lmtko10.pfb></usr/local/texlive/20
 ist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2022/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on multivariate-notes.pdf (16 pages, 803906 bytes).
+Output written on multivariate-notes.pdf (16 pages, 804210 bytes).
 PDF statistics:
  355 PDF objects out of 1000 (max. 8388607)
  281 compressed objects within 3 object streams

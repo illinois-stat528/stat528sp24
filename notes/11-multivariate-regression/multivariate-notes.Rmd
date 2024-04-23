@@ -124,7 +124,7 @@ Similarly, we have $\Var(\text{vec}(\widehat{\beta}')) = \Sigma \otimes (\X'\X)^
 \end{align*}
 As in classical regression we can perform inferences with respect elements of $\text{vec}(\beta)$ as 
 $$
-  \frac{\text{vec}(\widehat{\beta})_{j}}{\sqrt{((\X'\X)^{-1} \otimes \Sigma)_{jj}}} \sim t_{n - p}
+  \frac{\text{vec}(\widehat{\beta})_{j}}{\sqrt{((\X'\X)^{-1} \otimes \widehat{\Sigma})_{jj}}} \sim t_{n - p}
 $$
 where $n$ is the number of observations and $p$ is the number of predictors. We can also compute the covariance between two columns of $\widehat{\beta}$ which has the form 
 $$

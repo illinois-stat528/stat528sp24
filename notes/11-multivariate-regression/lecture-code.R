@@ -12,6 +12,9 @@ betahat = coef(m)
 betahat
 
 X = m$x
+betahat_direct = t(Y) %*% X %*% solve(crossprod(X))
+all.equal(betahat_direct, t(betahat))
+
 head(X)
 all.equal(X %*% betahat, m$fitted.values)
 
@@ -26,27 +29,34 @@ SigmaMLE
 Sigmahat = SSE / (n - p)
 Sigmahat
 
+## check out vcov
+vcov(m)
+dim(vcov(m))
+dim(betahat)
 
-
+## var(vec(beta'))
 unique(round(vcov(m) - kronecker(Sigmahat, solve(crossprod(X))), 10))
 
 
 # summary table from lm
 msum = summary(m)
 
+# summary table for first component of Y: mpg
 head(Y)
 msum[[1]]
 betahat[, 1]
 
+# summary table for second component of Y: disp
 head(Y)
 msum[[2]]
 betahat[, 2]
 
-## summary table from theory (they are the same)
+## summary table for mpg from theory (they are the same)
 msum2 = cbind(coef(m)[, 1], sqrt(diag( kronecker(Sigmahat, solve(crossprod(X))) ))[1:5])
 msum2 = cbind(msum2, msum2[, 1] / msum2[, 2])
 msum2 = cbind(msum2, sapply(msum2[, 3], function(x) pt(abs(x), df = n - p, lower = FALSE)*2 ))
 msum2
+msum[[1]]$coef
 
 
 ## different multivariate tests
