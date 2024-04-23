@@ -7,20 +7,34 @@ mtcars$cyl <- factor(mtcars$cyl)
 Y <- as.matrix(mtcars[,c("mpg","disp","hp","wt")])
 m <- lm(Y ~ cyl + am + carb, data=mtcars, x = TRUE)
 
-# estimate of beta'
+## estimate of beta'
 betahat = coef(m)
 betahat
 
 X = m$x
+head(X)
 betahat_direct = t(Y) %*% X %*% solve(crossprod(X))
 all.equal(betahat_direct, t(betahat))
 
+
+## separate regressions
+m_mpg = lm(mpg ~ cyl + am + carb, data=mtcars)
+m_disp = lm(disp ~ cyl + am + carb, data=mtcars)
+m_hp = lm(hp ~ cyl + am + carb, data=mtcars)
+m_wt = lm(wt ~ cyl + am + carb, data=mtcars)
+betahat_sep = rbind(coef(m_mpg), 
+      coef(m_disp),
+      coef(m_hp),
+      coef(m_wt))
+betahat_sep
+betahat_sep - t(betahat)
+
+## fitted values Yhat
 head(X)
 all.equal(X %*% betahat, m$fitted.values)
 
 
-
-# estimates of Sigma
+## estimates of Sigma
 SSE = crossprod(Y - m$fitted.values)
 n = nrow(Y)
 p = nrow(coef(m))
