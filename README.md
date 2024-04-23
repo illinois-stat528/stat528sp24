@@ -6,9 +6,9 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
-* Aster notes added. HW7 coming soon.
+* HW7 is now posted. It is due May 1st at 11:59 PM.
 
-* Generalized linear mixed model and generalized estimating equation notes, and HW6 are posted. HW6 is due on 04/19 at 11:59 PM
+* Multivariate regression notes are now posted.
   
 * [stat528materials](https://github.com/DEck13/stat528materials) software package is now available. This package contains documentation for the CCSO data set.
 

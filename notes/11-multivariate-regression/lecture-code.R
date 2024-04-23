@@ -1,0 +1,111 @@
+
+data(mtcars)
+head(mtcars)
+
+## multivariate regression model
+mtcars$cyl <- factor(mtcars$cyl)
+Y <- as.matrix(mtcars[,c("mpg","disp","hp","wt")])
+m <- lm(Y ~ cyl + am + carb, data=mtcars, x = TRUE)
+
+# estimate of beta'
+betahat = coef(m)
+betahat
+
+X = m$x
+head(X)
+all.equal(X %*% betahat, m$fitted.values)
+
+
+
+# estimates of Sigma
+SSE = crossprod(Y - m$fitted.values)
+n = nrow(Y)
+p = nrow(coef(m))
+SigmaMLE = SSE / n
+SigmaMLE
+Sigmahat = SSE / (n - p)
+Sigmahat
+
+
+
+unique(round(vcov(m) - kronecker(Sigmahat, solve(crossprod(X))), 10))
+
+
+# summary table from lm
+msum = summary(m)
+
+head(Y)
+msum[[1]]
+betahat[, 1]
+
+head(Y)
+msum[[2]]
+betahat[, 2]
+
+## summary table from theory (they are the same)
+msum2 = cbind(coef(m)[, 1], sqrt(diag( kronecker(Sigmahat, solve(crossprod(X))) ))[1:5])
+msum2 = cbind(msum2, msum2[, 1] / msum2[, 2])
+msum2 = cbind(msum2, sapply(msum2[, 3], function(x) pt(abs(x), df = n - p, lower = FALSE)*2 ))
+msum2
+
+
+## different multivariate tests
+m0 = lm(Y ~ am + carb, data=mtcars)
+anova(m0, m, test="Wilks")
+anova(m0, m, test="Pillai")
+
+Etilde = n * SigmaMLE
+SigmaTilde1 = crossprod(Y - m0$fitted.values) / n
+Htilde = n * (SigmaTilde1 - SigmaMLE)
+HEi = Htilde %*% solve(Etilde)
+HEi.values = eigen(HEi)$values
+c(Wilks = prod(1 / (1 + HEi.values)), Pillai = sum(HEi.values / (1 + HEi.values)))
+
+
+## confidence point-estimate
+newdata = data.frame(cyl=factor(6, levels=c(4,6,8)), am=1, carb=4)
+predict(m, newdata, interval="confidence")
+
+## prediction point-estimate
+newdata = data.frame(cyl=factor(6, levels=c(4,6,8)), am=1, carb=4)
+predict(m, newdata, interval="prediction")
+
+## interval estimation from Nate Helwig
+pred.mlm = function(object, newdata, level=0.95,
+                    interval = c("confidence", "prediction")){
+  form = as.formula(paste("~",as.character(formula(object))[3]))
+  xnew = model.matrix(form, newdata)
+  fit = predict(object, newdata)
+  Y = model.frame(object)[,1]
+  X = model.matrix(object)
+  n = nrow(Y)
+  r = ncol(Y)
+  p = ncol(X) - 1
+  sigmas = colSums((Y - object$fitted.values)^2) / (n - p - 1)
+  fit.var = diag(xnew %*% tcrossprod(solve(crossprod(X)), xnew))
+  if(interval[1]=="prediction") fit.var = fit.var + 1
+  const = qf(level, df1=r, df2=n-p-r) * r * (n - p - 1) / (n - p - r)
+  vmat = (n/(n-p-1)) * outer(fit.var, sigmas)
+  lwr = fit - sqrt(const) * sqrt(vmat)
+  upr = fit + sqrt(const) * sqrt(vmat)
+  if(nrow(xnew)==1L){
+    ci = rbind(fit, lwr, upr)
+    rownames(ci) = c("fit", "lwr", "upr")
+  } else {
+    ci = array(0, dim=c(nrow(xnew), r, 3))
+    dimnames(ci) = list(1:nrow(xnew), colnames(Y), c("fit", "lwr", "upr") )
+    ci[,,1] = fit
+    ci[,,2] = lwr
+    ci[,,3] = upr
+  }
+  ci
+}
+
+
+## confidence interval
+newdata = data.frame(cyl=factor(6, levels=c(4,6,8)), am=1, carb=4)
+pred.mlm(m, newdata)
+
+## prediction interval
+newdata = data.frame(cyl=factor(6, levels=c(4,6,8)), am=1, carb=4)
+pred.mlm(m, newdata, interval="prediction")
