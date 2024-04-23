@@ -1,6 +1,7 @@
 
 data(mtcars)
 head(mtcars)
+?mtcars
 
 ## multivariate regression model
 mtcars$cyl <- factor(mtcars$cyl)
