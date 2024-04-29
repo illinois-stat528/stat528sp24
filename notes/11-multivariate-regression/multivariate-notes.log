@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  23 APR 2024 08:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  25 APR 2024 08:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -985,16 +985,16 @@ File: multivariate-notes_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file
  (type pdf)
 <use multivariate-notes_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: multivariate-notes_files/figure-latex/unnamed-chunk-12
--1.pdf  used on input line 914.
+-1.pdf  used on input line 916.
 (pdftex.def)             Requested size: 453.6939pt x 313.16922pt.
 [13 <./multivariate-notes_files/figure-latex/unnamed-chunk-12-1.pdf>] [14] [15]
 (./multivariate-notes.bbl) [16] (./multivariate-notes.aux) ) 
 Here is how much of TeX's memory you used:
- 34853 strings out of 478268
- 795352 string characters out of 5846347
+ 34855 strings out of 478268
+ 795372 string characters out of 5846347
  1213625 words of memory out of 5000000
  52254 multiletter control sequences out of 15000+600000
- 534510 words of font info for 155 fonts, out of 8000000 for 9000
+ 534593 words of font info for 156 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,11n,80p,1015b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive
@@ -1021,7 +1021,7 @@ exlive/2022/texmf-dist/fonts/type1/public/lm/lmtko10.pfb></usr/local/texlive/20
 ist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2022/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on multivariate-notes.pdf (16 pages, 804210 bytes).
+Output written on multivariate-notes.pdf (16 pages, 804313 bytes).
 PDF statistics:
  355 PDF objects out of 1000 (max. 8388607)
  281 compressed objects within 3 object streams

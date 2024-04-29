@@ -371,7 +371,7 @@ We first provide envelope heuristics before we jump into the formal details. The
 ![](envelope_schematic.png)
 
 
-The motivation for response envelopes in multivariate linear regression comes from allowing for the possibility that there are linear combinations of the response vector whose distribution is invariant to changes in the fixed predictor vector. Such linear combinations are referred to as $X$-invariants. If $X$-invariants exist, then allowing for them in model (\ref{multimodel2}) can result in substantial reduction in estimated variance. The linear transformation $G^TY$, where $G \in \R^{r\times q}$ with $q \leq r$, is $X$-invariant if and only if $A^TG^TY$ for any fixed full-rank matrix $A \in \R^{q\times q}$. Thus, a particular $G$ is not identifiable, but span$(G)$ is identifiable. This leads us to consider subspaces rather than specific coordinates. 
+The motivation for response envelopes in multivariate linear regression comes from allowing for the possibility that there are linear combinations of the response vector whose distribution is invariant to changes in the fixed predictor vector. Such linear combinations are referred to as $X$-invariants. If $X$-invariants exist, then allowing for them in model (\ref{multimodel2}) can result in substantial reduction in estimated variance. The linear transformation $G^TY$, where $G \in \R^{r\times q}$ with $q \leq r$, is $X$-invariant if and only if $A^TG^TY$ is $X$-invariant for any fixed full-rank matrix $A \in \R^{q\times q}$. Thus, a particular $G$ is not identifiable, but span$(G)$ is identifiable. This leads us to consider subspaces rather than specific coordinates. 
 
 The envelope model arises by parameterizing the multivariate linear regression model (\ref{multimodel2}) in terms of the smallest subspace $\mathcal{E} \subseteq \R^r$ with the property that, for all relevant $x_1$ and $x_2$, 
 $$
@@ -388,7 +388,7 @@ $$
   \text{cov}(P_{\mathcal{E}}Y,Q_{\mathcal{E}}Y | X) = P_{\mathcal{E}}\Sigma Q_{\mathcal{E}} = 0.
 $$
 \end{itemize}
-Taken together, conditions $(i)$ and $(ii)$ imply that any dependence of $Y$ on $X$ must be concentrated in $P_{\mathcal{E}}Y$, the $X$-variant part of $Y$ that is material to the regression. The $X$-invariant part of $Y$, $Q_{\mathcal{E}}Y$, represents variation in the response variable that is immaterial. The next rwo definitions formalize the construction of an envelope in general: \vspace*{0.5cm}
+Taken together, conditions $(i)$ and $(ii)$ imply that any dependence of $Y$ on $X$ must be concentrated in $P_{\mathcal{E}}Y$, the $X$-variant part of $Y$ that is material to the regression. The $X$-invariant part of $Y$, $Q_{\mathcal{E}}Y$, represents variation in the response variable that is immaterial. The next two definitions formalize the construction of an envelope in general: \vspace*{0.5cm}
 
 
 \textbf{Definition 1}: A subspace $\mathcal{R} \subseteq \R^r$ is said to be a reducing subspace of a symmetric matrix $M \in \R^{r\times r}$ if $\mathcal{R}$ decomposes $M$ as $M = P_{\mathcal{R}}MP_{\mathcal{R}} + Q_{\mathcal{R}}MQ_{\mathcal{R}}$. If $\mathcal{R}$ is a reducing subspace of $M$, we say $\mathcal{R}$ reduces $M$. \vspace*{0.5cm}
@@ -424,7 +424,7 @@ Thus condition $(ii)$ is also satisfied.
 
 ## Example: wheat protein 
 
-This data contains measurements on protein content and the logarithms of near-infrared reflectance at six wavelengths across the range 1680-2310 nm measured on each of $n = 50$ samples of ground wheat. We will consider an analysis of the first two responses $(Y_1,Y_2)$ and convert the continuous measure of protein content into a categorical variable indicating low and high levels of protein. Here, the mean difference, $\mu_2 - \mu_1$ corresponds to $\beta$ in model (\ref{multimodel2}) where $X = 0$ indicates a high level of protein and $X = 1$ indicates a low level of protein. This dataset is in the \texttt{Renvlp} package..
+This data contains measurements on protein content and the logarithms of near-infrared reflectance at six wavelengths across the range 1680-2310 nm measured on each of $n = 50$ samples of ground wheat. We will consider an analysis of the first two responses $(Y_1,Y_2)$ and convert the continuous measure of protein content into a categorical variable indicating low and high levels of protein. Here, the mean difference, $\mu_2 - \mu_1$ corresponds to $\beta$ in model (\ref{multimodel2}) where $X = 0$ indicates a high level of protein and $X = 1$ indicates a low level of protein. This dataset is in the \texttt{Renvlp} package.
 
 
 First, let's plot the data with the means of both responses at each protein level plotted.
@@ -473,12 +473,14 @@ env_mod$ratio
 We depict the envelope subspace added to the previous plot that only displayed the distribution of responses. We can see how the envelope model works by thinking through this visualization. The separate marginal distributions of the response have considerable overlap. Projecting into the envelope subspace reveals a separation across the categories of $X$.
 
 ```{r}
-dat_means2 = data.frame(Y1 = c(env_mod$mu[1] + 4*env_mod$beta[1], env_mod$mu[1] - 1.5*env_mod$beta[1]), 
-                         Y2 = c(env_mod$mu[2] + 4*env_mod$beta[2], env_mod$mu[2] - 1.5*env_mod$beta[2]))
+dat_means2 = data.frame(Y1 = c(env_mod$mu[1] + 4*env_mod$beta[1],
+    env_mod$mu[1] - 1.5*env_mod$beta[1]), 
+  Y2 = c(env_mod$mu[2] + 4*env_mod$beta[2], 
+    env_mod$mu[2] - 1.5*env_mod$beta[2]))
 ggplot(dat) + aes(x = Y1, y = Y2, color = X) + 
   geom_point() + 
   theme_minimal() + 
-  geom_line(data=dat_means2,  mapping=aes(x = Y1, y = Y2), col="black") + 
+  geom_line(data=dat_means2, mapping=aes(x = Y1, y = Y2), col="black") + 
   stat_ellipse(geom = "polygon", aes(fill = X), alpha = 0.20)
 ```
 
@@ -516,7 +518,7 @@ $$
 $$
 where $r_i$ is the $i$th residual vector corresponding to the standard model (\ref{multimodel2}).
 
-Now, with $\Gamma$ fixed, $l_u^{(21)}$ is maximized over $\Omega$ at $\Omega = \Gamma^TS_{Y|X}\Gamma$ where $S_{Y|X} = \frac{1}{n}\sum_{i=1}^n r_ir_i^T = \frac{1}{n} \mathbb{Y}^TQ_{\mathbb{X}}\mathbb{Y}$. Consequently, we arrive at the third partially maximized log-likelihood,
+Now, with $\Gamma$ fixed, $l_u^{(21)}$ is maximized over $\Omega$ at $\Omega = \Gamma^TS_{Y|X}\Gamma$ where $S_{Y|X} = \frac{1}{n}\sum_{i=1}^n r_ir_i^T = \frac{1}{n} \mathbb{Y}^TQ_{\mathbb{X}}\mathbb{Y}$, and $Q_{\mathbb{X}}$ is the projection into the orthogonal complement of the space spanned by the covariates. Consequently, we arrive at the third partially maximized log-likelihood,
 $$
   l_u^{(31)}(\mathcal{E}_{\Sigma}(\mathcal{B})) = -\frac{n}{2}\log|\Gamma^TS_{Y|X}\Gamma| - \frac{nu}{2}.
 $$
@@ -538,12 +540,12 @@ The MLEs are now all functions of $\Gamma$, and we obtain these MLEs as
 \begin{align*}
   \hat{\mathcal{E}}_{\Sigma}(\mathcal{B}) &= \text{span}\{\text{argmin}_G(\log|G^TS_{Y|X}G| + \log|G^TS_Y^{-1}G|)\}, \\
   \hat{\eta} &= \widehat{\Gamma}^T\hat{\beta}_{\text{OLS}}, \\
-  \hat{\beta}_{\text{env}} &= \widehat{\Gamma}\eta = \widehat{\Gamma}\widehat{\Gamma}^T\hat{\beta}_{\text{OLS}} = P_{\hat{\mathcal{E}}_{\Sigma}(\mathcal{B})}\hat{\beta}_{\text{OLS}}, \\
+  \hat{\beta}_{\text{env}} &= \widehat{\Gamma}\hat{\eta} = \widehat{\Gamma}\widehat{\Gamma}^T\hat{\beta}_{\text{OLS}} = P_{\hat{\mathcal{E}}_{\Sigma}(\mathcal{B})}\hat{\beta}_{\text{OLS}}, \\
   \widehat{\Omega} &= \widehat{\Gamma}^T S_{Y|X} \widehat{\Gamma}, \\
   \widehat{\Omega}_0 &= \widehat{\Gamma}_0^T S_{Y} \widehat{\Gamma}_0, \\
   \widehat{\Sigma} &= \widehat{\Gamma}\widehat{\Omega}\widehat{\Gamma}^T + \widehat{\Gamma}_0\widehat{\Omega}_0\widehat{\Gamma}_0^T,
 \end{align*}
-where $\text{min}_G$ is over all semi-orthogonal matrices $G \in \R^{r \times u}$, and $\widehat{\Gamma}$ is any semi-orthogonal basis matrix for $\hat{\mathcal{E}}_{\Sigma}(\mathcal{B})$.
+where $\text{min}_G$ is over all semi-orthogonal matrices $G \in \R^{r \times u}$, and $\widehat{\Gamma}$ is any semi-orthogonal basis matrix for $\hat{\mathcal{E}}_{\Sigma}(\mathcal{B})$. Details for computing $\widehat{\Gamma}$ are beyond the scope of this course.
 
 
 ## Weighted envelope estimation
