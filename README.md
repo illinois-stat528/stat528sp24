@@ -6,6 +6,8 @@ See the Syllabus for more details. See the notes directory for course notes.
 
 # News
 
+* The final is posted. It is due May 10th at 11:59 PM.
+
 * HW7 is now posted. It is due May 1st at 11:59 PM.
 
 * Multivariate regression notes are now posted.
