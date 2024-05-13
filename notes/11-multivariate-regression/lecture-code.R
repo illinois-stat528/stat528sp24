@@ -134,3 +134,70 @@ pred.mlm(m, newdata)
 ## prediction interval
 newdata = data.frame(cyl=factor(6, levels=c(4,6,8)), am=1, carb=4)
 pred.mlm(m, newdata, interval="prediction")
+
+
+
+# envelope modeling 
+
+library(Renvlp)
+library(tidyverse)
+library(ggplot2)
+library(reshape2)
+data(wheatprotein)
+
+dat = data.frame(Y1 = wheatprotein[, 1] - mean( wheatprotein[, 1]), 
+                 Y2 = wheatprotein[, 2] - mean( wheatprotein[, 2]),
+                 X  = wheatprotein[, 8])
+dat$X = as.factor(dat$X)
+foo = unlist(lapply(split(dat, f = dat$X), function(xx) colMeans(xx[, 1:2])))
+dat_means = data.frame(Y1 = foo[c(1,3)], Y2 = foo[c(2,4)])
+
+## plot data
+ggplot(dat) + aes(x = Y1, y = Y2, color = X) + 
+  geom_point() + 
+  theme_minimal() + 
+  geom_point(data=dat_means,  mapping=aes(x = Y1, y = Y2), col="black") + 
+  stat_ellipse(geom = "polygon", aes(fill = X), alpha = 0.20)
+
+
+## which dimension?
+u.env(X = as.numeric(dat$X), Y = dat[, 1:2])
+
+## ratios at u = 1
+env_mod = env(X = as.numeric(dat$X), Y = dat[, 1:2], u = 1)
+env_mod$ratio
+
+env_mod$beta
+env(X = as.numeric(dat$X), Y = dat[, 1:2], u = 2)$beta
+
+
+## add envelope subspace
+dat_means2 = data.frame(
+  Y1 = c(env_mod$mu[1] + 4*env_mod$beta[1], 
+         env_mod$mu[1] - 1.5*env_mod$beta[1]), 
+  Y2 = c(env_mod$mu[2] + 4*env_mod$beta[2], 
+         env_mod$mu[2] - 1.5*env_mod$beta[2]))
+ggplot(dat) + aes(x = Y1, y = Y2, color = X) + 
+  geom_point() + 
+  theme_minimal() + 
+  geom_line(data = dat_means2, 
+            mapping = aes(x = Y1, y = Y2), 
+            col="black") + 
+  stat_ellipse(geom = "polygon", 
+               aes(fill = X), 
+               alpha = 0.20)
+
+
+
+## weighted envelope estimation
+set.seed(13)
+wtenv = weighted.env(X = as.numeric(dat$X), Y = dat[, 1:2], bstrpNum = 1e3)
+
+## ratios wrt to weighted envelope estimator after bootstrapping
+wtenv$ratios
+
+## ratios conditional on u = 1
+env_mod$ratio
+
+## number of times each dimension is selected
+wtenv$bic_select
